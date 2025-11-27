@@ -1,0 +1,60 @@
+.\objects\zdina219_1.o: ..\Src\ZDINA219.c
+.\objects\zdina219_1.o: ..\Inc\main.h
+.\objects\zdina219_1.o: D:\keil\Keil MDK v5.34\Installation Direction\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\zdina219_1.o: D:\keil\Keil MDK v5.34\Installation Direction\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\zdina219_1.o: D:\keil\Keil MDK v5.34\Installation Direction\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\zdina219_1.o: D:\keil\Keil MDK v5.34\Installation Direction\ARM\ARMCC\Bin\..\include\string.h
+.\objects\zdina219_1.o: ..\MF-config\Inc\mf_config.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_conf.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_adc.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_def.h
+.\objects\zdina219_1.o: ..\Drivers\CMSIS\Device\FM\FM33xx\Include\fm33lg0xx.h
+.\objects\zdina219_1.o: ..\Drivers\CMSIS\Device\FM\FM33xx\Include\core_cm0plus.h
+.\objects\zdina219_1.o: ..\Drivers\CMSIS\Device\FM\FM33xx\Include\core_cminstr.h
+.\objects\zdina219_1.o: ..\Drivers\CMSIS\Device\FM\FM33xx\Include\core_cmfunc.h
+.\objects\zdina219_1.o: ..\Drivers\CMSIS\Device\FM\FM33xx\Include\system_fm33lg0xx.h
+.\objects\zdina219_1.o: ..\Drivers\CMSIS\Device\FM\FM33xx\Include\fm33lg0xx.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33_assert.h
+.\objects\zdina219_1.o: D:\keil\Keil MDK v5.34\Installation Direction\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\zdina219_1.o: D:\keil\Keil MDK v5.34\Installation Direction\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_aes.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_atim.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_bstim16.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_bstim32.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_can.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_cdif.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_cmu.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_comp.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_crc.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_dac.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_divas.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_dma.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_exti.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_flash.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_gpio.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_gptim.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_i2c.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_iwdt.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_lcd.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_lptim16.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_lptim32.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_lpuart.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_opa.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_pgl.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_pmu.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_rmu.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_rng.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_rtca.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_rtcb.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_spi.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_svd.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_u7816.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_uart.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_vao.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_vref.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_vrefp.h
+.\objects\zdina219_1.o: ..\Drivers\FM33LG0xx_FL_Driver\Inc\fm33lg0xx_fl_wwdt.h
+.\objects\zdina219_1.o: ..\Inc\ZDINA219.h
+.\objects\zdina219_1.o: ..\Inc\GPIO.h
+.\objects\zdina219_1.o: ..\Inc\uart0.h
