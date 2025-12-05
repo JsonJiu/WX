@@ -24,6 +24,7 @@ Section Cross References
     main.o(i.main) refers to uart0.o(i.Uart0_Rx_rec) for Uart0_Rx_rec
     main.o(i.main) refers to led_ctrl.o(i.LED_FLAG_LOOP) for LED_FLAG_LOOP
     main.o(i.main) refers to test_list.o(i.test_Loop_Func) for test_Loop_Func
+    main.o(i.main) refers to test_list.o(i.Test_loop_func) for Test_loop_func
     main.o(i.test1) refers to tongxin_xieyi_ctrl.o(i.guanfa_xieyi) for guanfa_xieyi
     main.o(i.test1) refers to fm33lg0xx_fl.o(i.FL_DelayMs) for FL_DelayMs
     main.o(i.test1) refers to adc_chk.o(i.get_famen_2_dianya) for get_famen_2_dianya
@@ -459,14 +460,18 @@ Section Cross References
     pc_xieyi_ctrl.o(i.PC_xieyijiexi) refers to pc_xieyi_ctrl.o(i.PC_xieyifasong_1) for PC_xieyifasong_1
     pc_xieyi_ctrl.o(i.PC_xieyijiexi) refers to pc_xieyi_ctrl.o(i.PC_xieyifasong_2) for PC_xieyifasong_2
     pc_xieyi_ctrl.o(i.PC_xieyijiexi) refers to test_list.o(.bss) for Test_jiejuo_jilu
+    test_list.o(i.Test_loop_func) refers to adc_chk.o(i.get_famen_1_dianya) for get_famen_1_dianya
+    test_list.o(i.Test_loop_func) refers to gpio.o(i.kai_daowei) for kai_daowei
+    test_list.o(i.Test_loop_func) refers to adc_chk.o(i.get_famen_2_dianya) for get_famen_2_dianya
+    test_list.o(i.Test_loop_func) refers to gpio.o(i.guan_daowei) for guan_daowei
+    test_list.o(i.Test_loop_func) refers to test_list.o(.data) for Test_liucheng_L
+    test_list.o(i.Test_loop_func) refers to test_list.o(.bss) for Test_jiejuo_jilu
     test_list.o(i.gongwei_jiance) refers to test_list.o(i.FL_GPIO_GetInputPin) for FL_GPIO_GetInputPin
     test_list.o(i.gongwei_jiance) refers to test_list.o(.bss) for Test_jiejuo_jilu
-    test_list.o(i.jiliang_fangshi_select) refers to test_list.o(i.FL_GPIO_GetInputPin) for FL_GPIO_GetInputPin
     test_list.o(i.jiliang_fangshi_select) refers to gpio.o(i.SENSOR_P_High) for SENSOR_P_High
     test_list.o(i.jiliang_fangshi_select) refers to gpio.o(i.SENSOR_D_High) for SENSOR_D_High
     test_list.o(i.jiliang_fangshi_select) refers to gpio.o(i.SENSOR_T_Low) for SENSOR_T_Low
     test_list.o(i.jiliang_fangshi_select) refers to test_list.o(.bss) for Test_jiejuo_jilu
-    test_list.o(i.jiliang_maichong) refers to test_list.o(i.FL_GPIO_GetInputPin) for FL_GPIO_GetInputPin
     test_list.o(i.jiliang_maichong) refers to idiv.o(.text) for __aeabi_idivmod
     test_list.o(i.jiliang_maichong) refers to system_fm33lg0xx.o(i.__ARM_common_switch8) for __ARM_common_switch8
     test_list.o(i.jiliang_maichong) refers to gpio.o(i.SENSOR_P_High) for SENSOR_P_High
@@ -477,7 +482,6 @@ Section Cross References
     test_list.o(i.jiliang_maichong) refers to gpio.o(i.SENSOR_T_Low) for SENSOR_T_Low
     test_list.o(i.jiliang_maichong) refers to test_list.o(.data) for jiliang_maichongjishu
     test_list.o(i.test_Loop_Func) refers to test_list.o(i.test_err_end_Func) for test_err_end_Func
-    test_list.o(i.test_Loop_Func) refers to system_fm33lg0xx.o(i.__ARM_common_switch8) for __ARM_common_switch8
     test_list.o(i.test_Loop_Func) refers to adc_chk.o(i.get_zhukongban_gongdian_dianya) for get_zhukongban_gongdian_dianya
     test_list.o(i.test_Loop_Func) refers to zdina219.o(i.Current_CHK_Func) for Current_CHK_Func
     test_list.o(i.test_Loop_Func) refers to tongxin_xieyi_ctrl.o(i.find_biaohao_xieyi) for find_biaohao_xieyi
@@ -485,21 +489,16 @@ Section Cross References
     test_list.o(i.test_Loop_Func) refers to tongxin_xieyi_ctrl.o(i.find_banbenhao_xieyi) for find_banbenhao_xieyi
     test_list.o(i.test_Loop_Func) refers to tongxin_xieyi_ctrl.o(i.Get_Famen_Status) for Get_Famen_Status
     test_list.o(i.test_Loop_Func) refers to tongxin_xieyi_ctrl.o(i.Get_yali_Status) for Get_yali_Status
+    test_list.o(i.test_Loop_Func) refers to tongxin_xieyi_ctrl.o(i.FM_Test_xieyi) for FM_Test_xieyi
     test_list.o(i.test_Loop_Func) refers to fm33lg0xx_fl.o(i.FL_DelayMs) for FL_DelayMs
     test_list.o(i.test_Loop_Func) refers to tongxin_xieyi_ctrl.o(i.send_shanggao_xieyi) for send_shanggao_xieyi
     test_list.o(i.test_Loop_Func) refers to tongxin_xieyi_ctrl.o(i.yali_enable_xieyi) for yali_enable_xieyi
-    test_list.o(i.test_Loop_Func) refers to adc_chk.o(i.get_famen_2_dianya) for get_famen_2_dianya
-    test_list.o(i.test_Loop_Func) refers to tongxin_xieyi_ctrl.o(i.guanfa_xieyi) for guanfa_xieyi
     test_list.o(i.test_Loop_Func) refers to tongxin_xieyi_ctrl.o(i.find_youci_xieyi) for find_youci_xieyi
-    test_list.o(i.test_Loop_Func) refers to gpio.o(i.guan_daowei) for guan_daowei
     test_list.o(i.test_Loop_Func) refers to tongxin_xieyi_ctrl.o(i.send_chaxun_xieyi) for send_chaxun_xieyi
-    test_list.o(i.test_Loop_Func) refers to adc_chk.o(i.get_famen_1_dianya) for get_famen_1_dianya
+    test_list.o(i.test_Loop_Func) refers to memcpya.o(.text) for __aeabi_memcpy
     test_list.o(i.test_Loop_Func) refers to test_list.o(.bss) for Test_quanju_canshu_L
     test_list.o(i.test_Loop_Func) refers to test_list.o(.data) for Test_liucheng_L
     test_list.o(i.test_Loop_Func) refers to exti.o(.data) for EXTIFlag
-    test_list.o(i.test_Loop_Func) refers to tongxin_xieyi_ctrl.o(i.kaifa_xieyi) for kaifa_xieyi
-    test_list.o(i.test_Loop_Func) refers to gpio.o(i.kai_daowei) for kai_daowei
-    test_list.o(i.test_Loop_Func) refers to memcpya.o(.text) for __aeabi_memcpy
     test_list.o(i.test_err_end_Func) refers to test_list.o(i.test_testend) for test_testend
     test_list.o(i.test_err_end_Func) refers to test_list.o(.bss) for Test_quanju_canshu_L
     test_list.o(i.test_jieguo_qingling) refers to memseta.o(.text) for __aeabi_memclr
@@ -1211,8 +1210,9 @@ Removing Unused input sections from the image.
     Removing time.o(.revsh_text), (4 bytes).
     Removing tongxin_xieyi_ctrl.o(.rev16_text), (4 bytes).
     Removing tongxin_xieyi_ctrl.o(.revsh_text), (4 bytes).
-    Removing tongxin_xieyi_ctrl.o(i.FM_Test_xieyi), (40 bytes).
     Removing tongxin_xieyi_ctrl.o(i.guan_hongwai_xieyi), (32 bytes).
+    Removing tongxin_xieyi_ctrl.o(i.guanfa_xieyi), (40 bytes).
+    Removing tongxin_xieyi_ctrl.o(i.kaifa_xieyi), (40 bytes).
     Removing uart0.o(.rev16_text), (4 bytes).
     Removing uart0.o(.revsh_text), (4 bytes).
     Removing uart1.o(.rev16_text), (4 bytes).
@@ -1245,7 +1245,7 @@ Removing Unused input sections from the image.
     Removing cfcmple.o(.text), (20 bytes).
     Removing fepilogue.o(.text), (130 bytes).
 
-393 unused section(s) (total 36295 bytes) removed from the image.
+394 unused section(s) (total 36335 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1596,152 +1596,152 @@ Image Symbol Table
     FL_UART_WriteTXBuff                      0x00001ed1   Thumb Code    12  uart3.o(i.FL_UART_WriteTXBuff)
     i.FL_UART_WriteTXBuff                    0x00001edc   Section        0  uart4.o(i.FL_UART_WriteTXBuff)
     FL_UART_WriteTXBuff                      0x00001edd   Thumb Code    12  uart4.o(i.FL_UART_WriteTXBuff)
-    i.GPIO_IRQHandler                        0x00001ee8   Section        0  exti.o(i.GPIO_IRQHandler)
-    i.GetSingleChannelSample_POLL            0x00001f18   Section        0  adc_chk.o(i.GetSingleChannelSample_POLL)
-    GetSingleChannelSample_POLL              0x00001f19   Thumb Code   114  adc_chk.o(i.GetSingleChannelSample_POLL)
-    i.GetSingleChannelVoltage_POLL           0x00001f94   Section        0  adc_chk.o(i.GetSingleChannelVoltage_POLL)
-    i.GetVREF1P2Sample_POLL                  0x00002010   Section        0  adc_chk.o(i.GetVREF1P2Sample_POLL)
-    GetVREF1P2Sample_POLL                    0x00002011   Thumb Code   144  adc_chk.o(i.GetVREF1P2Sample_POLL)
-    i.Get_Famen_Status                       0x000020ac   Section        0  tongxin_xieyi_ctrl.o(i.Get_Famen_Status)
-    i.Get_yali_Status                        0x000020cc   Section        0  tongxin_xieyi_ctrl.o(i.Get_yali_Status)
-    i.INA219_IIC_GPIO_Init                   0x000020ec   Section        0  zdina219.o(i.INA219_IIC_GPIO_Init)
-    i.LED_FLAG_LOOP                          0x00002178   Section        0  led_ctrl.o(i.LED_FLAG_LOOP)
-    i.LED_FLAG_Run                           0x000021a4   Section        0  led_ctrl.o(i.LED_FLAG_Run)
-    i.LED_Off                                0x000021c0   Section        0  gpio.o(i.LED_Off)
-    i.LED_On                                 0x000021d0   Section        0  gpio.o(i.LED_On)
-    i.MF_ADC_Common_Init                     0x000021e0   Section        0  adc_chk.o(i.MF_ADC_Common_Init)
-    MF_ADC_Common_Init                       0x000021e1   Thumb Code    24  adc_chk.o(i.MF_ADC_Common_Init)
-    i.MF_ADC_Config_Init                     0x000021f8   Section        0  adc_chk.o(i.MF_ADC_Config_Init)
-    i.MF_ADC_Init                            0x00002204   Section        0  adc_chk.o(i.MF_ADC_Init)
-    MF_ADC_Init                              0x00002205   Thumb Code   248  adc_chk.o(i.MF_ADC_Init)
-    i.MF_ATIM_Interrupt_Init                 0x00002304   Section        0  time.o(i.MF_ATIM_Interrupt_Init)
-    i.MF_ATIM_TimerBase_Init                 0x00002324   Section        0  time.o(i.MF_ATIM_TimerBase_Init)
-    i.MF_Clock_Init                          0x00002354   Section        0  mf_config.o(i.MF_Clock_Init)
-    i.MF_Config_Init                         0x000023d4   Section        0  exti.o(i.MF_Config_Init)
-    i.MF_EXTI_Common_Init                    0x000023e4   Section        0  exti.o(i.MF_EXTI_Common_Init)
-    i.MF_EXTI_Line13_Init                    0x000023f4   Section        0  exti.o(i.MF_EXTI_Line13_Init)
-    i.MF_NVIC_Init                           0x00002430   Section        0  exti.o(i.MF_NVIC_Init)
-    i.MF_UART0_Init                          0x00002440   Section        0  uart0.o(i.MF_UART0_Init)
-    i.MF_UART0_Interrupt_Init                0x000024ac   Section        0  uart0.o(i.MF_UART0_Interrupt_Init)
-    i.MF_UART1_Init                          0x000024e0   Section        0  uart1.o(i.MF_UART1_Init)
-    i.MF_UART1_Interrupt_Init                0x00002548   Section        0  uart1.o(i.MF_UART1_Interrupt_Init)
-    i.MF_UART3_Init                          0x0000257c   Section        0  uart3.o(i.MF_UART3_Init)
-    i.MF_UART3_Interrupt_Init                0x000025e8   Section        0  uart3.o(i.MF_UART3_Interrupt_Init)
-    i.MF_UART4_Init                          0x0000261c   Section        0  uart4.o(i.MF_UART4_Init)
-    i.MF_UART4_Interrupt_Init                0x00002684   Section        0  uart4.o(i.MF_UART4_Interrupt_Init)
-    i.NB_Current_CHK_CTRL_OFF                0x000026b8   Section        0  gpio.o(i.NB_Current_CHK_CTRL_OFF)
-    i.NB_Current_CHK_CTRL_ON                 0x000026c8   Section        0  gpio.o(i.NB_Current_CHK_CTRL_ON)
-    i.NVIC_SetPriority                       0x000026d8   Section        0  fm33lg0xx_fl.o(i.NVIC_SetPriority)
-    NVIC_SetPriority                         0x000026d9   Thumb Code   110  fm33lg0xx_fl.o(i.NVIC_SetPriority)
-    i.Others_GPIO_Init                       0x00002750   Section        0  gpio.o(i.Others_GPIO_Init)
-    i.PC_Chuankou_tongxin_Debug_send         0x000029bc   Section        0  uart0.o(i.PC_Chuankou_tongxin_Debug_send)
-    i.PC_Chuankou_tongxin_send               0x000029dc   Section        0  uart0.o(i.PC_Chuankou_tongxin_send)
-    i.PC_xieyifasong_1                       0x000029ec   Section        0  pc_xieyi_ctrl.o(i.PC_xieyifasong_1)
-    i.PC_xieyifasong_2                       0x00002a10   Section        0  pc_xieyi_ctrl.o(i.PC_xieyifasong_2)
-    i.PC_xieyijiexi                          0x00002ce4   Section        0  pc_xieyi_ctrl.o(i.PC_xieyijiexi)
-    i.RS2103_POWER_OFF                       0x00002e04   Section        0  gpio.o(i.RS2103_POWER_OFF)
-    i.ReadZD_Current                         0x00002e14   Section        0  zdina219.o(i.ReadZD_Current)
-    i.SENSOR_D_High                          0x00002ec0   Section        0  gpio.o(i.SENSOR_D_High)
-    i.SENSOR_D_Low                           0x00002ed4   Section        0  gpio.o(i.SENSOR_D_Low)
-    i.SENSOR_P_High                          0x00002ee8   Section        0  gpio.o(i.SENSOR_P_High)
-    i.SENSOR_P_Low                           0x00002efc   Section        0  gpio.o(i.SENSOR_P_Low)
-    i.SENSOR_T_High                          0x00002f10   Section        0  gpio.o(i.SENSOR_T_High)
-    i.SENSOR_T_Low                           0x00002f20   Section        0  gpio.o(i.SENSOR_T_Low)
-    i.SystemCoreClockUpdate                  0x00002f30   Section        0  system_fm33lg0xx.o(i.SystemCoreClockUpdate)
-    i.SystemInit                             0x0000306c   Section        0  system_fm33lg0xx.o(i.SystemInit)
-    i.SystemPLLClockUpdate                   0x00003168   Section        0  system_fm33lg0xx.o(i.SystemPLLClockUpdate)
-    SystemPLLClockUpdate                     0x00003169   Thumb Code   182  system_fm33lg0xx.o(i.SystemPLLClockUpdate)
-    i.TONGXIN_xieyifasong                    0x00003238   Section        0  tongxin_xieyi_ctrl.o(i.TONGXIN_xieyifasong)
-    i.TONGXIN_xieyijiexi                     0x00003324   Section        0  tongxin_xieyi_ctrl.o(i.TONGXIN_xieyijiexi)
-    i.UART0_IRQHandler                       0x00003798   Section        0  uart0.o(i.UART0_IRQHandler)
-    i.UART0_MF_Config_Init                   0x00003890   Section        0  uart0.o(i.UART0_MF_Config_Init)
-    i.UART0_MF_NVIC_Init                     0x000038a4   Section        0  uart0.o(i.UART0_MF_NVIC_Init)
-    i.UART1_IRQHandler                       0x000038b4   Section        0  uart1.o(i.UART1_IRQHandler)
-    i.UART1_MF_Config_Init                   0x000039ac   Section        0  uart1.o(i.UART1_MF_Config_Init)
-    i.UART1_MF_NVIC_Init                     0x000039c0   Section        0  uart1.o(i.UART1_MF_NVIC_Init)
-    i.UART3_IRQHandler                       0x000039d0   Section        0  uart3.o(i.UART3_IRQHandler)
-    i.UART3_MF_Config_Init                   0x00003ac0   Section        0  uart3.o(i.UART3_MF_Config_Init)
-    i.UART3_MF_NVIC_Init                     0x00003ad4   Section        0  uart3.o(i.UART3_MF_NVIC_Init)
-    i.UART4_IRQHandler                       0x00003ae4   Section        0  uart4.o(i.UART4_IRQHandler)
-    i.UART4_MF_Config_Init                   0x00003be0   Section        0  uart4.o(i.UART4_MF_Config_Init)
-    i.UART4_MF_NVIC_Init                     0x00003bf4   Section        0  uart4.o(i.UART4_MF_NVIC_Init)
-    i.UART_TX_state_change                   0x00003c04   Section        0  uart0.o(i.UART_TX_state_change)
-    i.Uart0_Rx_rec                           0x00003c3c   Section        0  uart0.o(i.Uart0_Rx_rec)
-    i.Uart0_Tx_Send                          0x00003cb4   Section        0  uart0.o(i.Uart0_Tx_Send)
-    i.Uart0_Tx_Send_init                     0x00003d2c   Section        0  uart0.o(i.Uart0_Tx_Send_init)
-    i.Uart1_Rx_rec                           0x00003d3c   Section        0  uart1.o(i.Uart1_Rx_rec)
-    i.Uart1_Tx_Send                          0x00003d8c   Section        0  uart1.o(i.Uart1_Tx_Send)
-    i.Uart1_Tx_Send_init                     0x00003dfc   Section        0  uart1.o(i.Uart1_Tx_Send_init)
-    i.Uart1_Tx_Send_ok                       0x00003e0c   Section        0  uart1.o(i.Uart1_Tx_Send_ok)
-    i.Uart3_Tx_Send_init                     0x00003e58   Section        0  uart3.o(i.Uart3_Tx_Send_init)
-    i.Uart4_Tx_Send_init                     0x00003e68   Section        0  uart4.o(i.Uart4_Tx_Send_init)
-    i.ZDINA219_IIC_Delay                     0x00003e78   Section        0  zdina219.o(i.ZDINA219_IIC_Delay)
-    i.ZDINA219_IIC_RevByte                   0x00003e88   Section        0  zdina219.o(i.ZDINA219_IIC_RevByte)
-    i.ZDINA219_IIC_RevBytes                  0x00003ece   Section        0  zdina219.o(i.ZDINA219_IIC_RevBytes)
-    i.ZDINA219_IIC_SendByte                  0x00003f30   Section        0  zdina219.o(i.ZDINA219_IIC_SendByte)
-    i.ZDINA219_IIC_SendBytes                 0x00003faa   Section        0  zdina219.o(i.ZDINA219_IIC_SendBytes)
-    i.ZDINA219_IIC_Start                     0x00003fc6   Section        0  zdina219.o(i.ZDINA219_IIC_Start)
-    i.ZDINA219_IIC_Stop                      0x00003fec   Section        0  zdina219.o(i.ZDINA219_IIC_Stop)
-    i.ZDINA219_SCL                           0x0000401c   Section        0  zdina219.o(i.ZDINA219_SCL)
-    i.ZDINA219_SDA                           0x00004080   Section        0  zdina219.o(i.ZDINA219_SDA)
-    i.ZDINA219_SDA_InPut                     0x000040e4   Section        0  zdina219.o(i.ZDINA219_SDA_InPut)
-    i.ZDINA219_SDA_OUT_Dir_CTL               0x00004118   Section        0  zdina219.o(i.ZDINA219_SDA_OUT_Dir_CTL)
-    i.__0vsnprintf                           0x00004174   Section        0  printfa.o(i.__0vsnprintf)
-    i.__ARM_clz                              0x000041a0   Section        0  depilogue.o(i.__ARM_clz)
-    i.__ARM_common_ll_muluu                  0x000041ce   Section        0  adc_chk.o(i.__ARM_common_ll_muluu)
-    i.__ARM_common_switch8                   0x000041fe   Section        0  system_fm33lg0xx.o(i.__ARM_common_switch8)
-    i.__scatterload_copy                     0x0000421a   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x00004228   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x0000422a   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i._fp_digits                             0x00004238   Section        0  printfa.o(i._fp_digits)
-    _fp_digits                               0x00004239   Thumb Code   344  printfa.o(i._fp_digits)
-    i._printf_core                           0x000043ac   Section        0  printfa.o(i._printf_core)
-    _printf_core                             0x000043ad   Thumb Code  1754  printfa.o(i._printf_core)
-    i._printf_post_padding                   0x00004a98   Section        0  printfa.o(i._printf_post_padding)
-    _printf_post_padding                     0x00004a99   Thumb Code    32  printfa.o(i._printf_post_padding)
-    i._printf_pre_padding                    0x00004ab8   Section        0  printfa.o(i._printf_pre_padding)
-    _printf_pre_padding                      0x00004ab9   Thumb Code    44  printfa.o(i._printf_pre_padding)
-    i._snputc                                0x00004ae4   Section        0  printfa.o(i._snputc)
-    _snputc                                  0x00004ae5   Thumb Code    22  printfa.o(i._snputc)
-    i.beidian_gongdian_OFF                   0x00004afc   Section        0  gpio.o(i.beidian_gongdian_OFF)
-    i.beidian_gongdian_On                    0x00004b0c   Section        0  gpio.o(i.beidian_gongdian_On)
-    i.daowei_CLOSE_High                      0x00004b1c   Section        0  gpio.o(i.daowei_CLOSE_High)
-    i.daowei_CLOSE_Low                       0x00004b30   Section        0  gpio.o(i.daowei_CLOSE_Low)
-    i.daowei_OPEN_High                       0x00004b44   Section        0  gpio.o(i.daowei_OPEN_High)
-    i.daowei_OPEN_Low                        0x00004b58   Section        0  gpio.o(i.daowei_OPEN_Low)
-    i.erji_dianya_CHK_CTRL_OFF               0x00004b6c   Section        0  gpio.o(i.erji_dianya_CHK_CTRL_OFF)
-    i.find_banbenhao_xieyi                   0x00004b7c   Section        0  tongxin_xieyi_ctrl.o(i.find_banbenhao_xieyi)
-    i.find_biaohao_xieyi                     0x00004b9c   Section        0  tongxin_xieyi_ctrl.o(i.find_biaohao_xieyi)
-    i.find_youci_xieyi                       0x00004bbc   Section        0  tongxin_xieyi_ctrl.o(i.find_youci_xieyi)
-    i.get_famen_1_dianya                     0x00004bdc   Section        0  adc_chk.o(i.get_famen_1_dianya)
-    i.get_famen_2_dianya                     0x00004bf2   Section        0  adc_chk.o(i.get_famen_2_dianya)
-    i.get_zhukongban_gongdian_dianya         0x00004c08   Section        0  adc_chk.o(i.get_zhukongban_gongdian_dianya)
-    i.gongwei_jiance                         0x00004c20   Section        0  test_list.o(i.gongwei_jiance)
-    i.guan_daowei                            0x00004d24   Section        0  gpio.o(i.guan_daowei)
-    i.guanfa_xieyi                           0x00004d30   Section        0  tongxin_xieyi_ctrl.o(i.guanfa_xieyi)
-    i.huuoer_1_OFF                           0x00004d58   Section        0  gpio.o(i.huuoer_1_OFF)
-    i.huuoer_2_OFF                           0x00004d68   Section        0  gpio.o(i.huuoer_2_OFF)
-    i.jiliang_fangshi_select                 0x00004d78   Section        0  test_list.o(i.jiliang_fangshi_select)
-    i.jiliang_maichong                       0x00004db8   Section        0  test_list.o(i.jiliang_maichong)
-    i.kai_daowei                             0x00004e70   Section        0  gpio.o(i.kai_daowei)
-    i.kaifa_xieyi                            0x00004e7c   Section        0  tongxin_xieyi_ctrl.o(i.kaifa_xieyi)
-    i.main                                   0x00004ea4   Section        0  main.o(i.main)
-    i.send_chaxun_xieyi                      0x00004ecc   Section        0  tongxin_xieyi_ctrl.o(i.send_chaxun_xieyi)
-    i.send_shanggao_xieyi                    0x00004eec   Section        0  tongxin_xieyi_ctrl.o(i.send_shanggao_xieyi)
-    i.test_Init                              0x00004f0c   Section        0  main.o(i.test_Init)
-    i.test_Loop_Func                         0x00004f34   Section        0  test_list.o(i.test_Loop_Func)
-    i.test_err_end_Func                      0x000054cc   Section        0  test_list.o(i.test_err_end_Func)
-    i.test_jieguo_qingling                   0x000054f0   Section        0  test_list.o(i.test_jieguo_qingling)
-    i.test_start                             0x000055cc   Section        0  test_list.o(i.test_start)
-    i.test_start_Init                        0x0000560c   Section        0  test_list.o(i.test_start_Init)
-    i.test_testend                           0x0000562c   Section        0  test_list.o(i.test_testend)
-    i.yali_enable_xieyi                      0x00005648   Section        0  tongxin_xieyi_ctrl.o(i.yali_enable_xieyi)
-    i.zhudian_dianya_CHK_CTRL_OFF            0x00005668   Section        0  gpio.o(i.zhudian_dianya_CHK_CTRL_OFF)
-    i.zhudian_gongdian_OFF                   0x00005678   Section        0  gpio.o(i.zhudian_gongdian_OFF)
-    i.zhudian_gongdian_On                    0x00005688   Section        0  gpio.o(i.zhudian_gongdian_On)
-    .constdata                               0x00005698   Section       84  fm33lg0xx_fl_exti.o(.constdata)
-    setExtiLineFuncs                         0x00005698   Data          76  fm33lg0xx_fl_exti.o(.constdata)
-    setTrigEdgeFuncs                         0x000056e4   Data           8  fm33lg0xx_fl_exti.o(.constdata)
+    i.FM_Test_xieyi                          0x00001ee8   Section        0  tongxin_xieyi_ctrl.o(i.FM_Test_xieyi)
+    i.GPIO_IRQHandler                        0x00001f10   Section        0  exti.o(i.GPIO_IRQHandler)
+    i.GetSingleChannelSample_POLL            0x00001f40   Section        0  adc_chk.o(i.GetSingleChannelSample_POLL)
+    GetSingleChannelSample_POLL              0x00001f41   Thumb Code   114  adc_chk.o(i.GetSingleChannelSample_POLL)
+    i.GetSingleChannelVoltage_POLL           0x00001fbc   Section        0  adc_chk.o(i.GetSingleChannelVoltage_POLL)
+    i.GetVREF1P2Sample_POLL                  0x00002038   Section        0  adc_chk.o(i.GetVREF1P2Sample_POLL)
+    GetVREF1P2Sample_POLL                    0x00002039   Thumb Code   144  adc_chk.o(i.GetVREF1P2Sample_POLL)
+    i.Get_Famen_Status                       0x000020d4   Section        0  tongxin_xieyi_ctrl.o(i.Get_Famen_Status)
+    i.Get_yali_Status                        0x000020f4   Section        0  tongxin_xieyi_ctrl.o(i.Get_yali_Status)
+    i.INA219_IIC_GPIO_Init                   0x00002114   Section        0  zdina219.o(i.INA219_IIC_GPIO_Init)
+    i.LED_FLAG_LOOP                          0x000021a0   Section        0  led_ctrl.o(i.LED_FLAG_LOOP)
+    i.LED_FLAG_Run                           0x000021cc   Section        0  led_ctrl.o(i.LED_FLAG_Run)
+    i.LED_Off                                0x000021e8   Section        0  gpio.o(i.LED_Off)
+    i.LED_On                                 0x000021f8   Section        0  gpio.o(i.LED_On)
+    i.MF_ADC_Common_Init                     0x00002208   Section        0  adc_chk.o(i.MF_ADC_Common_Init)
+    MF_ADC_Common_Init                       0x00002209   Thumb Code    24  adc_chk.o(i.MF_ADC_Common_Init)
+    i.MF_ADC_Config_Init                     0x00002220   Section        0  adc_chk.o(i.MF_ADC_Config_Init)
+    i.MF_ADC_Init                            0x0000222c   Section        0  adc_chk.o(i.MF_ADC_Init)
+    MF_ADC_Init                              0x0000222d   Thumb Code   248  adc_chk.o(i.MF_ADC_Init)
+    i.MF_ATIM_Interrupt_Init                 0x0000232c   Section        0  time.o(i.MF_ATIM_Interrupt_Init)
+    i.MF_ATIM_TimerBase_Init                 0x0000234c   Section        0  time.o(i.MF_ATIM_TimerBase_Init)
+    i.MF_Clock_Init                          0x0000237c   Section        0  mf_config.o(i.MF_Clock_Init)
+    i.MF_Config_Init                         0x000023fc   Section        0  exti.o(i.MF_Config_Init)
+    i.MF_EXTI_Common_Init                    0x0000240c   Section        0  exti.o(i.MF_EXTI_Common_Init)
+    i.MF_EXTI_Line13_Init                    0x0000241c   Section        0  exti.o(i.MF_EXTI_Line13_Init)
+    i.MF_NVIC_Init                           0x00002458   Section        0  exti.o(i.MF_NVIC_Init)
+    i.MF_UART0_Init                          0x00002468   Section        0  uart0.o(i.MF_UART0_Init)
+    i.MF_UART0_Interrupt_Init                0x000024d4   Section        0  uart0.o(i.MF_UART0_Interrupt_Init)
+    i.MF_UART1_Init                          0x00002508   Section        0  uart1.o(i.MF_UART1_Init)
+    i.MF_UART1_Interrupt_Init                0x00002570   Section        0  uart1.o(i.MF_UART1_Interrupt_Init)
+    i.MF_UART3_Init                          0x000025a4   Section        0  uart3.o(i.MF_UART3_Init)
+    i.MF_UART3_Interrupt_Init                0x00002610   Section        0  uart3.o(i.MF_UART3_Interrupt_Init)
+    i.MF_UART4_Init                          0x00002644   Section        0  uart4.o(i.MF_UART4_Init)
+    i.MF_UART4_Interrupt_Init                0x000026ac   Section        0  uart4.o(i.MF_UART4_Interrupt_Init)
+    i.NB_Current_CHK_CTRL_OFF                0x000026e0   Section        0  gpio.o(i.NB_Current_CHK_CTRL_OFF)
+    i.NB_Current_CHK_CTRL_ON                 0x000026f0   Section        0  gpio.o(i.NB_Current_CHK_CTRL_ON)
+    i.NVIC_SetPriority                       0x00002700   Section        0  fm33lg0xx_fl.o(i.NVIC_SetPriority)
+    NVIC_SetPriority                         0x00002701   Thumb Code   110  fm33lg0xx_fl.o(i.NVIC_SetPriority)
+    i.Others_GPIO_Init                       0x00002778   Section        0  gpio.o(i.Others_GPIO_Init)
+    i.PC_Chuankou_tongxin_Debug_send         0x000029e4   Section        0  uart0.o(i.PC_Chuankou_tongxin_Debug_send)
+    i.PC_Chuankou_tongxin_send               0x00002a04   Section        0  uart0.o(i.PC_Chuankou_tongxin_send)
+    i.PC_xieyifasong_1                       0x00002a14   Section        0  pc_xieyi_ctrl.o(i.PC_xieyifasong_1)
+    i.PC_xieyifasong_2                       0x00002a38   Section        0  pc_xieyi_ctrl.o(i.PC_xieyifasong_2)
+    i.PC_xieyijiexi                          0x00002d2c   Section        0  pc_xieyi_ctrl.o(i.PC_xieyijiexi)
+    i.RS2103_POWER_OFF                       0x00002e4c   Section        0  gpio.o(i.RS2103_POWER_OFF)
+    i.ReadZD_Current                         0x00002e5c   Section        0  zdina219.o(i.ReadZD_Current)
+    i.SENSOR_D_High                          0x00002f08   Section        0  gpio.o(i.SENSOR_D_High)
+    i.SENSOR_D_Low                           0x00002f1c   Section        0  gpio.o(i.SENSOR_D_Low)
+    i.SENSOR_P_High                          0x00002f30   Section        0  gpio.o(i.SENSOR_P_High)
+    i.SENSOR_P_Low                           0x00002f44   Section        0  gpio.o(i.SENSOR_P_Low)
+    i.SENSOR_T_High                          0x00002f58   Section        0  gpio.o(i.SENSOR_T_High)
+    i.SENSOR_T_Low                           0x00002f68   Section        0  gpio.o(i.SENSOR_T_Low)
+    i.SystemCoreClockUpdate                  0x00002f78   Section        0  system_fm33lg0xx.o(i.SystemCoreClockUpdate)
+    i.SystemInit                             0x000030b4   Section        0  system_fm33lg0xx.o(i.SystemInit)
+    i.SystemPLLClockUpdate                   0x000031b0   Section        0  system_fm33lg0xx.o(i.SystemPLLClockUpdate)
+    SystemPLLClockUpdate                     0x000031b1   Thumb Code   182  system_fm33lg0xx.o(i.SystemPLLClockUpdate)
+    i.TONGXIN_xieyifasong                    0x00003280   Section        0  tongxin_xieyi_ctrl.o(i.TONGXIN_xieyifasong)
+    i.TONGXIN_xieyijiexi                     0x0000336c   Section        0  tongxin_xieyi_ctrl.o(i.TONGXIN_xieyijiexi)
+    i.Test_loop_func                         0x000037e0   Section        0  test_list.o(i.Test_loop_func)
+    i.UART0_IRQHandler                       0x00003890   Section        0  uart0.o(i.UART0_IRQHandler)
+    i.UART0_MF_Config_Init                   0x00003988   Section        0  uart0.o(i.UART0_MF_Config_Init)
+    i.UART0_MF_NVIC_Init                     0x0000399c   Section        0  uart0.o(i.UART0_MF_NVIC_Init)
+    i.UART1_IRQHandler                       0x000039ac   Section        0  uart1.o(i.UART1_IRQHandler)
+    i.UART1_MF_Config_Init                   0x00003aa4   Section        0  uart1.o(i.UART1_MF_Config_Init)
+    i.UART1_MF_NVIC_Init                     0x00003ab8   Section        0  uart1.o(i.UART1_MF_NVIC_Init)
+    i.UART3_IRQHandler                       0x00003ac8   Section        0  uart3.o(i.UART3_IRQHandler)
+    i.UART3_MF_Config_Init                   0x00003bb8   Section        0  uart3.o(i.UART3_MF_Config_Init)
+    i.UART3_MF_NVIC_Init                     0x00003bcc   Section        0  uart3.o(i.UART3_MF_NVIC_Init)
+    i.UART4_IRQHandler                       0x00003bdc   Section        0  uart4.o(i.UART4_IRQHandler)
+    i.UART4_MF_Config_Init                   0x00003cd8   Section        0  uart4.o(i.UART4_MF_Config_Init)
+    i.UART4_MF_NVIC_Init                     0x00003cec   Section        0  uart4.o(i.UART4_MF_NVIC_Init)
+    i.UART_TX_state_change                   0x00003cfc   Section        0  uart0.o(i.UART_TX_state_change)
+    i.Uart0_Rx_rec                           0x00003d34   Section        0  uart0.o(i.Uart0_Rx_rec)
+    i.Uart0_Tx_Send                          0x00003dac   Section        0  uart0.o(i.Uart0_Tx_Send)
+    i.Uart0_Tx_Send_init                     0x00003e24   Section        0  uart0.o(i.Uart0_Tx_Send_init)
+    i.Uart1_Rx_rec                           0x00003e34   Section        0  uart1.o(i.Uart1_Rx_rec)
+    i.Uart1_Tx_Send                          0x00003e84   Section        0  uart1.o(i.Uart1_Tx_Send)
+    i.Uart1_Tx_Send_init                     0x00003ef4   Section        0  uart1.o(i.Uart1_Tx_Send_init)
+    i.Uart1_Tx_Send_ok                       0x00003f04   Section        0  uart1.o(i.Uart1_Tx_Send_ok)
+    i.Uart3_Tx_Send_init                     0x00003f50   Section        0  uart3.o(i.Uart3_Tx_Send_init)
+    i.Uart4_Tx_Send_init                     0x00003f60   Section        0  uart4.o(i.Uart4_Tx_Send_init)
+    i.ZDINA219_IIC_Delay                     0x00003f70   Section        0  zdina219.o(i.ZDINA219_IIC_Delay)
+    i.ZDINA219_IIC_RevByte                   0x00003f80   Section        0  zdina219.o(i.ZDINA219_IIC_RevByte)
+    i.ZDINA219_IIC_RevBytes                  0x00003fc6   Section        0  zdina219.o(i.ZDINA219_IIC_RevBytes)
+    i.ZDINA219_IIC_SendByte                  0x00004028   Section        0  zdina219.o(i.ZDINA219_IIC_SendByte)
+    i.ZDINA219_IIC_SendBytes                 0x000040a2   Section        0  zdina219.o(i.ZDINA219_IIC_SendBytes)
+    i.ZDINA219_IIC_Start                     0x000040be   Section        0  zdina219.o(i.ZDINA219_IIC_Start)
+    i.ZDINA219_IIC_Stop                      0x000040e4   Section        0  zdina219.o(i.ZDINA219_IIC_Stop)
+    i.ZDINA219_SCL                           0x00004114   Section        0  zdina219.o(i.ZDINA219_SCL)
+    i.ZDINA219_SDA                           0x00004178   Section        0  zdina219.o(i.ZDINA219_SDA)
+    i.ZDINA219_SDA_InPut                     0x000041dc   Section        0  zdina219.o(i.ZDINA219_SDA_InPut)
+    i.ZDINA219_SDA_OUT_Dir_CTL               0x00004210   Section        0  zdina219.o(i.ZDINA219_SDA_OUT_Dir_CTL)
+    i.__0vsnprintf                           0x0000426c   Section        0  printfa.o(i.__0vsnprintf)
+    i.__ARM_clz                              0x00004298   Section        0  depilogue.o(i.__ARM_clz)
+    i.__ARM_common_ll_muluu                  0x000042c6   Section        0  adc_chk.o(i.__ARM_common_ll_muluu)
+    i.__ARM_common_switch8                   0x000042f6   Section        0  system_fm33lg0xx.o(i.__ARM_common_switch8)
+    i.__scatterload_copy                     0x00004312   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x00004320   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x00004322   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i._fp_digits                             0x00004330   Section        0  printfa.o(i._fp_digits)
+    _fp_digits                               0x00004331   Thumb Code   344  printfa.o(i._fp_digits)
+    i._printf_core                           0x000044a4   Section        0  printfa.o(i._printf_core)
+    _printf_core                             0x000044a5   Thumb Code  1754  printfa.o(i._printf_core)
+    i._printf_post_padding                   0x00004b90   Section        0  printfa.o(i._printf_post_padding)
+    _printf_post_padding                     0x00004b91   Thumb Code    32  printfa.o(i._printf_post_padding)
+    i._printf_pre_padding                    0x00004bb0   Section        0  printfa.o(i._printf_pre_padding)
+    _printf_pre_padding                      0x00004bb1   Thumb Code    44  printfa.o(i._printf_pre_padding)
+    i._snputc                                0x00004bdc   Section        0  printfa.o(i._snputc)
+    _snputc                                  0x00004bdd   Thumb Code    22  printfa.o(i._snputc)
+    i.beidian_gongdian_OFF                   0x00004bf4   Section        0  gpio.o(i.beidian_gongdian_OFF)
+    i.beidian_gongdian_On                    0x00004c04   Section        0  gpio.o(i.beidian_gongdian_On)
+    i.daowei_CLOSE_High                      0x00004c14   Section        0  gpio.o(i.daowei_CLOSE_High)
+    i.daowei_CLOSE_Low                       0x00004c28   Section        0  gpio.o(i.daowei_CLOSE_Low)
+    i.daowei_OPEN_High                       0x00004c3c   Section        0  gpio.o(i.daowei_OPEN_High)
+    i.daowei_OPEN_Low                        0x00004c50   Section        0  gpio.o(i.daowei_OPEN_Low)
+    i.erji_dianya_CHK_CTRL_OFF               0x00004c64   Section        0  gpio.o(i.erji_dianya_CHK_CTRL_OFF)
+    i.find_banbenhao_xieyi                   0x00004c74   Section        0  tongxin_xieyi_ctrl.o(i.find_banbenhao_xieyi)
+    i.find_biaohao_xieyi                     0x00004c94   Section        0  tongxin_xieyi_ctrl.o(i.find_biaohao_xieyi)
+    i.find_youci_xieyi                       0x00004cb4   Section        0  tongxin_xieyi_ctrl.o(i.find_youci_xieyi)
+    i.get_famen_1_dianya                     0x00004cd4   Section        0  adc_chk.o(i.get_famen_1_dianya)
+    i.get_famen_2_dianya                     0x00004cea   Section        0  adc_chk.o(i.get_famen_2_dianya)
+    i.get_zhukongban_gongdian_dianya         0x00004d00   Section        0  adc_chk.o(i.get_zhukongban_gongdian_dianya)
+    i.gongwei_jiance                         0x00004d18   Section        0  test_list.o(i.gongwei_jiance)
+    i.guan_daowei                            0x00004fa8   Section        0  gpio.o(i.guan_daowei)
+    i.huuoer_1_OFF                           0x00004fb4   Section        0  gpio.o(i.huuoer_1_OFF)
+    i.huuoer_2_OFF                           0x00004fc4   Section        0  gpio.o(i.huuoer_2_OFF)
+    i.jiliang_fangshi_select                 0x00004fd4   Section        0  test_list.o(i.jiliang_fangshi_select)
+    i.jiliang_maichong                       0x00004ff0   Section        0  test_list.o(i.jiliang_maichong)
+    i.kai_daowei                             0x00005098   Section        0  gpio.o(i.kai_daowei)
+    i.main                                   0x000050a4   Section        0  main.o(i.main)
+    i.send_chaxun_xieyi                      0x000050d0   Section        0  tongxin_xieyi_ctrl.o(i.send_chaxun_xieyi)
+    i.send_shanggao_xieyi                    0x000050f0   Section        0  tongxin_xieyi_ctrl.o(i.send_shanggao_xieyi)
+    i.test_Init                              0x00005110   Section        0  main.o(i.test_Init)
+    i.test_Loop_Func                         0x00005138   Section        0  test_list.o(i.test_Loop_Func)
+    i.test_err_end_Func                      0x000055c4   Section        0  test_list.o(i.test_err_end_Func)
+    i.test_jieguo_qingling                   0x000055e8   Section        0  test_list.o(i.test_jieguo_qingling)
+    i.test_start                             0x000056c4   Section        0  test_list.o(i.test_start)
+    i.test_start_Init                        0x00005704   Section        0  test_list.o(i.test_start_Init)
+    i.test_testend                           0x00005724   Section        0  test_list.o(i.test_testend)
+    i.yali_enable_xieyi                      0x00005740   Section        0  tongxin_xieyi_ctrl.o(i.yali_enable_xieyi)
+    i.zhudian_dianya_CHK_CTRL_OFF            0x00005760   Section        0  gpio.o(i.zhudian_dianya_CHK_CTRL_OFF)
+    i.zhudian_gongdian_OFF                   0x00005770   Section        0  gpio.o(i.zhudian_gongdian_OFF)
+    i.zhudian_gongdian_On                    0x00005780   Section        0  gpio.o(i.zhudian_gongdian_On)
+    .constdata                               0x00005790   Section       84  fm33lg0xx_fl_exti.o(.constdata)
+    setExtiLineFuncs                         0x00005790   Data          76  fm33lg0xx_fl_exti.o(.constdata)
+    setTrigEdgeFuncs                         0x000057dc   Data           8  fm33lg0xx_fl_exti.o(.constdata)
     .data                                    0x20000000   Section        6  main.o(.data)
     .data                                    0x20000008   Section       12  system_fm33lg0xx.o(.data)
     .data                                    0x20000014   Section        2  led_ctrl.o(.data)
@@ -1884,133 +1884,133 @@ Image Symbol Table
     FL_Init                                  0x00001b5d   Thumb Code     8  fm33lg0xx_fl.o(i.FL_Init)
     FL_NVIC_Init                             0x00001b65   Thumb Code    68  fm33lg0xx_fl.o(i.FL_NVIC_Init)
     FL_UART_Init                             0x00001bd5   Thumb Code   712  fm33lg0xx_fl_uart.o(i.FL_UART_Init)
-    GPIO_IRQHandler                          0x00001ee9   Thumb Code    40  exti.o(i.GPIO_IRQHandler)
-    GetSingleChannelVoltage_POLL             0x00001f95   Thumb Code   110  adc_chk.o(i.GetSingleChannelVoltage_POLL)
-    Get_Famen_Status                         0x000020ad   Thumb Code    20  tongxin_xieyi_ctrl.o(i.Get_Famen_Status)
-    Get_yali_Status                          0x000020cd   Thumb Code    20  tongxin_xieyi_ctrl.o(i.Get_yali_Status)
-    INA219_IIC_GPIO_Init                     0x000020ed   Thumb Code   134  zdina219.o(i.INA219_IIC_GPIO_Init)
-    LED_FLAG_LOOP                            0x00002179   Thumb Code    36  led_ctrl.o(i.LED_FLAG_LOOP)
-    LED_FLAG_Run                             0x000021a5   Thumb Code    20  led_ctrl.o(i.LED_FLAG_Run)
-    LED_Off                                  0x000021c1   Thumb Code    12  gpio.o(i.LED_Off)
-    LED_On                                   0x000021d1   Thumb Code    12  gpio.o(i.LED_On)
-    MF_ADC_Config_Init                       0x000021f9   Thumb Code    12  adc_chk.o(i.MF_ADC_Config_Init)
-    MF_ATIM_Interrupt_Init                   0x00002305   Thumb Code    28  time.o(i.MF_ATIM_Interrupt_Init)
-    MF_ATIM_TimerBase_Init                   0x00002325   Thumb Code    40  time.o(i.MF_ATIM_TimerBase_Init)
-    MF_Clock_Init                            0x00002355   Thumb Code   120  mf_config.o(i.MF_Clock_Init)
-    MF_Config_Init                           0x000023d5   Thumb Code    16  exti.o(i.MF_Config_Init)
-    MF_EXTI_Common_Init                      0x000023e5   Thumb Code    14  exti.o(i.MF_EXTI_Common_Init)
-    MF_EXTI_Line13_Init                      0x000023f5   Thumb Code    54  exti.o(i.MF_EXTI_Line13_Init)
-    MF_NVIC_Init                             0x00002431   Thumb Code    16  exti.o(i.MF_NVIC_Init)
-    MF_UART0_Init                            0x00002441   Thumb Code   100  uart0.o(i.MF_UART0_Init)
-    MF_UART0_Interrupt_Init                  0x000024ad   Thumb Code    46  uart0.o(i.MF_UART0_Interrupt_Init)
-    MF_UART1_Init                            0x000024e1   Thumb Code    96  uart1.o(i.MF_UART1_Init)
-    MF_UART1_Interrupt_Init                  0x00002549   Thumb Code    46  uart1.o(i.MF_UART1_Interrupt_Init)
-    MF_UART3_Init                            0x0000257d   Thumb Code    98  uart3.o(i.MF_UART3_Init)
-    MF_UART3_Interrupt_Init                  0x000025e9   Thumb Code    46  uart3.o(i.MF_UART3_Interrupt_Init)
-    MF_UART4_Init                            0x0000261d   Thumb Code    94  uart4.o(i.MF_UART4_Init)
-    MF_UART4_Interrupt_Init                  0x00002685   Thumb Code    46  uart4.o(i.MF_UART4_Interrupt_Init)
-    NB_Current_CHK_CTRL_OFF                  0x000026b9   Thumb Code    12  gpio.o(i.NB_Current_CHK_CTRL_OFF)
-    NB_Current_CHK_CTRL_ON                   0x000026c9   Thumb Code    12  gpio.o(i.NB_Current_CHK_CTRL_ON)
-    Others_GPIO_Init                         0x00002751   Thumb Code   612  gpio.o(i.Others_GPIO_Init)
-    PC_Chuankou_tongxin_Debug_send           0x000029bd   Thumb Code    28  uart0.o(i.PC_Chuankou_tongxin_Debug_send)
-    PC_Chuankou_tongxin_send                 0x000029dd   Thumb Code    16  uart0.o(i.PC_Chuankou_tongxin_send)
-    PC_xieyifasong_1                         0x000029ed   Thumb Code    28  pc_xieyi_ctrl.o(i.PC_xieyifasong_1)
-    PC_xieyifasong_2                         0x00002a11   Thumb Code   714  pc_xieyi_ctrl.o(i.PC_xieyifasong_2)
-    PC_xieyijiexi                            0x00002ce5   Thumb Code   278  pc_xieyi_ctrl.o(i.PC_xieyijiexi)
-    RS2103_POWER_OFF                         0x00002e05   Thumb Code    12  gpio.o(i.RS2103_POWER_OFF)
-    ReadZD_Current                           0x00002e15   Thumb Code   160  zdina219.o(i.ReadZD_Current)
-    SENSOR_D_High                            0x00002ec1   Thumb Code    14  gpio.o(i.SENSOR_D_High)
-    SENSOR_D_Low                             0x00002ed5   Thumb Code    14  gpio.o(i.SENSOR_D_Low)
-    SENSOR_P_High                            0x00002ee9   Thumb Code    14  gpio.o(i.SENSOR_P_High)
-    SENSOR_P_Low                             0x00002efd   Thumb Code    14  gpio.o(i.SENSOR_P_Low)
-    SENSOR_T_High                            0x00002f11   Thumb Code    12  gpio.o(i.SENSOR_T_High)
-    SENSOR_T_Low                             0x00002f21   Thumb Code    12  gpio.o(i.SENSOR_T_Low)
-    SystemCoreClockUpdate                    0x00002f31   Thumb Code   282  system_fm33lg0xx.o(i.SystemCoreClockUpdate)
-    SystemInit                               0x0000306d   Thumb Code   230  system_fm33lg0xx.o(i.SystemInit)
-    TONGXIN_xieyifasong                      0x00003239   Thumb Code   232  tongxin_xieyi_ctrl.o(i.TONGXIN_xieyifasong)
-    TONGXIN_xieyijiexi                       0x00003325   Thumb Code  1094  tongxin_xieyi_ctrl.o(i.TONGXIN_xieyijiexi)
-    UART0_IRQHandler                         0x00003799   Thumb Code   218  uart0.o(i.UART0_IRQHandler)
-    UART0_MF_Config_Init                     0x00003891   Thumb Code    20  uart0.o(i.UART0_MF_Config_Init)
-    UART0_MF_NVIC_Init                       0x000038a5   Thumb Code    16  uart0.o(i.UART0_MF_NVIC_Init)
-    UART1_IRQHandler                         0x000038b5   Thumb Code   218  uart1.o(i.UART1_IRQHandler)
-    UART1_MF_Config_Init                     0x000039ad   Thumb Code    20  uart1.o(i.UART1_MF_Config_Init)
-    UART1_MF_NVIC_Init                       0x000039c1   Thumb Code    16  uart1.o(i.UART1_MF_NVIC_Init)
-    UART3_IRQHandler                         0x000039d1   Thumb Code   214  uart3.o(i.UART3_IRQHandler)
-    UART3_MF_Config_Init                     0x00003ac1   Thumb Code    20  uart3.o(i.UART3_MF_Config_Init)
-    UART3_MF_NVIC_Init                       0x00003ad5   Thumb Code    16  uart3.o(i.UART3_MF_NVIC_Init)
-    UART4_IRQHandler                         0x00003ae5   Thumb Code   218  uart4.o(i.UART4_IRQHandler)
-    UART4_MF_Config_Init                     0x00003be1   Thumb Code    20  uart4.o(i.UART4_MF_Config_Init)
-    UART4_MF_NVIC_Init                       0x00003bf5   Thumb Code    16  uart4.o(i.UART4_MF_NVIC_Init)
-    UART_TX_state_change                     0x00003c05   Thumb Code    50  uart0.o(i.UART_TX_state_change)
-    Uart0_Rx_rec                             0x00003c3d   Thumb Code    94  uart0.o(i.Uart0_Rx_rec)
-    Uart0_Tx_Send                            0x00003cb5   Thumb Code   104  uart0.o(i.Uart0_Tx_Send)
-    Uart0_Tx_Send_init                       0x00003d2d   Thumb Code    10  uart0.o(i.Uart0_Tx_Send_init)
-    Uart1_Rx_rec                             0x00003d3d   Thumb Code    58  uart1.o(i.Uart1_Rx_rec)
-    Uart1_Tx_Send                            0x00003d8d   Thumb Code    94  uart1.o(i.Uart1_Tx_Send)
-    Uart1_Tx_Send_init                       0x00003dfd   Thumb Code    10  uart1.o(i.Uart1_Tx_Send_init)
-    Uart1_Tx_Send_ok                         0x00003e0d   Thumb Code    62  uart1.o(i.Uart1_Tx_Send_ok)
-    Uart3_Tx_Send_init                       0x00003e59   Thumb Code    10  uart3.o(i.Uart3_Tx_Send_init)
-    Uart4_Tx_Send_init                       0x00003e69   Thumb Code    10  uart4.o(i.Uart4_Tx_Send_init)
-    ZDINA219_IIC_Delay                       0x00003e79   Thumb Code    16  zdina219.o(i.ZDINA219_IIC_Delay)
-    ZDINA219_IIC_RevByte                     0x00003e89   Thumb Code    70  zdina219.o(i.ZDINA219_IIC_RevByte)
-    ZDINA219_IIC_RevBytes                    0x00003ecf   Thumb Code    98  zdina219.o(i.ZDINA219_IIC_RevBytes)
-    ZDINA219_IIC_SendByte                    0x00003f31   Thumb Code   122  zdina219.o(i.ZDINA219_IIC_SendByte)
-    ZDINA219_IIC_SendBytes                   0x00003fab   Thumb Code    28  zdina219.o(i.ZDINA219_IIC_SendBytes)
-    ZDINA219_IIC_Start                       0x00003fc7   Thumb Code    38  zdina219.o(i.ZDINA219_IIC_Start)
-    ZDINA219_IIC_Stop                        0x00003fed   Thumb Code    48  zdina219.o(i.ZDINA219_IIC_Stop)
-    ZDINA219_SCL                             0x0000401d   Thumb Code    90  zdina219.o(i.ZDINA219_SCL)
-    ZDINA219_SDA                             0x00004081   Thumb Code    90  zdina219.o(i.ZDINA219_SDA)
-    ZDINA219_SDA_InPut                       0x000040e5   Thumb Code    42  zdina219.o(i.ZDINA219_SDA_InPut)
-    ZDINA219_SDA_OUT_Dir_CTL                 0x00004119   Thumb Code    84  zdina219.o(i.ZDINA219_SDA_OUT_Dir_CTL)
-    __0vsnprintf                             0x00004175   Thumb Code    40  printfa.o(i.__0vsnprintf)
-    __1vsnprintf                             0x00004175   Thumb Code     0  printfa.o(i.__0vsnprintf)
-    __2vsnprintf                             0x00004175   Thumb Code     0  printfa.o(i.__0vsnprintf)
-    __c89vsnprintf                           0x00004175   Thumb Code     0  printfa.o(i.__0vsnprintf)
-    vsnprintf                                0x00004175   Thumb Code     0  printfa.o(i.__0vsnprintf)
-    __ARM_clz                                0x000041a1   Thumb Code    46  depilogue.o(i.__ARM_clz)
-    __ARM_common_ll_muluu                    0x000041cf   Thumb Code    48  adc_chk.o(i.__ARM_common_ll_muluu)
-    __ARM_common_switch8                     0x000041ff   Thumb Code    28  system_fm33lg0xx.o(i.__ARM_common_switch8)
-    __scatterload_copy                       0x0000421b   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x00004229   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x0000422b   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    beidian_gongdian_OFF                     0x00004afd   Thumb Code    12  gpio.o(i.beidian_gongdian_OFF)
-    beidian_gongdian_On                      0x00004b0d   Thumb Code    12  gpio.o(i.beidian_gongdian_On)
-    daowei_CLOSE_High                        0x00004b1d   Thumb Code    14  gpio.o(i.daowei_CLOSE_High)
-    daowei_CLOSE_Low                         0x00004b31   Thumb Code    14  gpio.o(i.daowei_CLOSE_Low)
-    daowei_OPEN_High                         0x00004b45   Thumb Code    14  gpio.o(i.daowei_OPEN_High)
-    daowei_OPEN_Low                          0x00004b59   Thumb Code    14  gpio.o(i.daowei_OPEN_Low)
-    erji_dianya_CHK_CTRL_OFF                 0x00004b6d   Thumb Code    12  gpio.o(i.erji_dianya_CHK_CTRL_OFF)
-    find_banbenhao_xieyi                     0x00004b7d   Thumb Code    20  tongxin_xieyi_ctrl.o(i.find_banbenhao_xieyi)
-    find_biaohao_xieyi                       0x00004b9d   Thumb Code    20  tongxin_xieyi_ctrl.o(i.find_biaohao_xieyi)
-    find_youci_xieyi                         0x00004bbd   Thumb Code    20  tongxin_xieyi_ctrl.o(i.find_youci_xieyi)
-    get_famen_1_dianya                       0x00004bdd   Thumb Code    22  adc_chk.o(i.get_famen_1_dianya)
-    get_famen_2_dianya                       0x00004bf3   Thumb Code    22  adc_chk.o(i.get_famen_2_dianya)
-    get_zhukongban_gongdian_dianya           0x00004c09   Thumb Code    22  adc_chk.o(i.get_zhukongban_gongdian_dianya)
-    gongwei_jiance                           0x00004c21   Thumb Code   252  test_list.o(i.gongwei_jiance)
-    guan_daowei                              0x00004d25   Thumb Code    12  gpio.o(i.guan_daowei)
-    guanfa_xieyi                             0x00004d31   Thumb Code    26  tongxin_xieyi_ctrl.o(i.guanfa_xieyi)
-    huuoer_1_OFF                             0x00004d59   Thumb Code    12  gpio.o(i.huuoer_1_OFF)
-    huuoer_2_OFF                             0x00004d69   Thumb Code    12  gpio.o(i.huuoer_2_OFF)
-    jiliang_fangshi_select                   0x00004d79   Thumb Code    54  test_list.o(i.jiliang_fangshi_select)
-    jiliang_maichong                         0x00004db9   Thumb Code   172  test_list.o(i.jiliang_maichong)
-    kai_daowei                               0x00004e71   Thumb Code    12  gpio.o(i.kai_daowei)
-    kaifa_xieyi                              0x00004e7d   Thumb Code    26  tongxin_xieyi_ctrl.o(i.kaifa_xieyi)
-    main                                     0x00004ea5   Thumb Code    40  main.o(i.main)
-    send_chaxun_xieyi                        0x00004ecd   Thumb Code    20  tongxin_xieyi_ctrl.o(i.send_chaxun_xieyi)
-    send_shanggao_xieyi                      0x00004eed   Thumb Code    20  tongxin_xieyi_ctrl.o(i.send_shanggao_xieyi)
-    test_Init                                0x00004f0d   Thumb Code    40  main.o(i.test_Init)
-    test_Loop_Func                           0x00004f35   Thumb Code  1408  test_list.o(i.test_Loop_Func)
-    test_err_end_Func                        0x000054cd   Thumb Code    32  test_list.o(i.test_err_end_Func)
-    test_jieguo_qingling                     0x000054f1   Thumb Code   198  test_list.o(i.test_jieguo_qingling)
-    test_start                               0x000055cd   Thumb Code    42  test_list.o(i.test_start)
-    test_start_Init                          0x0000560d   Thumb Code    32  test_list.o(i.test_start_Init)
-    test_testend                             0x0000562d   Thumb Code    18  test_list.o(i.test_testend)
-    yali_enable_xieyi                        0x00005649   Thumb Code    20  tongxin_xieyi_ctrl.o(i.yali_enable_xieyi)
-    zhudian_dianya_CHK_CTRL_OFF              0x00005669   Thumb Code    12  gpio.o(i.zhudian_dianya_CHK_CTRL_OFF)
-    zhudian_gongdian_OFF                     0x00005679   Thumb Code    12  gpio.o(i.zhudian_gongdian_OFF)
-    zhudian_gongdian_On                      0x00005689   Thumb Code    12  gpio.o(i.zhudian_gongdian_On)
-    Region$$Table$$Base                      0x000056ec   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0000570c   Number         0  anon$$obj.o(Region$$Table)
+    FM_Test_xieyi                            0x00001ee9   Thumb Code    26  tongxin_xieyi_ctrl.o(i.FM_Test_xieyi)
+    GPIO_IRQHandler                          0x00001f11   Thumb Code    40  exti.o(i.GPIO_IRQHandler)
+    GetSingleChannelVoltage_POLL             0x00001fbd   Thumb Code   110  adc_chk.o(i.GetSingleChannelVoltage_POLL)
+    Get_Famen_Status                         0x000020d5   Thumb Code    20  tongxin_xieyi_ctrl.o(i.Get_Famen_Status)
+    Get_yali_Status                          0x000020f5   Thumb Code    20  tongxin_xieyi_ctrl.o(i.Get_yali_Status)
+    INA219_IIC_GPIO_Init                     0x00002115   Thumb Code   134  zdina219.o(i.INA219_IIC_GPIO_Init)
+    LED_FLAG_LOOP                            0x000021a1   Thumb Code    36  led_ctrl.o(i.LED_FLAG_LOOP)
+    LED_FLAG_Run                             0x000021cd   Thumb Code    20  led_ctrl.o(i.LED_FLAG_Run)
+    LED_Off                                  0x000021e9   Thumb Code    12  gpio.o(i.LED_Off)
+    LED_On                                   0x000021f9   Thumb Code    12  gpio.o(i.LED_On)
+    MF_ADC_Config_Init                       0x00002221   Thumb Code    12  adc_chk.o(i.MF_ADC_Config_Init)
+    MF_ATIM_Interrupt_Init                   0x0000232d   Thumb Code    28  time.o(i.MF_ATIM_Interrupt_Init)
+    MF_ATIM_TimerBase_Init                   0x0000234d   Thumb Code    40  time.o(i.MF_ATIM_TimerBase_Init)
+    MF_Clock_Init                            0x0000237d   Thumb Code   120  mf_config.o(i.MF_Clock_Init)
+    MF_Config_Init                           0x000023fd   Thumb Code    16  exti.o(i.MF_Config_Init)
+    MF_EXTI_Common_Init                      0x0000240d   Thumb Code    14  exti.o(i.MF_EXTI_Common_Init)
+    MF_EXTI_Line13_Init                      0x0000241d   Thumb Code    54  exti.o(i.MF_EXTI_Line13_Init)
+    MF_NVIC_Init                             0x00002459   Thumb Code    16  exti.o(i.MF_NVIC_Init)
+    MF_UART0_Init                            0x00002469   Thumb Code   100  uart0.o(i.MF_UART0_Init)
+    MF_UART0_Interrupt_Init                  0x000024d5   Thumb Code    46  uart0.o(i.MF_UART0_Interrupt_Init)
+    MF_UART1_Init                            0x00002509   Thumb Code    96  uart1.o(i.MF_UART1_Init)
+    MF_UART1_Interrupt_Init                  0x00002571   Thumb Code    46  uart1.o(i.MF_UART1_Interrupt_Init)
+    MF_UART3_Init                            0x000025a5   Thumb Code    98  uart3.o(i.MF_UART3_Init)
+    MF_UART3_Interrupt_Init                  0x00002611   Thumb Code    46  uart3.o(i.MF_UART3_Interrupt_Init)
+    MF_UART4_Init                            0x00002645   Thumb Code    94  uart4.o(i.MF_UART4_Init)
+    MF_UART4_Interrupt_Init                  0x000026ad   Thumb Code    46  uart4.o(i.MF_UART4_Interrupt_Init)
+    NB_Current_CHK_CTRL_OFF                  0x000026e1   Thumb Code    12  gpio.o(i.NB_Current_CHK_CTRL_OFF)
+    NB_Current_CHK_CTRL_ON                   0x000026f1   Thumb Code    12  gpio.o(i.NB_Current_CHK_CTRL_ON)
+    Others_GPIO_Init                         0x00002779   Thumb Code   612  gpio.o(i.Others_GPIO_Init)
+    PC_Chuankou_tongxin_Debug_send           0x000029e5   Thumb Code    28  uart0.o(i.PC_Chuankou_tongxin_Debug_send)
+    PC_Chuankou_tongxin_send                 0x00002a05   Thumb Code    16  uart0.o(i.PC_Chuankou_tongxin_send)
+    PC_xieyifasong_1                         0x00002a15   Thumb Code    28  pc_xieyi_ctrl.o(i.PC_xieyifasong_1)
+    PC_xieyifasong_2                         0x00002a39   Thumb Code   746  pc_xieyi_ctrl.o(i.PC_xieyifasong_2)
+    PC_xieyijiexi                            0x00002d2d   Thumb Code   278  pc_xieyi_ctrl.o(i.PC_xieyijiexi)
+    RS2103_POWER_OFF                         0x00002e4d   Thumb Code    12  gpio.o(i.RS2103_POWER_OFF)
+    ReadZD_Current                           0x00002e5d   Thumb Code   160  zdina219.o(i.ReadZD_Current)
+    SENSOR_D_High                            0x00002f09   Thumb Code    14  gpio.o(i.SENSOR_D_High)
+    SENSOR_D_Low                             0x00002f1d   Thumb Code    14  gpio.o(i.SENSOR_D_Low)
+    SENSOR_P_High                            0x00002f31   Thumb Code    14  gpio.o(i.SENSOR_P_High)
+    SENSOR_P_Low                             0x00002f45   Thumb Code    14  gpio.o(i.SENSOR_P_Low)
+    SENSOR_T_High                            0x00002f59   Thumb Code    12  gpio.o(i.SENSOR_T_High)
+    SENSOR_T_Low                             0x00002f69   Thumb Code    12  gpio.o(i.SENSOR_T_Low)
+    SystemCoreClockUpdate                    0x00002f79   Thumb Code   282  system_fm33lg0xx.o(i.SystemCoreClockUpdate)
+    SystemInit                               0x000030b5   Thumb Code   230  system_fm33lg0xx.o(i.SystemInit)
+    TONGXIN_xieyifasong                      0x00003281   Thumb Code   232  tongxin_xieyi_ctrl.o(i.TONGXIN_xieyifasong)
+    TONGXIN_xieyijiexi                       0x0000336d   Thumb Code  1094  tongxin_xieyi_ctrl.o(i.TONGXIN_xieyijiexi)
+    Test_loop_func                           0x000037e1   Thumb Code   160  test_list.o(i.Test_loop_func)
+    UART0_IRQHandler                         0x00003891   Thumb Code   218  uart0.o(i.UART0_IRQHandler)
+    UART0_MF_Config_Init                     0x00003989   Thumb Code    20  uart0.o(i.UART0_MF_Config_Init)
+    UART0_MF_NVIC_Init                       0x0000399d   Thumb Code    16  uart0.o(i.UART0_MF_NVIC_Init)
+    UART1_IRQHandler                         0x000039ad   Thumb Code   218  uart1.o(i.UART1_IRQHandler)
+    UART1_MF_Config_Init                     0x00003aa5   Thumb Code    20  uart1.o(i.UART1_MF_Config_Init)
+    UART1_MF_NVIC_Init                       0x00003ab9   Thumb Code    16  uart1.o(i.UART1_MF_NVIC_Init)
+    UART3_IRQHandler                         0x00003ac9   Thumb Code   214  uart3.o(i.UART3_IRQHandler)
+    UART3_MF_Config_Init                     0x00003bb9   Thumb Code    20  uart3.o(i.UART3_MF_Config_Init)
+    UART3_MF_NVIC_Init                       0x00003bcd   Thumb Code    16  uart3.o(i.UART3_MF_NVIC_Init)
+    UART4_IRQHandler                         0x00003bdd   Thumb Code   218  uart4.o(i.UART4_IRQHandler)
+    UART4_MF_Config_Init                     0x00003cd9   Thumb Code    20  uart4.o(i.UART4_MF_Config_Init)
+    UART4_MF_NVIC_Init                       0x00003ced   Thumb Code    16  uart4.o(i.UART4_MF_NVIC_Init)
+    UART_TX_state_change                     0x00003cfd   Thumb Code    50  uart0.o(i.UART_TX_state_change)
+    Uart0_Rx_rec                             0x00003d35   Thumb Code    94  uart0.o(i.Uart0_Rx_rec)
+    Uart0_Tx_Send                            0x00003dad   Thumb Code   104  uart0.o(i.Uart0_Tx_Send)
+    Uart0_Tx_Send_init                       0x00003e25   Thumb Code    10  uart0.o(i.Uart0_Tx_Send_init)
+    Uart1_Rx_rec                             0x00003e35   Thumb Code    58  uart1.o(i.Uart1_Rx_rec)
+    Uart1_Tx_Send                            0x00003e85   Thumb Code    94  uart1.o(i.Uart1_Tx_Send)
+    Uart1_Tx_Send_init                       0x00003ef5   Thumb Code    10  uart1.o(i.Uart1_Tx_Send_init)
+    Uart1_Tx_Send_ok                         0x00003f05   Thumb Code    62  uart1.o(i.Uart1_Tx_Send_ok)
+    Uart3_Tx_Send_init                       0x00003f51   Thumb Code    10  uart3.o(i.Uart3_Tx_Send_init)
+    Uart4_Tx_Send_init                       0x00003f61   Thumb Code    10  uart4.o(i.Uart4_Tx_Send_init)
+    ZDINA219_IIC_Delay                       0x00003f71   Thumb Code    16  zdina219.o(i.ZDINA219_IIC_Delay)
+    ZDINA219_IIC_RevByte                     0x00003f81   Thumb Code    70  zdina219.o(i.ZDINA219_IIC_RevByte)
+    ZDINA219_IIC_RevBytes                    0x00003fc7   Thumb Code    98  zdina219.o(i.ZDINA219_IIC_RevBytes)
+    ZDINA219_IIC_SendByte                    0x00004029   Thumb Code   122  zdina219.o(i.ZDINA219_IIC_SendByte)
+    ZDINA219_IIC_SendBytes                   0x000040a3   Thumb Code    28  zdina219.o(i.ZDINA219_IIC_SendBytes)
+    ZDINA219_IIC_Start                       0x000040bf   Thumb Code    38  zdina219.o(i.ZDINA219_IIC_Start)
+    ZDINA219_IIC_Stop                        0x000040e5   Thumb Code    48  zdina219.o(i.ZDINA219_IIC_Stop)
+    ZDINA219_SCL                             0x00004115   Thumb Code    90  zdina219.o(i.ZDINA219_SCL)
+    ZDINA219_SDA                             0x00004179   Thumb Code    90  zdina219.o(i.ZDINA219_SDA)
+    ZDINA219_SDA_InPut                       0x000041dd   Thumb Code    42  zdina219.o(i.ZDINA219_SDA_InPut)
+    ZDINA219_SDA_OUT_Dir_CTL                 0x00004211   Thumb Code    84  zdina219.o(i.ZDINA219_SDA_OUT_Dir_CTL)
+    __0vsnprintf                             0x0000426d   Thumb Code    40  printfa.o(i.__0vsnprintf)
+    __1vsnprintf                             0x0000426d   Thumb Code     0  printfa.o(i.__0vsnprintf)
+    __2vsnprintf                             0x0000426d   Thumb Code     0  printfa.o(i.__0vsnprintf)
+    __c89vsnprintf                           0x0000426d   Thumb Code     0  printfa.o(i.__0vsnprintf)
+    vsnprintf                                0x0000426d   Thumb Code     0  printfa.o(i.__0vsnprintf)
+    __ARM_clz                                0x00004299   Thumb Code    46  depilogue.o(i.__ARM_clz)
+    __ARM_common_ll_muluu                    0x000042c7   Thumb Code    48  adc_chk.o(i.__ARM_common_ll_muluu)
+    __ARM_common_switch8                     0x000042f7   Thumb Code    28  system_fm33lg0xx.o(i.__ARM_common_switch8)
+    __scatterload_copy                       0x00004313   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x00004321   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x00004323   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    beidian_gongdian_OFF                     0x00004bf5   Thumb Code    12  gpio.o(i.beidian_gongdian_OFF)
+    beidian_gongdian_On                      0x00004c05   Thumb Code    12  gpio.o(i.beidian_gongdian_On)
+    daowei_CLOSE_High                        0x00004c15   Thumb Code    14  gpio.o(i.daowei_CLOSE_High)
+    daowei_CLOSE_Low                         0x00004c29   Thumb Code    14  gpio.o(i.daowei_CLOSE_Low)
+    daowei_OPEN_High                         0x00004c3d   Thumb Code    14  gpio.o(i.daowei_OPEN_High)
+    daowei_OPEN_Low                          0x00004c51   Thumb Code    14  gpio.o(i.daowei_OPEN_Low)
+    erji_dianya_CHK_CTRL_OFF                 0x00004c65   Thumb Code    12  gpio.o(i.erji_dianya_CHK_CTRL_OFF)
+    find_banbenhao_xieyi                     0x00004c75   Thumb Code    20  tongxin_xieyi_ctrl.o(i.find_banbenhao_xieyi)
+    find_biaohao_xieyi                       0x00004c95   Thumb Code    20  tongxin_xieyi_ctrl.o(i.find_biaohao_xieyi)
+    find_youci_xieyi                         0x00004cb5   Thumb Code    20  tongxin_xieyi_ctrl.o(i.find_youci_xieyi)
+    get_famen_1_dianya                       0x00004cd5   Thumb Code    22  adc_chk.o(i.get_famen_1_dianya)
+    get_famen_2_dianya                       0x00004ceb   Thumb Code    22  adc_chk.o(i.get_famen_2_dianya)
+    get_zhukongban_gongdian_dianya           0x00004d01   Thumb Code    22  adc_chk.o(i.get_zhukongban_gongdian_dianya)
+    gongwei_jiance                           0x00004d19   Thumb Code   646  test_list.o(i.gongwei_jiance)
+    guan_daowei                              0x00004fa9   Thumb Code    12  gpio.o(i.guan_daowei)
+    huuoer_1_OFF                             0x00004fb5   Thumb Code    12  gpio.o(i.huuoer_1_OFF)
+    huuoer_2_OFF                             0x00004fc5   Thumb Code    12  gpio.o(i.huuoer_2_OFF)
+    jiliang_fangshi_select                   0x00004fd5   Thumb Code    22  test_list.o(i.jiliang_fangshi_select)
+    jiliang_maichong                         0x00004ff1   Thumb Code   160  test_list.o(i.jiliang_maichong)
+    kai_daowei                               0x00005099   Thumb Code    12  gpio.o(i.kai_daowei)
+    main                                     0x000050a5   Thumb Code    44  main.o(i.main)
+    send_chaxun_xieyi                        0x000050d1   Thumb Code    20  tongxin_xieyi_ctrl.o(i.send_chaxun_xieyi)
+    send_shanggao_xieyi                      0x000050f1   Thumb Code    20  tongxin_xieyi_ctrl.o(i.send_shanggao_xieyi)
+    test_Init                                0x00005111   Thumb Code    40  main.o(i.test_Init)
+    test_Loop_Func                           0x00005139   Thumb Code  1150  test_list.o(i.test_Loop_Func)
+    test_err_end_Func                        0x000055c5   Thumb Code    32  test_list.o(i.test_err_end_Func)
+    test_jieguo_qingling                     0x000055e9   Thumb Code   198  test_list.o(i.test_jieguo_qingling)
+    test_start                               0x000056c5   Thumb Code    42  test_list.o(i.test_start)
+    test_start_Init                          0x00005705   Thumb Code    32  test_list.o(i.test_start_Init)
+    test_testend                             0x00005725   Thumb Code    18  test_list.o(i.test_testend)
+    yali_enable_xieyi                        0x00005741   Thumb Code    20  tongxin_xieyi_ctrl.o(i.yali_enable_xieyi)
+    zhudian_dianya_CHK_CTRL_OFF              0x00005761   Thumb Code    12  gpio.o(i.zhudian_dianya_CHK_CTRL_OFF)
+    zhudian_gongdian_OFF                     0x00005771   Thumb Code    12  gpio.o(i.zhudian_gongdian_OFF)
+    zhudian_gongdian_On                      0x00005781   Thumb Code    12  gpio.o(i.zhudian_gongdian_On)
+    Region$$Table$$Base                      0x000057e4   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00005804   Number         0  anon$$obj.o(Region$$Table)
     Debug_Mode                               0x20000000   Data           1  main.o(.data)
     nihao                                    0x20000001   Data           2  main.o(.data)
     i                                        0x20000003   Data           1  main.o(.data)
@@ -2090,54 +2090,54 @@ Memory Map of the image
 
   Image Entry point : 0x000000c1
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x000057a8, Max: 0x00040000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x000058a0, Max: 0x00040000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x0000570c, Max: 0x00040000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00005804, Max: 0x00040000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x00000000   0x00000000   0x000000c0   Data   RO            3    RESET               startup_fm33lg0xx.o
-    0x000000c0   0x000000c0   0x00000000   Code   RO         4068  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
-    0x000000c0   0x000000c0   0x00000004   Code   RO         4135    .ARM.Collect$$$$00000001  mc_p.l(entry2.o)
-    0x000000c4   0x000000c4   0x00000004   Code   RO         4138    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
-    0x000000c8   0x000000c8   0x00000000   Code   RO         4140    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
-    0x000000c8   0x000000c8   0x00000000   Code   RO         4142    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
-    0x000000c8   0x000000c8   0x00000008   Code   RO         4143    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
-    0x000000d0   0x000000d0   0x00000000   Code   RO         4145    .ARM.Collect$$$$0000000D  mc_p.l(entry10a.o)
-    0x000000d0   0x000000d0   0x00000000   Code   RO         4147    .ARM.Collect$$$$0000000F  mc_p.l(entry11a.o)
-    0x000000d0   0x000000d0   0x00000004   Code   RO         4136    .ARM.Collect$$$$00002712  mc_p.l(entry2.o)
+    0x000000c0   0x000000c0   0x00000000   Code   RO         4074  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
+    0x000000c0   0x000000c0   0x00000004   Code   RO         4141    .ARM.Collect$$$$00000001  mc_p.l(entry2.o)
+    0x000000c4   0x000000c4   0x00000004   Code   RO         4144    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
+    0x000000c8   0x000000c8   0x00000000   Code   RO         4146    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
+    0x000000c8   0x000000c8   0x00000000   Code   RO         4148    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
+    0x000000c8   0x000000c8   0x00000008   Code   RO         4149    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
+    0x000000d0   0x000000d0   0x00000000   Code   RO         4151    .ARM.Collect$$$$0000000D  mc_p.l(entry10a.o)
+    0x000000d0   0x000000d0   0x00000000   Code   RO         4153    .ARM.Collect$$$$0000000F  mc_p.l(entry11a.o)
+    0x000000d0   0x000000d0   0x00000004   Code   RO         4142    .ARM.Collect$$$$00002712  mc_p.l(entry2.o)
     0x000000d4   0x000000d4   0x0000001c   Code   RO            4    .text               startup_fm33lg0xx.o
-    0x000000f0   0x000000f0   0x0000002c   Code   RO         4071    .text               mc_p.l(uidiv.o)
-    0x0000011c   0x0000011c   0x00000028   Code   RO         4073    .text               mc_p.l(idiv.o)
-    0x00000144   0x00000144   0x00000060   Code   RO         4075    .text               mc_p.l(uldiv.o)
-    0x000001a4   0x000001a4   0x0000007a   Code   RO         4077    .text               mc_p.l(llmul.o)
-    0x0000021e   0x0000021e   0x00000024   Code   RO         4079    .text               mc_p.l(memcpya.o)
-    0x00000242   0x00000242   0x00000024   Code   RO         4081    .text               mc_p.l(memseta.o)
+    0x000000f0   0x000000f0   0x0000002c   Code   RO         4077    .text               mc_p.l(uidiv.o)
+    0x0000011c   0x0000011c   0x00000028   Code   RO         4079    .text               mc_p.l(idiv.o)
+    0x00000144   0x00000144   0x00000060   Code   RO         4081    .text               mc_p.l(uldiv.o)
+    0x000001a4   0x000001a4   0x0000007a   Code   RO         4083    .text               mc_p.l(llmul.o)
+    0x0000021e   0x0000021e   0x00000024   Code   RO         4085    .text               mc_p.l(memcpya.o)
+    0x00000242   0x00000242   0x00000024   Code   RO         4087    .text               mc_p.l(memseta.o)
     0x00000266   0x00000266   0x00000002   PAD
-    0x00000268   0x00000268   0x00000164   Code   RO         4119    .text               mf_p.l(dadd.o)
-    0x000003cc   0x000003cc   0x000000d0   Code   RO         4121    .text               mf_p.l(dmul.o)
-    0x0000049c   0x0000049c   0x000000f0   Code   RO         4123    .text               mf_p.l(ddiv.o)
-    0x0000058c   0x0000058c   0x00000020   Code   RO         4152    .text               mc_p.l(llshl.o)
-    0x000005ac   0x000005ac   0x00000022   Code   RO         4154    .text               mc_p.l(llushr.o)
-    0x000005ce   0x000005ce   0x00000026   Code   RO         4156    .text               mc_p.l(llsshr.o)
-    0x000005f4   0x000005f4   0x00000000   Code   RO         4158    .text               mc_p.l(iusefp.o)
-    0x000005f4   0x000005f4   0x000000be   Code   RO         4161    .text               mf_p.l(depilogue.o)
+    0x00000268   0x00000268   0x00000164   Code   RO         4125    .text               mf_p.l(dadd.o)
+    0x000003cc   0x000003cc   0x000000d0   Code   RO         4127    .text               mf_p.l(dmul.o)
+    0x0000049c   0x0000049c   0x000000f0   Code   RO         4129    .text               mf_p.l(ddiv.o)
+    0x0000058c   0x0000058c   0x00000020   Code   RO         4158    .text               mc_p.l(llshl.o)
+    0x000005ac   0x000005ac   0x00000022   Code   RO         4160    .text               mc_p.l(llushr.o)
+    0x000005ce   0x000005ce   0x00000026   Code   RO         4162    .text               mc_p.l(llsshr.o)
+    0x000005f4   0x000005f4   0x00000000   Code   RO         4164    .text               mc_p.l(iusefp.o)
+    0x000005f4   0x000005f4   0x000000be   Code   RO         4167    .text               mf_p.l(depilogue.o)
     0x000006b2   0x000006b2   0x00000002   PAD
-    0x000006b4   0x000006b4   0x00000040   Code   RO         4165    .text               mf_p.l(dfixul.o)
-    0x000006f4   0x000006f4   0x00000028   Code   RO         4167    .text               mf_p.l(cdrcmple.o)
-    0x0000071c   0x0000071c   0x00000024   Code   RO         4169    .text               mc_p.l(init.o)
-    0x00000740   0x00000740   0x00000164   Code   RO         3324    i.ATIM_IRQHandler   time.o
-    0x000008a4   0x000008a4   0x00000014   Code   RO         3325    i.ATIM_Init         time.o
-    0x000008b8   0x000008b8   0x00000010   Code   RO         3326    i.ATIM_NVIC_Init    time.o
-    0x000008c8   0x000008c8   0x00000018   Code   RO         3327    i.ATIM_Start        time.o
+    0x000006b4   0x000006b4   0x00000040   Code   RO         4171    .text               mf_p.l(dfixul.o)
+    0x000006f4   0x000006f4   0x00000028   Code   RO         4173    .text               mf_p.l(cdrcmple.o)
+    0x0000071c   0x0000071c   0x00000024   Code   RO         4175    .text               mc_p.l(init.o)
+    0x00000740   0x00000740   0x00000164   Code   RO         3330    i.ATIM_IRQHandler   time.o
+    0x000008a4   0x000008a4   0x00000014   Code   RO         3331    i.ATIM_Init         time.o
+    0x000008b8   0x000008b8   0x00000010   Code   RO         3332    i.ATIM_NVIC_Init    time.o
+    0x000008c8   0x000008c8   0x00000018   Code   RO         3333    i.ATIM_Start        time.o
     0x000008e0   0x000008e0   0x00000048   Code   RO         2849    i.CRC16_XMODEM      crc.o
-    0x00000928   0x00000928   0x0000009c   Code   RO         3870    i.CheckZDCurrent    zdina219.o
+    0x00000928   0x00000928   0x0000009c   Code   RO         3876    i.CheckZDCurrent    zdina219.o
     0x000009c4   0x000009c4   0x00000010   Code   RO         2872    i.Current_CHK_CTRL_OFF  gpio.o
-    0x000009d4   0x000009d4   0x00000028   Code   RO         3871    i.Current_CHK_CTRL_OFF_l  zdina219.o
+    0x000009d4   0x000009d4   0x00000028   Code   RO         3877    i.Current_CHK_CTRL_OFF_l  zdina219.o
     0x000009fc   0x000009fc   0x00000010   Code   RO         2873    i.Current_CHK_CTRL_ON  gpio.o
-    0x00000a0c   0x00000a0c   0x00000028   Code   RO         3872    i.Current_CHK_CTRL_ON_l  zdina219.o
-    0x00000a34   0x00000a34   0x0000002c   Code   RO         3873    i.Current_CHK_Func  zdina219.o
-    0x00000a60   0x00000a60   0x00000044   Code   RO         3480    i.DeBug_print       uart0.o
+    0x00000a0c   0x00000a0c   0x00000028   Code   RO         3878    i.Current_CHK_CTRL_ON_l  zdina219.o
+    0x00000a34   0x00000a34   0x0000002c   Code   RO         3879    i.Current_CHK_Func  zdina219.o
+    0x00000a60   0x00000a60   0x00000044   Code   RO         3486    i.DeBug_print       uart0.o
     0x00000aa4   0x00000aa4   0x00000006   Code   RO         2712    i.FL_ADC_ClearFlag_EndOfConversion  adc_chk.o
     0x00000aaa   0x00000aaa   0x00000002   PAD
     0x00000aac   0x00000aac   0x0000018c   Code   RO          410    i.FL_ADC_CommonInit  fm33lg0xx_fl_adc.o
@@ -2181,11 +2181,11 @@ Memory Map of the image
     0x000017d2   0x000017d2   0x0000000a   Code   RO         1473    i.FL_GPIO_DisablePinPullup  fm33lg0xx_fl_gpio.o
     0x000017dc   0x000017dc   0x0000000a   Code   RO         1474    i.FL_GPIO_DisablePinRemap  fm33lg0xx_fl_gpio.o
     0x000017e6   0x000017e6   0x00000016   Code   RO         3231    i.FL_GPIO_GetInputPin  test_list.o
-    0x000017fc   0x000017fc   0x00000016   Code   RO         3874    i.FL_GPIO_GetInputPin  zdina219.o
+    0x000017fc   0x000017fc   0x00000016   Code   RO         3880    i.FL_GPIO_GetInputPin  zdina219.o
     0x00001812   0x00001812   0x00000002   PAD
     0x00001814   0x00001814   0x000001e8   Code   RO         1475    i.FL_GPIO_Init      fm33lg0xx_fl_gpio.o
     0x000019fc   0x000019fc   0x00000006   Code   RO         2874    i.FL_GPIO_ResetOutputPin  gpio.o
-    0x00001a02   0x00001a02   0x00000006   Code   RO         3875    i.FL_GPIO_ResetOutputPin  zdina219.o
+    0x00001a02   0x00001a02   0x00000006   Code   RO         3881    i.FL_GPIO_ResetOutputPin  zdina219.o
     0x00001a08   0x00001a08   0x0000000c   Code   RO         1102    i.FL_GPIO_SetExtiLine0  fm33lg0xx_fl_exti.o
     0x00001a14   0x00001a14   0x0000000c   Code   RO         1103    i.FL_GPIO_SetExtiLine1  fm33lg0xx_fl_exti.o
     0x00001a20   0x00001a20   0x0000000e   Code   RO         1104    i.FL_GPIO_SetExtiLine10  fm33lg0xx_fl_exti.o
@@ -2206,189 +2206,189 @@ Memory Map of the image
     0x00001ae6   0x00001ae6   0x0000000e   Code   RO         1119    i.FL_GPIO_SetExtiLine8  fm33lg0xx_fl_exti.o
     0x00001af4   0x00001af4   0x0000000e   Code   RO         1120    i.FL_GPIO_SetExtiLine9  fm33lg0xx_fl_exti.o
     0x00001b02   0x00001b02   0x00000006   Code   RO         2875    i.FL_GPIO_SetOutputPin  gpio.o
-    0x00001b08   0x00001b08   0x00000006   Code   RO         3876    i.FL_GPIO_SetOutputPin  zdina219.o
+    0x00001b08   0x00001b08   0x00000006   Code   RO         3882    i.FL_GPIO_SetOutputPin  zdina219.o
     0x00001b0e   0x00001b0e   0x0000001a   Code   RO         1476    i.FL_GPIO_SetPinMode  fm33lg0xx_fl_gpio.o
     0x00001b28   0x00001b28   0x0000001a   Code   RO         1121    i.FL_GPIO_SetTriggerEdge0  fm33lg0xx_fl_exti.o
     0x00001b42   0x00001b42   0x0000001a   Code   RO         1122    i.FL_GPIO_SetTriggerEdge1  fm33lg0xx_fl_exti.o
     0x00001b5c   0x00001b5c   0x00000008   Code   RO          342    i.FL_Init           fm33lg0xx_fl.o
     0x00001b64   0x00001b64   0x00000048   Code   RO          343    i.FL_NVIC_Init      fm33lg0xx_fl.o
-    0x00001bac   0x00001bac   0x0000000a   Code   RO         3481    i.FL_UART_EnableIT_TXShiftBuffEmpty  uart0.o
-    0x00001bb6   0x00001bb6   0x0000000a   Code   RO         3593    i.FL_UART_EnableIT_TXShiftBuffEmpty  uart1.o
-    0x00001bc0   0x00001bc0   0x0000000a   Code   RO         3685    i.FL_UART_EnableIT_TXShiftBuffEmpty  uart3.o
-    0x00001bca   0x00001bca   0x0000000a   Code   RO         3764    i.FL_UART_EnableIT_TXShiftBuffEmpty  uart4.o
+    0x00001bac   0x00001bac   0x0000000a   Code   RO         3487    i.FL_UART_EnableIT_TXShiftBuffEmpty  uart0.o
+    0x00001bb6   0x00001bb6   0x0000000a   Code   RO         3599    i.FL_UART_EnableIT_TXShiftBuffEmpty  uart1.o
+    0x00001bc0   0x00001bc0   0x0000000a   Code   RO         3691    i.FL_UART_EnableIT_TXShiftBuffEmpty  uart3.o
+    0x00001bca   0x00001bca   0x0000000a   Code   RO         3770    i.FL_UART_EnableIT_TXShiftBuffEmpty  uart4.o
     0x00001bd4   0x00001bd4   0x000002e4   Code   RO         2511    i.FL_UART_Init      fm33lg0xx_fl_uart.o
-    0x00001eb8   0x00001eb8   0x0000000c   Code   RO         3482    i.FL_UART_WriteTXBuff  uart0.o
-    0x00001ec4   0x00001ec4   0x0000000c   Code   RO         3594    i.FL_UART_WriteTXBuff  uart1.o
-    0x00001ed0   0x00001ed0   0x0000000c   Code   RO         3686    i.FL_UART_WriteTXBuff  uart3.o
-    0x00001edc   0x00001edc   0x0000000c   Code   RO         3765    i.FL_UART_WriteTXBuff  uart4.o
-    0x00001ee8   0x00001ee8   0x00000030   Code   RO         4015    i.GPIO_IRQHandler   exti.o
-    0x00001f18   0x00001f18   0x0000007c   Code   RO         2720    i.GetSingleChannelSample_POLL  adc_chk.o
-    0x00001f94   0x00001f94   0x0000007c   Code   RO         2721    i.GetSingleChannelVoltage_POLL  adc_chk.o
-    0x00002010   0x00002010   0x0000009c   Code   RO         2722    i.GetVREF1P2Sample_POLL  adc_chk.o
-    0x000020ac   0x000020ac   0x00000020   Code   RO         3379    i.Get_Famen_Status  tongxin_xieyi_ctrl.o
-    0x000020cc   0x000020cc   0x00000020   Code   RO         3380    i.Get_yali_Status   tongxin_xieyi_ctrl.o
-    0x000020ec   0x000020ec   0x0000008c   Code   RO         3877    i.INA219_IIC_GPIO_Init  zdina219.o
-    0x00002178   0x00002178   0x0000002c   Code   RO         3163    i.LED_FLAG_LOOP     led_ctrl.o
-    0x000021a4   0x000021a4   0x0000001c   Code   RO         3164    i.LED_FLAG_Run      led_ctrl.o
-    0x000021c0   0x000021c0   0x00000010   Code   RO         2876    i.LED_Off           gpio.o
-    0x000021d0   0x000021d0   0x00000010   Code   RO         2877    i.LED_On            gpio.o
-    0x000021e0   0x000021e0   0x00000018   Code   RO         2723    i.MF_ADC_Common_Init  adc_chk.o
-    0x000021f8   0x000021f8   0x0000000c   Code   RO         2724    i.MF_ADC_Config_Init  adc_chk.o
-    0x00002204   0x00002204   0x00000100   Code   RO         2725    i.MF_ADC_Init       adc_chk.o
-    0x00002304   0x00002304   0x00000020   Code   RO         3328    i.MF_ATIM_Interrupt_Init  time.o
-    0x00002324   0x00002324   0x00000030   Code   RO         3329    i.MF_ATIM_TimerBase_Init  time.o
-    0x00002354   0x00002354   0x00000080   Code   RO           13    i.MF_Clock_Init     mf_config.o
-    0x000023d4   0x000023d4   0x00000010   Code   RO         4016    i.MF_Config_Init    exti.o
-    0x000023e4   0x000023e4   0x0000000e   Code   RO         4017    i.MF_EXTI_Common_Init  exti.o
-    0x000023f2   0x000023f2   0x00000002   PAD
-    0x000023f4   0x000023f4   0x0000003c   Code   RO         4018    i.MF_EXTI_Line13_Init  exti.o
-    0x00002430   0x00002430   0x00000010   Code   RO         4019    i.MF_NVIC_Init      exti.o
-    0x00002440   0x00002440   0x0000006c   Code   RO         3483    i.MF_UART0_Init     uart0.o
-    0x000024ac   0x000024ac   0x00000034   Code   RO         3484    i.MF_UART0_Interrupt_Init  uart0.o
-    0x000024e0   0x000024e0   0x00000068   Code   RO         3595    i.MF_UART1_Init     uart1.o
-    0x00002548   0x00002548   0x00000034   Code   RO         3596    i.MF_UART1_Interrupt_Init  uart1.o
-    0x0000257c   0x0000257c   0x0000006c   Code   RO         3687    i.MF_UART3_Init     uart3.o
-    0x000025e8   0x000025e8   0x00000034   Code   RO         3688    i.MF_UART3_Interrupt_Init  uart3.o
-    0x0000261c   0x0000261c   0x00000068   Code   RO         3766    i.MF_UART4_Init     uart4.o
-    0x00002684   0x00002684   0x00000034   Code   RO         3767    i.MF_UART4_Interrupt_Init  uart4.o
-    0x000026b8   0x000026b8   0x00000010   Code   RO         2878    i.NB_Current_CHK_CTRL_OFF  gpio.o
-    0x000026c8   0x000026c8   0x00000010   Code   RO         2879    i.NB_Current_CHK_CTRL_ON  gpio.o
-    0x000026d8   0x000026d8   0x00000078   Code   RO          344    i.NVIC_SetPriority  fm33lg0xx_fl.o
-    0x00002750   0x00002750   0x0000026c   Code   RO         2880    i.Others_GPIO_Init  gpio.o
-    0x000029bc   0x000029bc   0x00000020   Code   RO         3485    i.PC_Chuankou_tongxin_Debug_send  uart0.o
-    0x000029dc   0x000029dc   0x00000010   Code   RO         3486    i.PC_Chuankou_tongxin_send  uart0.o
-    0x000029ec   0x000029ec   0x00000024   Code   RO         3192    i.PC_xieyifasong_1  pc_xieyi_ctrl.o
-    0x00002a10   0x00002a10   0x000002d4   Code   RO         3193    i.PC_xieyifasong_2  pc_xieyi_ctrl.o
-    0x00002ce4   0x00002ce4   0x00000120   Code   RO         3194    i.PC_xieyijiexi     pc_xieyi_ctrl.o
-    0x00002e04   0x00002e04   0x00000010   Code   RO         2881    i.RS2103_POWER_OFF  gpio.o
-    0x00002e14   0x00002e14   0x000000ac   Code   RO         3878    i.ReadZD_Current    zdina219.o
-    0x00002ec0   0x00002ec0   0x00000014   Code   RO         2885    i.SENSOR_D_High     gpio.o
-    0x00002ed4   0x00002ed4   0x00000014   Code   RO         2886    i.SENSOR_D_Low      gpio.o
-    0x00002ee8   0x00002ee8   0x00000014   Code   RO         2887    i.SENSOR_P_High     gpio.o
-    0x00002efc   0x00002efc   0x00000014   Code   RO         2888    i.SENSOR_P_Low      gpio.o
-    0x00002f10   0x00002f10   0x00000010   Code   RO         2889    i.SENSOR_T_High     gpio.o
-    0x00002f20   0x00002f20   0x00000010   Code   RO         2890    i.SENSOR_T_Low      gpio.o
-    0x00002f30   0x00002f30   0x0000013c   Code   RO          297    i.SystemCoreClockUpdate  system_fm33lg0xx.o
-    0x0000306c   0x0000306c   0x000000fc   Code   RO          298    i.SystemInit        system_fm33lg0xx.o
-    0x00003168   0x00003168   0x000000d0   Code   RO          299    i.SystemPLLClockUpdate  system_fm33lg0xx.o
-    0x00003238   0x00003238   0x000000ec   Code   RO         3381    i.TONGXIN_xieyifasong  tongxin_xieyi_ctrl.o
-    0x00003324   0x00003324   0x00000474   Code   RO         3382    i.TONGXIN_xieyijiexi  tongxin_xieyi_ctrl.o
-    0x00003798   0x00003798   0x000000f8   Code   RO         3487    i.UART0_IRQHandler  uart0.o
-    0x00003890   0x00003890   0x00000014   Code   RO         3488    i.UART0_MF_Config_Init  uart0.o
-    0x000038a4   0x000038a4   0x00000010   Code   RO         3489    i.UART0_MF_NVIC_Init  uart0.o
-    0x000038b4   0x000038b4   0x000000f8   Code   RO         3597    i.UART1_IRQHandler  uart1.o
-    0x000039ac   0x000039ac   0x00000014   Code   RO         3598    i.UART1_MF_Config_Init  uart1.o
-    0x000039c0   0x000039c0   0x00000010   Code   RO         3599    i.UART1_MF_NVIC_Init  uart1.o
-    0x000039d0   0x000039d0   0x000000f0   Code   RO         3689    i.UART3_IRQHandler  uart3.o
-    0x00003ac0   0x00003ac0   0x00000014   Code   RO         3690    i.UART3_MF_Config_Init  uart3.o
-    0x00003ad4   0x00003ad4   0x00000010   Code   RO         3691    i.UART3_MF_NVIC_Init  uart3.o
-    0x00003ae4   0x00003ae4   0x000000fc   Code   RO         3768    i.UART4_IRQHandler  uart4.o
-    0x00003be0   0x00003be0   0x00000014   Code   RO         3769    i.UART4_MF_Config_Init  uart4.o
-    0x00003bf4   0x00003bf4   0x00000010   Code   RO         3770    i.UART4_MF_NVIC_Init  uart4.o
-    0x00003c04   0x00003c04   0x00000038   Code   RO         3490    i.UART_TX_state_change  uart0.o
-    0x00003c3c   0x00003c3c   0x00000078   Code   RO         3491    i.Uart0_Rx_rec      uart0.o
-    0x00003cb4   0x00003cb4   0x00000078   Code   RO         3492    i.Uart0_Tx_Send     uart0.o
-    0x00003d2c   0x00003d2c   0x00000010   Code   RO         3493    i.Uart0_Tx_Send_init  uart0.o
-    0x00003d3c   0x00003d3c   0x00000050   Code   RO         3600    i.Uart1_Rx_rec      uart1.o
-    0x00003d8c   0x00003d8c   0x00000070   Code   RO         3601    i.Uart1_Tx_Send     uart1.o
-    0x00003dfc   0x00003dfc   0x00000010   Code   RO         3602    i.Uart1_Tx_Send_init  uart1.o
-    0x00003e0c   0x00003e0c   0x0000004c   Code   RO         3603    i.Uart1_Tx_Send_ok  uart1.o
-    0x00003e58   0x00003e58   0x00000010   Code   RO         3694    i.Uart3_Tx_Send_init  uart3.o
-    0x00003e68   0x00003e68   0x00000010   Code   RO         3773    i.Uart4_Tx_Send_init  uart4.o
-    0x00003e78   0x00003e78   0x00000010   Code   RO         3879    i.ZDINA219_IIC_Delay  zdina219.o
-    0x00003e88   0x00003e88   0x00000046   Code   RO         3881    i.ZDINA219_IIC_RevByte  zdina219.o
-    0x00003ece   0x00003ece   0x00000062   Code   RO         3882    i.ZDINA219_IIC_RevBytes  zdina219.o
-    0x00003f30   0x00003f30   0x0000007a   Code   RO         3883    i.ZDINA219_IIC_SendByte  zdina219.o
-    0x00003faa   0x00003faa   0x0000001c   Code   RO         3884    i.ZDINA219_IIC_SendBytes  zdina219.o
-    0x00003fc6   0x00003fc6   0x00000026   Code   RO         3885    i.ZDINA219_IIC_Start  zdina219.o
-    0x00003fec   0x00003fec   0x00000030   Code   RO         3886    i.ZDINA219_IIC_Stop  zdina219.o
-    0x0000401c   0x0000401c   0x00000064   Code   RO         3887    i.ZDINA219_SCL      zdina219.o
-    0x00004080   0x00004080   0x00000064   Code   RO         3888    i.ZDINA219_SDA      zdina219.o
-    0x000040e4   0x000040e4   0x00000034   Code   RO         3889    i.ZDINA219_SDA_InPut  zdina219.o
-    0x00004118   0x00004118   0x0000005c   Code   RO         3890    i.ZDINA219_SDA_OUT_Dir_CTL  zdina219.o
-    0x00004174   0x00004174   0x0000002c   Code   RO         4091    i.__0vsnprintf      mc_p.l(printfa.o)
-    0x000041a0   0x000041a0   0x0000002e   Code   RO         4163    i.__ARM_clz         mf_p.l(depilogue.o)
-    0x000041ce   0x000041ce   0x00000030   Code   RO         2829    i.__ARM_common_ll_muluu  adc_chk.o
-    0x000041fe   0x000041fe   0x0000001c   Code   RO          326    i.__ARM_common_switch8  system_fm33lg0xx.o
-    0x0000421a   0x0000421a   0x0000000e   Code   RO         4175    i.__scatterload_copy  mc_p.l(handlers.o)
-    0x00004228   0x00004228   0x00000002   Code   RO         4176    i.__scatterload_null  mc_p.l(handlers.o)
-    0x0000422a   0x0000422a   0x0000000e   Code   RO         4177    i.__scatterload_zeroinit  mc_p.l(handlers.o)
-    0x00004238   0x00004238   0x00000174   Code   RO         4093    i._fp_digits        mc_p.l(printfa.o)
-    0x000043ac   0x000043ac   0x000006ec   Code   RO         4094    i._printf_core      mc_p.l(printfa.o)
-    0x00004a98   0x00004a98   0x00000020   Code   RO         4095    i._printf_post_padding  mc_p.l(printfa.o)
-    0x00004ab8   0x00004ab8   0x0000002c   Code   RO         4096    i._printf_pre_padding  mc_p.l(printfa.o)
-    0x00004ae4   0x00004ae4   0x00000016   Code   RO         4097    i._snputc           mc_p.l(printfa.o)
-    0x00004afa   0x00004afa   0x00000002   PAD
-    0x00004afc   0x00004afc   0x00000010   Code   RO         2891    i.beidian_gongdian_OFF  gpio.o
-    0x00004b0c   0x00004b0c   0x00000010   Code   RO         2892    i.beidian_gongdian_On  gpio.o
-    0x00004b1c   0x00004b1c   0x00000014   Code   RO         2893    i.daowei_CLOSE_High  gpio.o
-    0x00004b30   0x00004b30   0x00000014   Code   RO         2894    i.daowei_CLOSE_Low  gpio.o
-    0x00004b44   0x00004b44   0x00000014   Code   RO         2895    i.daowei_OPEN_High  gpio.o
-    0x00004b58   0x00004b58   0x00000014   Code   RO         2896    i.daowei_OPEN_Low   gpio.o
-    0x00004b6c   0x00004b6c   0x00000010   Code   RO         2897    i.erji_dianya_CHK_CTRL_OFF  gpio.o
-    0x00004b7c   0x00004b7c   0x00000020   Code   RO         3383    i.find_banbenhao_xieyi  tongxin_xieyi_ctrl.o
-    0x00004b9c   0x00004b9c   0x00000020   Code   RO         3384    i.find_biaohao_xieyi  tongxin_xieyi_ctrl.o
-    0x00004bbc   0x00004bbc   0x00000020   Code   RO         3385    i.find_youci_xieyi  tongxin_xieyi_ctrl.o
-    0x00004bdc   0x00004bdc   0x00000016   Code   RO         2727    i.get_famen_1_dianya  adc_chk.o
-    0x00004bf2   0x00004bf2   0x00000016   Code   RO         2728    i.get_famen_2_dianya  adc_chk.o
-    0x00004c08   0x00004c08   0x00000016   Code   RO         2731    i.get_zhukongban_gongdian_dianya  adc_chk.o
-    0x00004c1e   0x00004c1e   0x00000002   PAD
-    0x00004c20   0x00004c20   0x00000104   Code   RO         3232    i.gongwei_jiance    test_list.o
-    0x00004d24   0x00004d24   0x0000000c   Code   RO         2899    i.guan_daowei       gpio.o
-    0x00004d30   0x00004d30   0x00000028   Code   RO         3387    i.guanfa_xieyi      tongxin_xieyi_ctrl.o
-    0x00004d58   0x00004d58   0x00000010   Code   RO         2900    i.huuoer_1_OFF      gpio.o
-    0x00004d68   0x00004d68   0x00000010   Code   RO         2902    i.huuoer_2_OFF      gpio.o
-    0x00004d78   0x00004d78   0x00000040   Code   RO         3233    i.jiliang_fangshi_select  test_list.o
-    0x00004db8   0x00004db8   0x000000b8   Code   RO         3234    i.jiliang_maichong  test_list.o
-    0x00004e70   0x00004e70   0x0000000c   Code   RO         2904    i.kai_daowei        gpio.o
-    0x00004e7c   0x00004e7c   0x00000028   Code   RO         3388    i.kaifa_xieyi       tongxin_xieyi_ctrl.o
-    0x00004ea4   0x00004ea4   0x00000028   Code   RO          199    i.main              main.o
-    0x00004ecc   0x00004ecc   0x00000020   Code   RO         3389    i.send_chaxun_xieyi  tongxin_xieyi_ctrl.o
-    0x00004eec   0x00004eec   0x00000020   Code   RO         3390    i.send_shanggao_xieyi  tongxin_xieyi_ctrl.o
-    0x00004f0c   0x00004f0c   0x00000028   Code   RO          201    i.test_Init         main.o
-    0x00004f34   0x00004f34   0x00000598   Code   RO         3235    i.test_Loop_Func    test_list.o
-    0x000054cc   0x000054cc   0x00000024   Code   RO         3236    i.test_err_end_Func  test_list.o
-    0x000054f0   0x000054f0   0x000000dc   Code   RO         3237    i.test_jieguo_qingling  test_list.o
-    0x000055cc   0x000055cc   0x00000040   Code   RO         3239    i.test_start        test_list.o
-    0x0000560c   0x0000560c   0x00000020   Code   RO         3240    i.test_start_Init   test_list.o
-    0x0000562c   0x0000562c   0x0000001c   Code   RO         3241    i.test_testend      test_list.o
-    0x00005648   0x00005648   0x00000020   Code   RO         3391    i.yali_enable_xieyi  tongxin_xieyi_ctrl.o
-    0x00005668   0x00005668   0x00000010   Code   RO         2905    i.zhudian_dianya_CHK_CTRL_OFF  gpio.o
-    0x00005678   0x00005678   0x00000010   Code   RO         2907    i.zhudian_gongdian_OFF  gpio.o
-    0x00005688   0x00005688   0x00000010   Code   RO         2908    i.zhudian_gongdian_On  gpio.o
-    0x00005698   0x00005698   0x00000054   Data   RO         1123    .constdata          fm33lg0xx_fl_exti.o
-    0x000056ec   0x000056ec   0x00000020   Data   RO         4173    Region$$Table       anon$$obj.o
+    0x00001eb8   0x00001eb8   0x0000000c   Code   RO         3488    i.FL_UART_WriteTXBuff  uart0.o
+    0x00001ec4   0x00001ec4   0x0000000c   Code   RO         3600    i.FL_UART_WriteTXBuff  uart1.o
+    0x00001ed0   0x00001ed0   0x0000000c   Code   RO         3692    i.FL_UART_WriteTXBuff  uart3.o
+    0x00001edc   0x00001edc   0x0000000c   Code   RO         3771    i.FL_UART_WriteTXBuff  uart4.o
+    0x00001ee8   0x00001ee8   0x00000028   Code   RO         3384    i.FM_Test_xieyi     tongxin_xieyi_ctrl.o
+    0x00001f10   0x00001f10   0x00000030   Code   RO         4021    i.GPIO_IRQHandler   exti.o
+    0x00001f40   0x00001f40   0x0000007c   Code   RO         2720    i.GetSingleChannelSample_POLL  adc_chk.o
+    0x00001fbc   0x00001fbc   0x0000007c   Code   RO         2721    i.GetSingleChannelVoltage_POLL  adc_chk.o
+    0x00002038   0x00002038   0x0000009c   Code   RO         2722    i.GetVREF1P2Sample_POLL  adc_chk.o
+    0x000020d4   0x000020d4   0x00000020   Code   RO         3385    i.Get_Famen_Status  tongxin_xieyi_ctrl.o
+    0x000020f4   0x000020f4   0x00000020   Code   RO         3386    i.Get_yali_Status   tongxin_xieyi_ctrl.o
+    0x00002114   0x00002114   0x0000008c   Code   RO         3883    i.INA219_IIC_GPIO_Init  zdina219.o
+    0x000021a0   0x000021a0   0x0000002c   Code   RO         3163    i.LED_FLAG_LOOP     led_ctrl.o
+    0x000021cc   0x000021cc   0x0000001c   Code   RO         3164    i.LED_FLAG_Run      led_ctrl.o
+    0x000021e8   0x000021e8   0x00000010   Code   RO         2876    i.LED_Off           gpio.o
+    0x000021f8   0x000021f8   0x00000010   Code   RO         2877    i.LED_On            gpio.o
+    0x00002208   0x00002208   0x00000018   Code   RO         2723    i.MF_ADC_Common_Init  adc_chk.o
+    0x00002220   0x00002220   0x0000000c   Code   RO         2724    i.MF_ADC_Config_Init  adc_chk.o
+    0x0000222c   0x0000222c   0x00000100   Code   RO         2725    i.MF_ADC_Init       adc_chk.o
+    0x0000232c   0x0000232c   0x00000020   Code   RO         3334    i.MF_ATIM_Interrupt_Init  time.o
+    0x0000234c   0x0000234c   0x00000030   Code   RO         3335    i.MF_ATIM_TimerBase_Init  time.o
+    0x0000237c   0x0000237c   0x00000080   Code   RO           13    i.MF_Clock_Init     mf_config.o
+    0x000023fc   0x000023fc   0x00000010   Code   RO         4022    i.MF_Config_Init    exti.o
+    0x0000240c   0x0000240c   0x0000000e   Code   RO         4023    i.MF_EXTI_Common_Init  exti.o
+    0x0000241a   0x0000241a   0x00000002   PAD
+    0x0000241c   0x0000241c   0x0000003c   Code   RO         4024    i.MF_EXTI_Line13_Init  exti.o
+    0x00002458   0x00002458   0x00000010   Code   RO         4025    i.MF_NVIC_Init      exti.o
+    0x00002468   0x00002468   0x0000006c   Code   RO         3489    i.MF_UART0_Init     uart0.o
+    0x000024d4   0x000024d4   0x00000034   Code   RO         3490    i.MF_UART0_Interrupt_Init  uart0.o
+    0x00002508   0x00002508   0x00000068   Code   RO         3601    i.MF_UART1_Init     uart1.o
+    0x00002570   0x00002570   0x00000034   Code   RO         3602    i.MF_UART1_Interrupt_Init  uart1.o
+    0x000025a4   0x000025a4   0x0000006c   Code   RO         3693    i.MF_UART3_Init     uart3.o
+    0x00002610   0x00002610   0x00000034   Code   RO         3694    i.MF_UART3_Interrupt_Init  uart3.o
+    0x00002644   0x00002644   0x00000068   Code   RO         3772    i.MF_UART4_Init     uart4.o
+    0x000026ac   0x000026ac   0x00000034   Code   RO         3773    i.MF_UART4_Interrupt_Init  uart4.o
+    0x000026e0   0x000026e0   0x00000010   Code   RO         2878    i.NB_Current_CHK_CTRL_OFF  gpio.o
+    0x000026f0   0x000026f0   0x00000010   Code   RO         2879    i.NB_Current_CHK_CTRL_ON  gpio.o
+    0x00002700   0x00002700   0x00000078   Code   RO          344    i.NVIC_SetPriority  fm33lg0xx_fl.o
+    0x00002778   0x00002778   0x0000026c   Code   RO         2880    i.Others_GPIO_Init  gpio.o
+    0x000029e4   0x000029e4   0x00000020   Code   RO         3491    i.PC_Chuankou_tongxin_Debug_send  uart0.o
+    0x00002a04   0x00002a04   0x00000010   Code   RO         3492    i.PC_Chuankou_tongxin_send  uart0.o
+    0x00002a14   0x00002a14   0x00000024   Code   RO         3192    i.PC_xieyifasong_1  pc_xieyi_ctrl.o
+    0x00002a38   0x00002a38   0x000002f4   Code   RO         3193    i.PC_xieyifasong_2  pc_xieyi_ctrl.o
+    0x00002d2c   0x00002d2c   0x00000120   Code   RO         3194    i.PC_xieyijiexi     pc_xieyi_ctrl.o
+    0x00002e4c   0x00002e4c   0x00000010   Code   RO         2881    i.RS2103_POWER_OFF  gpio.o
+    0x00002e5c   0x00002e5c   0x000000ac   Code   RO         3884    i.ReadZD_Current    zdina219.o
+    0x00002f08   0x00002f08   0x00000014   Code   RO         2885    i.SENSOR_D_High     gpio.o
+    0x00002f1c   0x00002f1c   0x00000014   Code   RO         2886    i.SENSOR_D_Low      gpio.o
+    0x00002f30   0x00002f30   0x00000014   Code   RO         2887    i.SENSOR_P_High     gpio.o
+    0x00002f44   0x00002f44   0x00000014   Code   RO         2888    i.SENSOR_P_Low      gpio.o
+    0x00002f58   0x00002f58   0x00000010   Code   RO         2889    i.SENSOR_T_High     gpio.o
+    0x00002f68   0x00002f68   0x00000010   Code   RO         2890    i.SENSOR_T_Low      gpio.o
+    0x00002f78   0x00002f78   0x0000013c   Code   RO          297    i.SystemCoreClockUpdate  system_fm33lg0xx.o
+    0x000030b4   0x000030b4   0x000000fc   Code   RO          298    i.SystemInit        system_fm33lg0xx.o
+    0x000031b0   0x000031b0   0x000000d0   Code   RO          299    i.SystemPLLClockUpdate  system_fm33lg0xx.o
+    0x00003280   0x00003280   0x000000ec   Code   RO         3387    i.TONGXIN_xieyifasong  tongxin_xieyi_ctrl.o
+    0x0000336c   0x0000336c   0x00000474   Code   RO         3388    i.TONGXIN_xieyijiexi  tongxin_xieyi_ctrl.o
+    0x000037e0   0x000037e0   0x000000b0   Code   RO         3232    i.Test_loop_func    test_list.o
+    0x00003890   0x00003890   0x000000f8   Code   RO         3493    i.UART0_IRQHandler  uart0.o
+    0x00003988   0x00003988   0x00000014   Code   RO         3494    i.UART0_MF_Config_Init  uart0.o
+    0x0000399c   0x0000399c   0x00000010   Code   RO         3495    i.UART0_MF_NVIC_Init  uart0.o
+    0x000039ac   0x000039ac   0x000000f8   Code   RO         3603    i.UART1_IRQHandler  uart1.o
+    0x00003aa4   0x00003aa4   0x00000014   Code   RO         3604    i.UART1_MF_Config_Init  uart1.o
+    0x00003ab8   0x00003ab8   0x00000010   Code   RO         3605    i.UART1_MF_NVIC_Init  uart1.o
+    0x00003ac8   0x00003ac8   0x000000f0   Code   RO         3695    i.UART3_IRQHandler  uart3.o
+    0x00003bb8   0x00003bb8   0x00000014   Code   RO         3696    i.UART3_MF_Config_Init  uart3.o
+    0x00003bcc   0x00003bcc   0x00000010   Code   RO         3697    i.UART3_MF_NVIC_Init  uart3.o
+    0x00003bdc   0x00003bdc   0x000000fc   Code   RO         3774    i.UART4_IRQHandler  uart4.o
+    0x00003cd8   0x00003cd8   0x00000014   Code   RO         3775    i.UART4_MF_Config_Init  uart4.o
+    0x00003cec   0x00003cec   0x00000010   Code   RO         3776    i.UART4_MF_NVIC_Init  uart4.o
+    0x00003cfc   0x00003cfc   0x00000038   Code   RO         3496    i.UART_TX_state_change  uart0.o
+    0x00003d34   0x00003d34   0x00000078   Code   RO         3497    i.Uart0_Rx_rec      uart0.o
+    0x00003dac   0x00003dac   0x00000078   Code   RO         3498    i.Uart0_Tx_Send     uart0.o
+    0x00003e24   0x00003e24   0x00000010   Code   RO         3499    i.Uart0_Tx_Send_init  uart0.o
+    0x00003e34   0x00003e34   0x00000050   Code   RO         3606    i.Uart1_Rx_rec      uart1.o
+    0x00003e84   0x00003e84   0x00000070   Code   RO         3607    i.Uart1_Tx_Send     uart1.o
+    0x00003ef4   0x00003ef4   0x00000010   Code   RO         3608    i.Uart1_Tx_Send_init  uart1.o
+    0x00003f04   0x00003f04   0x0000004c   Code   RO         3609    i.Uart1_Tx_Send_ok  uart1.o
+    0x00003f50   0x00003f50   0x00000010   Code   RO         3700    i.Uart3_Tx_Send_init  uart3.o
+    0x00003f60   0x00003f60   0x00000010   Code   RO         3779    i.Uart4_Tx_Send_init  uart4.o
+    0x00003f70   0x00003f70   0x00000010   Code   RO         3885    i.ZDINA219_IIC_Delay  zdina219.o
+    0x00003f80   0x00003f80   0x00000046   Code   RO         3887    i.ZDINA219_IIC_RevByte  zdina219.o
+    0x00003fc6   0x00003fc6   0x00000062   Code   RO         3888    i.ZDINA219_IIC_RevBytes  zdina219.o
+    0x00004028   0x00004028   0x0000007a   Code   RO         3889    i.ZDINA219_IIC_SendByte  zdina219.o
+    0x000040a2   0x000040a2   0x0000001c   Code   RO         3890    i.ZDINA219_IIC_SendBytes  zdina219.o
+    0x000040be   0x000040be   0x00000026   Code   RO         3891    i.ZDINA219_IIC_Start  zdina219.o
+    0x000040e4   0x000040e4   0x00000030   Code   RO         3892    i.ZDINA219_IIC_Stop  zdina219.o
+    0x00004114   0x00004114   0x00000064   Code   RO         3893    i.ZDINA219_SCL      zdina219.o
+    0x00004178   0x00004178   0x00000064   Code   RO         3894    i.ZDINA219_SDA      zdina219.o
+    0x000041dc   0x000041dc   0x00000034   Code   RO         3895    i.ZDINA219_SDA_InPut  zdina219.o
+    0x00004210   0x00004210   0x0000005c   Code   RO         3896    i.ZDINA219_SDA_OUT_Dir_CTL  zdina219.o
+    0x0000426c   0x0000426c   0x0000002c   Code   RO         4097    i.__0vsnprintf      mc_p.l(printfa.o)
+    0x00004298   0x00004298   0x0000002e   Code   RO         4169    i.__ARM_clz         mf_p.l(depilogue.o)
+    0x000042c6   0x000042c6   0x00000030   Code   RO         2829    i.__ARM_common_ll_muluu  adc_chk.o
+    0x000042f6   0x000042f6   0x0000001c   Code   RO          326    i.__ARM_common_switch8  system_fm33lg0xx.o
+    0x00004312   0x00004312   0x0000000e   Code   RO         4181    i.__scatterload_copy  mc_p.l(handlers.o)
+    0x00004320   0x00004320   0x00000002   Code   RO         4182    i.__scatterload_null  mc_p.l(handlers.o)
+    0x00004322   0x00004322   0x0000000e   Code   RO         4183    i.__scatterload_zeroinit  mc_p.l(handlers.o)
+    0x00004330   0x00004330   0x00000174   Code   RO         4099    i._fp_digits        mc_p.l(printfa.o)
+    0x000044a4   0x000044a4   0x000006ec   Code   RO         4100    i._printf_core      mc_p.l(printfa.o)
+    0x00004b90   0x00004b90   0x00000020   Code   RO         4101    i._printf_post_padding  mc_p.l(printfa.o)
+    0x00004bb0   0x00004bb0   0x0000002c   Code   RO         4102    i._printf_pre_padding  mc_p.l(printfa.o)
+    0x00004bdc   0x00004bdc   0x00000016   Code   RO         4103    i._snputc           mc_p.l(printfa.o)
+    0x00004bf2   0x00004bf2   0x00000002   PAD
+    0x00004bf4   0x00004bf4   0x00000010   Code   RO         2891    i.beidian_gongdian_OFF  gpio.o
+    0x00004c04   0x00004c04   0x00000010   Code   RO         2892    i.beidian_gongdian_On  gpio.o
+    0x00004c14   0x00004c14   0x00000014   Code   RO         2893    i.daowei_CLOSE_High  gpio.o
+    0x00004c28   0x00004c28   0x00000014   Code   RO         2894    i.daowei_CLOSE_Low  gpio.o
+    0x00004c3c   0x00004c3c   0x00000014   Code   RO         2895    i.daowei_OPEN_High  gpio.o
+    0x00004c50   0x00004c50   0x00000014   Code   RO         2896    i.daowei_OPEN_Low   gpio.o
+    0x00004c64   0x00004c64   0x00000010   Code   RO         2897    i.erji_dianya_CHK_CTRL_OFF  gpio.o
+    0x00004c74   0x00004c74   0x00000020   Code   RO         3389    i.find_banbenhao_xieyi  tongxin_xieyi_ctrl.o
+    0x00004c94   0x00004c94   0x00000020   Code   RO         3390    i.find_biaohao_xieyi  tongxin_xieyi_ctrl.o
+    0x00004cb4   0x00004cb4   0x00000020   Code   RO         3391    i.find_youci_xieyi  tongxin_xieyi_ctrl.o
+    0x00004cd4   0x00004cd4   0x00000016   Code   RO         2727    i.get_famen_1_dianya  adc_chk.o
+    0x00004cea   0x00004cea   0x00000016   Code   RO         2728    i.get_famen_2_dianya  adc_chk.o
+    0x00004d00   0x00004d00   0x00000016   Code   RO         2731    i.get_zhukongban_gongdian_dianya  adc_chk.o
+    0x00004d16   0x00004d16   0x00000002   PAD
+    0x00004d18   0x00004d18   0x00000290   Code   RO         3233    i.gongwei_jiance    test_list.o
+    0x00004fa8   0x00004fa8   0x0000000c   Code   RO         2899    i.guan_daowei       gpio.o
+    0x00004fb4   0x00004fb4   0x00000010   Code   RO         2900    i.huuoer_1_OFF      gpio.o
+    0x00004fc4   0x00004fc4   0x00000010   Code   RO         2902    i.huuoer_2_OFF      gpio.o
+    0x00004fd4   0x00004fd4   0x0000001c   Code   RO         3234    i.jiliang_fangshi_select  test_list.o
+    0x00004ff0   0x00004ff0   0x000000a8   Code   RO         3235    i.jiliang_maichong  test_list.o
+    0x00005098   0x00005098   0x0000000c   Code   RO         2904    i.kai_daowei        gpio.o
+    0x000050a4   0x000050a4   0x0000002c   Code   RO          199    i.main              main.o
+    0x000050d0   0x000050d0   0x00000020   Code   RO         3395    i.send_chaxun_xieyi  tongxin_xieyi_ctrl.o
+    0x000050f0   0x000050f0   0x00000020   Code   RO         3396    i.send_shanggao_xieyi  tongxin_xieyi_ctrl.o
+    0x00005110   0x00005110   0x00000028   Code   RO          201    i.test_Init         main.o
+    0x00005138   0x00005138   0x0000048c   Code   RO         3236    i.test_Loop_Func    test_list.o
+    0x000055c4   0x000055c4   0x00000024   Code   RO         3237    i.test_err_end_Func  test_list.o
+    0x000055e8   0x000055e8   0x000000dc   Code   RO         3238    i.test_jieguo_qingling  test_list.o
+    0x000056c4   0x000056c4   0x00000040   Code   RO         3240    i.test_start        test_list.o
+    0x00005704   0x00005704   0x00000020   Code   RO         3241    i.test_start_Init   test_list.o
+    0x00005724   0x00005724   0x0000001c   Code   RO         3242    i.test_testend      test_list.o
+    0x00005740   0x00005740   0x00000020   Code   RO         3397    i.yali_enable_xieyi  tongxin_xieyi_ctrl.o
+    0x00005760   0x00005760   0x00000010   Code   RO         2905    i.zhudian_dianya_CHK_CTRL_OFF  gpio.o
+    0x00005770   0x00005770   0x00000010   Code   RO         2907    i.zhudian_gongdian_OFF  gpio.o
+    0x00005780   0x00005780   0x00000010   Code   RO         2908    i.zhudian_gongdian_On  gpio.o
+    0x00005790   0x00005790   0x00000054   Data   RO         1123    .constdata          fm33lg0xx_fl_exti.o
+    0x000057e4   0x000057e4   0x00000020   Data   RO         4179    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0000570c, Size: 0x00001500, Max: 0x00008000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x00005804, Size: 0x00001500, Max: 0x00008000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x0000570c   0x00000006   Data   RW          202    .data               main.o
-    0x20000006   0x00005712   0x00000002   PAD
-    0x20000008   0x00005714   0x0000000c   Data   RW          300    .data               system_fm33lg0xx.o
-    0x20000014   0x00005720   0x00000002   Data   RW         3165    .data               led_ctrl.o
-    0x20000016   0x00005722   0x00000006   Data   RW         3196    .data               pc_xieyi_ctrl.o
-    0x2000001c   0x00005728   0x00000010   Data   RW         3243    .data               test_list.o
-    0x2000002c   0x00005738   0x00000007   Data   RW         3393    .data               tongxin_xieyi_ctrl.o
-    0x20000033   0x0000573f   0x00000001   PAD
-    0x20000034   0x00005740   0x0000000a   Data   RW         3495    .data               uart0.o
-    0x2000003e   0x0000574a   0x00000045   Data   RW         3605    .data               uart1.o
-    0x20000083   0x0000578f   0x00000001   PAD
-    0x20000084   0x00005790   0x00000008   Data   RW         3696    .data               uart3.o
-    0x2000008c   0x00005798   0x00000009   Data   RW         3776    .data               uart4.o
-    0x20000095   0x000057a1   0x00000003   Data   RW         3892    .data               zdina219.o
-    0x20000098   0x000057a4   0x00000001   Data   RW         4020    .data               exti.o
-    0x20000099   0x000057a5   0x00000003   PAD
+    0x20000000   0x00005804   0x00000006   Data   RW          202    .data               main.o
+    0x20000006   0x0000580a   0x00000002   PAD
+    0x20000008   0x0000580c   0x0000000c   Data   RW          300    .data               system_fm33lg0xx.o
+    0x20000014   0x00005818   0x00000002   Data   RW         3165    .data               led_ctrl.o
+    0x20000016   0x0000581a   0x00000006   Data   RW         3196    .data               pc_xieyi_ctrl.o
+    0x2000001c   0x00005820   0x00000010   Data   RW         3244    .data               test_list.o
+    0x2000002c   0x00005830   0x00000007   Data   RW         3399    .data               tongxin_xieyi_ctrl.o
+    0x20000033   0x00005837   0x00000001   PAD
+    0x20000034   0x00005838   0x0000000a   Data   RW         3501    .data               uart0.o
+    0x2000003e   0x00005842   0x00000045   Data   RW         3611    .data               uart1.o
+    0x20000083   0x00005887   0x00000001   PAD
+    0x20000084   0x00005888   0x00000008   Data   RW         3702    .data               uart3.o
+    0x2000008c   0x00005890   0x00000009   Data   RW         3782    .data               uart4.o
+    0x20000095   0x00005899   0x00000003   Data   RW         3898    .data               zdina219.o
+    0x20000098   0x0000589c   0x00000001   Data   RW         4026    .data               exti.o
+    0x20000099   0x0000589d   0x00000003   PAD
     0x2000009c        -       0x000000c8   Zero   RW         3195    .bss                pc_xieyi_ctrl.o
-    0x20000164        -       0x00000114   Zero   RW         3242    .bss                test_list.o
-    0x20000278        -       0x000000c8   Zero   RW         3392    .bss                tongxin_xieyi_ctrl.o
-    0x20000340        -       0x00000268   Zero   RW         3494    .bss                uart0.o
-    0x200005a8        -       0x00000268   Zero   RW         3604    .bss                uart1.o
-    0x20000810        -       0x00000268   Zero   RW         3695    .bss                uart3.o
-    0x20000a78        -       0x00000268   Zero   RW         3775    .bss                uart4.o
-    0x20000ce0        -       0x0000001e   Zero   RW         3891    .bss                zdina219.o
-    0x20000cfe   0x000057a5   0x00000002   PAD
+    0x20000164        -       0x00000114   Zero   RW         3243    .bss                test_list.o
+    0x20000278        -       0x000000c8   Zero   RW         3398    .bss                tongxin_xieyi_ctrl.o
+    0x20000340        -       0x00000268   Zero   RW         3500    .bss                uart0.o
+    0x200005a8        -       0x00000268   Zero   RW         3610    .bss                uart1.o
+    0x20000810        -       0x00000268   Zero   RW         3701    .bss                uart3.o
+    0x20000a78        -       0x00000268   Zero   RW         3781    .bss                uart4.o
+    0x20000ce0        -       0x0000001e   Zero   RW         3897    .bss                zdina219.o
+    0x20000cfe   0x0000589d   0x00000002   PAD
     0x20000d00        -       0x00000800   Zero   RW            1    STACK               startup_fm33lg0xx.o
 
 
@@ -2412,14 +2412,14 @@ Image component sizes
        772         36          0          0          0      39715   fm33lg0xx_fl_uart.o
       1088        124          0          0          0      29366   gpio.o
         72         16          0          2          0       1091   led_ctrl.o
-        80          0          0          6          0       2044   main.o
+        84          0          0          6          0       2048   main.o
        128          8          0          0          0      70688   mf_config.o
-      1048         28          0          6        200       2624   pc_xieyi_ctrl.o
+      1080         28          0          6        200       2640   pc_xieyi_ctrl.o
         28          8        192          0       2048        704   startup_fm33lg0xx.o
        804        102          0         12          0       2219   system_fm33lg0xx.o
-      2342        224          0         16        276      26726   test_list.o
+      2594        190          0         16        276      27215   test_list.o
        496         70          0          0          0      34946   time.o
-      1712        174          0          7        200       7199   tongxin_xieyi_ctrl.o
+      1672        160          0          7        200       6746   tongxin_xieyi_ctrl.o
        894        108          0         10        616      20515   uart0.o
        746        104          0         69        616       7290   uart1.o
        474         48          0          8        616       5633   uart3.o
@@ -2427,7 +2427,7 @@ Image component sizes
       1390         74          0          3         30      28093   zdina219.o
 
     ----------------------------------------------------------------------
-     17976       1458        308        156       5220     642257   Object Totals
+     18224       1410        308        156       5220     642313   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         10          0          0          7          2          0   (incl. Padding)
 
@@ -2484,15 +2484,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     21976       1596        308        156       5220     634017   Grand Totals
-     21976       1596        308        156       5220     634017   ELF Image Totals
-     21976       1596        308        156          0          0   ROM Totals
+     22224       1548        308        156       5220     634073   Grand Totals
+     22224       1548        308        156       5220     634073   ELF Image Totals
+     22224       1548        308        156          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                22284 (  21.76kB)
+    Total RO  Size (Code + RO Data)                22532 (  22.00kB)
     Total RW  Size (RW Data + ZI Data)              5376 (   5.25kB)
-    Total ROM Size (Code + RO Data + RW Data)      22440 (  21.91kB)
+    Total ROM Size (Code + RO Data + RW Data)      22688 (  22.16kB)
 
 ==============================================================================
 

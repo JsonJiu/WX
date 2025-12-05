@@ -71,6 +71,7 @@ struct Test_jieguo
 	uint8_t jiaoyanma[2];
 	//程序版本号
 	uint8_t banbenhao[2];
+	uint8_t yali_jiance;
 };
 extern struct Test_jieguo Test_jiejuo_jilu;
 
@@ -225,6 +226,7 @@ void test_start(void);
 //循环测试用
 void Test_loop_func(void);
 void jiliang_maichong(void);
+
 #endif
 
 

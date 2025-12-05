@@ -48,30 +48,55 @@ void test_start_Init()
 //工位检测
 void gongwei_jiance()
 {
-	if(FL_GPIO_GetInputPin(GPIOC,FL_GPIO_PIN_0)==0 && FL_GPIO_GetInputPin(GPIOD,FL_GPIO_PIN_12)==0&&FL_GPIO_GetInputPin(GPIOB,FL_GPIO_PIN_15)==0)
+	if(FL_GPIO_GetInputPin(GPIOC,FL_GPIO_PIN_0)==0 && FL_GPIO_GetInputPin(GPIOD,FL_GPIO_PIN_12)==0&&FL_GPIO_GetInputPin(GPIOB,FL_GPIO_PIN_15)==0&&FL_GPIO_GetInputPin(GPIOE,FL_GPIO_PIN_5)==0)
 	{
 		Test_jiejuo_jilu.gongwei = 0x00;
 	}
-	else if(FL_GPIO_GetInputPin(GPIOC,FL_GPIO_PIN_0)==0 && FL_GPIO_GetInputPin(GPIOD,FL_GPIO_PIN_12)==0&&FL_GPIO_GetInputPin(GPIOB,FL_GPIO_PIN_15)==1)
+	else if(FL_GPIO_GetInputPin(GPIOC,FL_GPIO_PIN_0)==0 && FL_GPIO_GetInputPin(GPIOD,FL_GPIO_PIN_12)==0&&FL_GPIO_GetInputPin(GPIOB,FL_GPIO_PIN_15)==0&&FL_GPIO_GetInputPin(GPIOE,FL_GPIO_PIN_5)==1)
 	{
 		Test_jiejuo_jilu.gongwei = 0x01;
 	}
-	else if(FL_GPIO_GetInputPin(GPIOC,FL_GPIO_PIN_0)==0 && FL_GPIO_GetInputPin(GPIOD,FL_GPIO_PIN_12)==1&&FL_GPIO_GetInputPin(GPIOB,FL_GPIO_PIN_15)==0)
+	else if(FL_GPIO_GetInputPin(GPIOC,FL_GPIO_PIN_0)==0 && FL_GPIO_GetInputPin(GPIOD,FL_GPIO_PIN_12)==0&&FL_GPIO_GetInputPin(GPIOB,FL_GPIO_PIN_15)==1&&FL_GPIO_GetInputPin(GPIOE,FL_GPIO_PIN_5)==0)
 	{
 		Test_jiejuo_jilu.gongwei = 0x02;
 	}
-	else if(FL_GPIO_GetInputPin(GPIOC,FL_GPIO_PIN_0)==0 && FL_GPIO_GetInputPin(GPIOD,FL_GPIO_PIN_12)==1&&FL_GPIO_GetInputPin(GPIOB,FL_GPIO_PIN_15)==1)
+	else if(FL_GPIO_GetInputPin(GPIOC,FL_GPIO_PIN_0)==0 && FL_GPIO_GetInputPin(GPIOD,FL_GPIO_PIN_12)==0&&FL_GPIO_GetInputPin(GPIOB,FL_GPIO_PIN_15)==1&&FL_GPIO_GetInputPin(GPIOE,FL_GPIO_PIN_5)==1)
 	{
 		Test_jiejuo_jilu.gongwei = 0x03;
 	}
-		else if(FL_GPIO_GetInputPin(GPIOC,FL_GPIO_PIN_0)==1 && FL_GPIO_GetInputPin(GPIOD,FL_GPIO_PIN_12)==0&&FL_GPIO_GetInputPin(GPIOB,FL_GPIO_PIN_15)==0)
+		else if(FL_GPIO_GetInputPin(GPIOC,FL_GPIO_PIN_0)==0 && FL_GPIO_GetInputPin(GPIOD,FL_GPIO_PIN_12)==1&&FL_GPIO_GetInputPin(GPIOB,FL_GPIO_PIN_15)==0&&FL_GPIO_GetInputPin(GPIOE,FL_GPIO_PIN_5)==0)
 	{
 		Test_jiejuo_jilu.gongwei = 0x04;
+	}
+			else if(FL_GPIO_GetInputPin(GPIOC,FL_GPIO_PIN_0)==0 && FL_GPIO_GetInputPin(GPIOD,FL_GPIO_PIN_12)==1&&FL_GPIO_GetInputPin(GPIOB,FL_GPIO_PIN_15)==0&&FL_GPIO_GetInputPin(GPIOE,FL_GPIO_PIN_5)==1)
+	{
+		Test_jiejuo_jilu.gongwei = 0x05;
+	}
+			else if(FL_GPIO_GetInputPin(GPIOC,FL_GPIO_PIN_0)==0 && FL_GPIO_GetInputPin(GPIOD,FL_GPIO_PIN_12)==1&&FL_GPIO_GetInputPin(GPIOB,FL_GPIO_PIN_15)==1&&FL_GPIO_GetInputPin(GPIOE,FL_GPIO_PIN_5)==0)
+	{
+		Test_jiejuo_jilu.gongwei = 0x06;
+	}
+			else if(FL_GPIO_GetInputPin(GPIOC,FL_GPIO_PIN_0)==0 && FL_GPIO_GetInputPin(GPIOD,FL_GPIO_PIN_12)==1&&FL_GPIO_GetInputPin(GPIOB,FL_GPIO_PIN_15)==1&&FL_GPIO_GetInputPin(GPIOE,FL_GPIO_PIN_5)==1)
+	{
+		Test_jiejuo_jilu.gongwei = 0x07;
+	}
+		else if(FL_GPIO_GetInputPin(GPIOC,FL_GPIO_PIN_0)==1 && FL_GPIO_GetInputPin(GPIOD,FL_GPIO_PIN_12)==0&&FL_GPIO_GetInputPin(GPIOB,FL_GPIO_PIN_15)==0&&FL_GPIO_GetInputPin(GPIOE,FL_GPIO_PIN_5)==0)
+	{
+		Test_jiejuo_jilu.gongwei = 0x08;
+	}
+			else if(FL_GPIO_GetInputPin(GPIOC,FL_GPIO_PIN_0)==1 && FL_GPIO_GetInputPin(GPIOD,FL_GPIO_PIN_12)==0&&FL_GPIO_GetInputPin(GPIOB,FL_GPIO_PIN_15)==0&&FL_GPIO_GetInputPin(GPIOE,FL_GPIO_PIN_5)==1)
+	{
+		Test_jiejuo_jilu.gongwei = 0x09;
 	}
 }
 
 void jiliang_fangshi_select(void)
 {
+	Test_jiejuo_jilu.jiliang_fangshi = youci;   //有磁
+	SENSOR_P_High();
+	SENSOR_D_High();
+	SENSOR_T_Low();
+	 /*
 	if(FL_GPIO_GetInputPin(GPIOE,FL_GPIO_PIN_5)==0)
 	{
 		Test_jiejuo_jilu.jiliang_fangshi = youci;   //有磁
@@ -88,7 +113,7 @@ void jiliang_fangshi_select(void)
 		//RS2103_POWER_ON();
 		//RS2103_Sel_wuci();
 	}
-
+   */
 }
 //测试结果初始化
 void test_jieguo_qingling()
@@ -297,8 +322,8 @@ void test_Loop_Func()
 				//测试合格，进入下一步
 				Test_quanju_canshu_L.time_softdelay_ms = 0;
 				//重置单步超时时间 10秒
-	      Test_quanju_canshu_L.danbu_chaoshishijian_ms = 20000;//主动上告时间20s
-				Test_liucheng_L = w_zhudong_shangg;
+	      Test_quanju_canshu_L.danbu_chaoshishijian_ms = 25000;//主动上告时间20s
+				Test_liucheng_L = w_famenceshi;
 			}
 			else
 			{
@@ -306,6 +331,25 @@ void test_Loop_Func()
 				Get_yali_Status();
 				//每2秒重发一次（这是远红外，所以可以）
 				Test_quanju_canshu_L.time_softdelay_ms = 3000;
+			}
+			break;
+							  //这板子有阀门
+		case w_famenceshi:
+			if(test_xieyi_jilu_Rec == w_get_famen_dongzuo)
+			{
+				test_xieyi_jilu_Rec = No_Receive;
+				//重置单步超时时间 10秒
+					Test_quanju_canshu_L.danbu_chaoshishijian_ms = 20000;
+				//等待3秒自动重发
+				Test_quanju_canshu_L.time_softdelay_ms = 0;
+				Test_liucheng_L = w_zhudong_shangg;
+			}
+			else
+			{
+				FM_Test_xieyi();
+				//等待3秒自动重发
+				Test_quanju_canshu_L.time_softdelay_ms = 3000;
+				
 			}
 			break;
 		case w_zhudong_shangg:
@@ -318,21 +362,7 @@ void test_Loop_Func()
 				Test_quanju_canshu_L.time_softdelay_ms = 2000;
 				//重置单步超时时间 20秒
 	      Test_quanju_canshu_L.danbu_chaoshishijian_ms = 20000;
-				if(Test_jiejuo_jilu.YaLi_Status == youyali)
-				{
-					Test_liucheng_L = w_yali_jiance;	
-				}
-				if(Test_jiejuo_jilu.YaLi_Status == wuyali)
-				{
-					if(Test_jiejuo_jilu.FM_Status == youfa)
-					{
-						Test_liucheng_L = w_famen_guan;
-					}
-					else if(Test_jiejuo_jilu.FM_Status == wufa)
-					{
-						Test_liucheng_L = w_chaxun_jieguo_first;
-					}
-				}
+        Test_liucheng_L = w_youcijiliang;
 //				if(Test_jiejuo_jilu.jiliang_fangshi == youci) //有磁
 //				{
 //					SENSOR_P_Low();
@@ -371,25 +401,7 @@ void test_Loop_Func()
 				Test_quanju_canshu_L.time_softdelay_ms = 2000;
 			}
 			break;
-		case w_famen_guan:
-			Test_jiejuo_jilu.FM1_dianya = get_famen_2_dianya();
-			if(test_xieyi_jilu_Rec == w_get_famen_dongzuo && Test_jiejuo_jilu.FM1_dianya>1800)
-			{
-				test_xieyi_jilu_Rec = No_Receive;
-				//测试合格，进入下一步，这里的延时是考虑到下一步通信一致导致的通信异常
-				Test_quanju_canshu_L.time_softdelay_ms = 2000;
-				//重置单步超时时间 10秒
-	      Test_quanju_canshu_L.danbu_chaoshishijian_ms = 20000;
-				Test_liucheng_L = w_youcijiliang;	
-			}
-			else
-			{
-				//发送协议
-				guanfa_xieyi();
-				//每2秒重发一次（这是远红外，所以可以）
-				Test_quanju_canshu_L.time_softdelay_ms = 2000;			
-			}
-			break;
+
 			case w_youcijiliang:
 				if(test_xieyi_jilu_Rec == w_get_jiliang_L) 
 			{
@@ -416,10 +428,10 @@ void test_Loop_Func()
 			if(test_xieyi_jilu_Rec == w_get_test_zhuanyong) 
 			{
 				test_xieyi_jilu_Rec = No_Receive;
-					//压力状态（协议里没加，改为温度）  映射到蓝牙
+					
 					if(Test_linshi_cunchushuju_L.L_yali_CHK == 1 && EXTIFlag == 1)
 					{
-						Test_jiejuo_jilu.lanya_jiance = 1;
+						Test_jiejuo_jilu.yali_jiance = 1;
 					}
 //					//这里第一次测有磁计量
 //					if(Test_jiejuo_jilu.jiliang_fangshi == youci&&Test_linshi_cunchushuju_L.L_ciganrao_CHK == 1 && Test_linshi_cunchushuju_L.L_jilianghuoer1 == 0 && Test_linshi_cunchushuju_L.L_jilianghuoer2 == 1)//有磁是和实际电平相反，因为协议给到的是状态
@@ -430,23 +442,13 @@ void test_Loop_Func()
 //						SENSOR_D_High();
 //						SENSOR_T_High();
 //					}
-						//第一次无磁计量，读取无磁计量值
-					if(Test_jiejuo_jilu.jiliang_fangshi == wuci && Test_linshi_cunchushuju_L.L_wucijiliang>0)
-					{
-						Test_jiejuo_jilu.jiliang_1_2=Test_linshi_cunchushuju_L.L_wucijiliang;
-					}
-					if(Test_linshi_cunchushuju_L.L_daowei1 == 0 && Test_linshi_cunchushuju_L.L_daowei2 == 1)
-					{
-						Test_jiejuo_jilu.FM_daowei_1 = 1;
-						guan_daowei();
-					}
 					//测试合格，进入下一步
 					Test_quanju_canshu_L.time_softdelay_ms = 1000;
 					//重置单步超时时间 10秒
 					Test_quanju_canshu_L.danbu_chaoshishijian_ms = 25000;//第二次查询结果时间10s
 					if(Test_jiejuo_jilu.FM_Status == youfa&&Test_linshi_cunchushuju_L.L_CSQ>0&&Test_linshi_cunchushuju_L.L_CSQ<99) //如果有阀
 					{
-						Test_liucheng_L = w_famen_kai;  
+						Test_liucheng_L = w_chaxun_jieguo_second;  
 					}
 					else
 					{
@@ -484,53 +486,11 @@ void test_Loop_Func()
 				//每2秒重发一次（这是远红外，所以可以）
 				Test_quanju_canshu_L.time_softdelay_ms = 2000;			
 			}
-		case w_famen_kai:
-			Test_jiejuo_jilu.FM2_dianya = get_famen_1_dianya();
-			if(test_xieyi_jilu_Rec == w_get_famen_dongzuo && Test_jiejuo_jilu.FM2_dianya>1800)
-			{
-				test_xieyi_jilu_Rec = No_Receive;
-				Test_jiejuo_jilu.FM = 1;
-				//测试合格，进入下一步，这里的延时是考虑到下一步通信一致导致的通信异常
-				Test_quanju_canshu_L.time_softdelay_ms = 0;
-				//重置单步超时时间 10秒
-	      Test_quanju_canshu_L.danbu_chaoshishijian_ms = 15000;
-				Test_liucheng_L = w_chaxun_jieguo_second;	
-			}
-			else
-			{
-				//发送协议
-				kaifa_xieyi();
-				//每2秒重发一次（这是远红外，所以可以）
-				Test_quanju_canshu_L.time_softdelay_ms = 2000;			
-			}
-			break;
 		case w_chaxun_jieguo_second: //第二次查询只负责校验有磁计量和阀门到位
 			if(test_xieyi_jilu_Rec == w_get_test_zhuanyong) 
 			{
 				test_xieyi_jilu_Rec = No_Receive;
 				
-//					if(Test_jiejuo_jilu.jiliang_fangshi == youci&&Test_linshi_cunchushuju_L.L_ciganrao_CHK == 0 && Test_linshi_cunchushuju_L.L_jilianghuoer1 == 1 && Test_linshi_cunchushuju_L.L_jilianghuoer2 == 0)
-//					{
-//						Test_jiejuo_jilu.jiliang_2_2 = 1;  //表示有磁计量高低平检测正常
-//					}
-//					if(Test_jiejuo_jilu.jiliang_1_1 == 1 && Test_jiejuo_jilu.jiliang_2_2 == 1)
-//					{
-//						Test_jiejuo_jilu.jiliang_jiance = 1;//如果第一次查询的有磁计量和第二次查询的有磁计量均正常，则计量正常
-//					}
-					if(Test_linshi_cunchushuju_L.L_daowei1 == 1 && Test_linshi_cunchushuju_L.L_daowei2 == 0)
-					{
-						Test_jiejuo_jilu.FM_daowei_2 = 1;
-					}
-					if(Test_jiejuo_jilu.FM_daowei_1 == 1 && Test_jiejuo_jilu.FM_daowei_2 == 1)
-					{
-						Test_jiejuo_jilu.FM_daowei = 1;
-						kai_daowei();
-						//guan_daowei();
-					}
-					if(Test_jiejuo_jilu.jiliang_fangshi == wuci && Test_linshi_cunchushuju_L.L_wucijiliang>0&&Test_linshi_cunchushuju_L.L_wucijiliang>Test_jiejuo_jilu.jiliang_1_2)
-					{
-						Test_jiejuo_jilu.jiliang_jiance = 1;
-					}
 					//对测试结果进行映射
 					//flash
 					Test_jiejuo_jilu.flash_jiance = Test_linshi_cunchushuju_L.L_flash_chk;
@@ -608,7 +568,7 @@ void test_Loop_Func()
 
 void jiliang_maichong(void)
 {
-    if(FL_GPIO_GetInputPin(GPIOE,FL_GPIO_PIN_5)==0 && jiliang_maichongjishu == 0)
+    if(jiliang_maichongjishu == 0)
     {
         // 使用12状态循环，对应真值表
         int state = jiou_jishu % 12;
@@ -684,3 +644,41 @@ void jiliang_maichong(void)
     }
 }
 
+//该事件为测试委托事件，在主函数中运行
+void Test_loop_func(void)
+{
+	if(Test_liucheng_L == w_famenceshi)
+	{
+		if(get_famen_1_dianya()>1000)
+		{
+			Test_jiejuo_jilu.FM1 |= 0x01; 
+			//检测到开阀后，到位反转
+			kai_daowei();
+		}
+		else
+		{
+			Test_jiejuo_jilu.FM1 |= 0x02;
+		}
+		if(get_famen_2_dianya()>1000)
+		{
+			//关阀
+			Test_jiejuo_jilu.FM2 |= 0x01; 
+			guan_daowei();
+		}
+		else
+		{
+			Test_jiejuo_jilu.FM2 |= 0x02;
+		}
+		if(Test_jiejuo_jilu.FM1==0x03&&Test_jiejuo_jilu.FM2==0x03)
+		{
+			Test_jiejuo_jilu.FM = 1;
+			if(get_famen_1_dianya()<1000&&get_famen_2_dianya()<1000)
+			{
+				Test_jiejuo_jilu.FM_daowei = 1;
+				Test_quanju_canshu_L.time_softdelay_ms = 0;
+				//校验完成后不管协议有没有解析都会结束
+				test_xieyi_jilu_Rec = w_get_famen_dongzuo;
+			}
+		}
+	}
+}

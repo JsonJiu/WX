@@ -81,6 +81,9 @@ xieyi2_fanhui[jishu_lenth++] = 0;	//无磁信号强度
 	jishu_lenth+=2;
 	memcpy(&xieyi2_fanhui[jishu_lenth],Test_jiejuo_jilu.banbenhao,2);//程序版本号
 	jishu_lenth+=2;
+		xieyi2_fanhui[jishu_lenth++] = 1;
+		Test_jiejuo_jilu.yali_jiance=1;
+	xieyi2_fanhui[jishu_lenth++] = Test_jiejuo_jilu.yali_jiance;
 	//对帧长度赋值
 	xieyi2_fanhui[2] = jishu_lenth+2;   //加上校验值和帧尾
 	xieyi2_fanhui[jishu_lenth] = 0;

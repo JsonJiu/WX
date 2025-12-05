@@ -61,8 +61,6 @@ int main(void)
     /* Initialize all configured peripherals */
     /* SHOULD BE KEPT!!! */
     test_Init();
-		//FL_DelayMs(5000);
-  //find_biaohao_xieyi();
     while(1)
     {
 			//Uart0_Tx_Send(test,2);
@@ -72,7 +70,7 @@ int main(void)
 			Uart0_Rx_rec();
 			LED_FLAG_LOOP();
 			test_Loop_Func();
-
+      Test_loop_func();
 
     }
 }
