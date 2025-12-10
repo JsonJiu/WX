@@ -1,0 +1,57 @@
+//CPF说明文档
+//1. 框架使用两个时间片，主频运行时1ms，低频运行时100ms。在初始化时候把User_Init()函数放在while(1)前。
+
+//2. 把User_TimerManage()和User_TaskManage()和LowPowerConsManage()放在while(1)里。这3个函数分别是定时器任务管理、单次任务管理和低功耗管理。
+
+//3. 使用User_StartTime()函数创建定时器任务，参数类型timeType可选主频和低频，timeNumber为定时器编号, timeLen为定时长度，单位为对应的时间片长度, CallBack为回调函数
+     当定时长度到达时，在User_TimerManage()函数就会执行这个CallBack函数。创建主频的定时器任务同时，框架内部会记录这个编号，系统将不会进入休眠，
+     只有在执行User_CloseTime()这个函数把相应的定时器编号关闭，系统判断没有主频定时器在执行才会进入低功耗模式
+//4. 定时器编号需要使用User_AskTimeNumber()函数申请，从1开始，每次申请一个，内部会自动加一。
+
+//5. 在timer_manage.h里MAXTIMERNUM默认为30，根据实际情况最大可设置为254，不能大于254，否则会出错，最大值不宜太大，占内存 
+示例如下
+
+
+#include "timer_manage.h"
+#include "user_manage.h"
+#include "task_manage.h"
+#include "lib_rs004.h"
+unsigned char test1ms, test100ms;
+void TASK1(void)
+{
+    for(int i=0; i<5; i++);
+    //User_CloseTime(test1ms);
+}
+void TASK2(void)
+{
+    for(int i=0; i<5; i++);
+    User_CloseTime(test100ms);
+}
+//分别创建一个主频和低频的任务
+void Example(void)
+{
+   test1ms = User_AskTimeNumber();    //定时器编号在使用前需申请，如果返回值为0，表明已超出最大定时器数    
+   if(test1ms!=0){
+       User_StartTime(MAINTIMER, test1ms, 1000, TASK1);
+   }
+   test100ms = User_AskTimeNumber();    //定时器编号在使用前需申请，如果返回值为0，表明已超出最大定时器数    
+   if(test100ms!=0){
+       User_StartTime(SUBTIMER, test100ms, 50, TASK2);
+   }
+}
+ 
+void main(void)
+{
+   MCU_IntEn();
+
+
+   User_Init();
+   Example();
+   while (1U)
+   {
+      User_TimerManage();
+      User_TaskManage();
+      LowPowerConsManage();
+   }
+   
+}
