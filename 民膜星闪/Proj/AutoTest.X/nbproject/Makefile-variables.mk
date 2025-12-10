@@ -1,0 +1,27 @@
+#
+# Generated - do not edit!
+#
+# NOCDDL
+#
+CND_BASEDIR=`pwd`
+# 128K_Hall_Outside configuration
+CND_ARTIFACT_DIR_128K_Hall_Outside=dist/128K_Hall_Outside/production
+CND_ARTIFACT_NAME_128K_Hall_Outside=AutoTest.X.production.hex
+CND_ARTIFACT_PATH_128K_Hall_Outside=dist/128K_Hall_Outside/production/AutoTest.X.production.hex
+CND_PACKAGE_DIR_128K_Hall_Outside=${CND_DISTDIR}/128K_Hall_Outside/package
+CND_PACKAGE_NAME_128K_Hall_Outside=autotest.x.tar
+CND_PACKAGE_PATH_128K_Hall_Outside=${CND_DISTDIR}/128K_Hall_Outside/package/autotest.x.tar
+# 128K_Hall_Onboard configuration
+CND_ARTIFACT_DIR_128K_Hall_Onboard=dist/128K_Hall_Onboard/production
+CND_ARTIFACT_NAME_128K_Hall_Onboard=AutoTest.X.production.hex
+CND_ARTIFACT_PATH_128K_Hall_Onboard=dist/128K_Hall_Onboard/production/AutoTest.X.production.hex
+CND_PACKAGE_DIR_128K_Hall_Onboard=${CND_DISTDIR}/128K_Hall_Onboard/package
+CND_PACKAGE_NAME_128K_Hall_Onboard=autotest.x.tar
+CND_PACKAGE_PATH_128K_Hall_Onboard=${CND_DISTDIR}/128K_Hall_Onboard/package/autotest.x.tar
+# 64K_Hall_Onboard configuration
+CND_ARTIFACT_DIR_64K_Hall_Onboard=dist/64K_Hall_Onboard/production
+CND_ARTIFACT_NAME_64K_Hall_Onboard=AutoTest.X.production.hex
+CND_ARTIFACT_PATH_64K_Hall_Onboard=dist/64K_Hall_Onboard/production/AutoTest.X.production.hex
+CND_PACKAGE_DIR_64K_Hall_Onboard=${CND_DISTDIR}/64K_Hall_Onboard/package
+CND_PACKAGE_NAME_64K_Hall_Onboard=autotest.x.tar
+CND_PACKAGE_PATH_64K_Hall_Onboard=${CND_DISTDIR}/64K_Hall_Onboard/package/autotest.x.tar
