@@ -1,0 +1,39 @@
+#ifndef __GPIO_H__
+#define __GPIO_H__
+#include "main.h"
+
+void INA219_IIC_INIT(void);
+void Others_GPIO_Init(void);
+void LED_On(void);
+void LED_Off(void);
+void zhudian_gongdian_On(void);
+void zhudian_gongdian_OFF(void);
+void beidian_gongdian_On(void);
+void beidian_gongdian_OFF(void);
+void zhudian_dianya_CHK_CTRL_ON(void);
+void zhudian_dianya_CHK_CTRL_OFF(void);
+void erji_dianya_CHK_CTRL_ON(void);
+void erji_dianya_CHK_CTRL_OFF(void);
+void VCC_dianya_CHK_CTRL_ON(void);
+void VCC_dianya_CHK_CTRL_OFF(void);
+void SY_dianya_CHK_CTRL_ON(void);
+void SY_dianya_CHK_CTRL_OFF(void);
+void Current_CHK_CTRL_ON(void);
+void Current_CHK_CTRL_OFF(void);
+void Uart_shineng_ON(void);
+void Uart_shineng_OFF(void);
+void ANJIAN_1_OFF(void);
+void ANJIAN_1_ON(void);
+void ANJIAN_2_OFF(void);
+void ANJIAN_2_ON(void);
+void ANJIAN_3_OFF(void);
+void ANJIAN_3_ON(void);
+void ANJIAN_4_OFF(void);
+void ANJIAN_4_ON(void);
+void dianlu_119_OFF(void);
+void dianlu_119_ON(void);
+void MF_EXTI_Config_Init(void);
+void GPIO_IRQHandler(void);
+int getv4state(void);
+#endif
+

@@ -1,0 +1,25 @@
+#ifndef _ZDINA219_H
+#define _ZDINA219_H
+#include "main.h"
+void INA219_IIC_GPIO_Init(void);
+/*
+///////SCL
+#define ZDINA219_SCL_PIN_OUT       (P1)
+#define ZDINA219_SCL_PIN_PORT      (0x10)
+#define ZDINA219_SCL_HI            (ZDINA219_SCL_PIN_OUT |= ZDINA219_SCL_PIN_PORT)
+#define ZDINA219_SCL_LO            (ZDINA219_SCL_PIN_OUT &= ~ZDINA219_SCL_PIN_PORT)
+#define ZDINA219_SCL(a)            (a)?(ZDINA219_SCL_HI):(ZDINA219_SCL_LO)
+///////SDA
+#define ZDINA219_SDA_PIN_OUT       (P1)
+#define ZDINA219_SDA_PIN_PORT      (0x08)
+#define ZDINA219_SDA_DIR           (PM1)
+#define ZDINA219_SDA_OUT_Dir       (ZDINA219_SDA_DIR &= ~ZDINA219_SDA_PIN_PORT)
+#define ZDINA219_SDA_IN_Dir        (ZDINA219_SDA_DIR |= ZDINA219_SDA_PIN_PORT);
+#define ZDINA219_SDA_HI            (ZDINA219_SDA_PIN_OUT |= ZDINA219_SDA_PIN_PORT)
+#define ZDINA219_SDA_LO            (ZDINA219_SDA_PIN_OUT &= ~ZDINA219_SDA_PIN_PORT)
+#define ZDINA219_SDA(a)            (a)?(ZDINA219_SDA_HI):(ZDINA219_SDA_LO)
+#define ZDINA219_SDA_InPut         (ZDINA219_SDA_PIN_OUT&ZDINA219_SDA_PIN_PORT)
+*/
+uint16_t Current_CHK_Func(void);
+
+#endif
