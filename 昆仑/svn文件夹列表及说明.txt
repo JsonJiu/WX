@@ -1,0 +1,15 @@
+文件夹列表及说明
+├─branches					分支管理，定制存放
+├─tags						阶段性发布版本存放
+└─trunk						主分支
+    ├─Codes					代码中心
+    │  ├─app				任务
+    │  ├─bsp				BSP文件夹
+    │  ├─CBB_CPF			框架
+    │  ├─drv				驱动
+    │  ├─general			通用函数
+    │  └─include.txt		IAR工程中所有include的路径维护
+    ├─Proj
+	│  ├─RS004ForGprs		工程文件
+	│  └─RS004ForIcCardRF	工程文件
+    └─simple				相关例程
