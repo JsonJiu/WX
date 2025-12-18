@@ -1,0 +1,16 @@
+$PROJ_DIR$\..\..\Codes
+$PROJ_DIR$\..\..\Codes\CBB_CPF
+$PROJ_DIR$\..\..\Codes\bsp\CBB_MCU_004_ForICCardRF
+$PROJ_DIR$\..\..\Codes\app
+$PROJ_DIR$\..\..\Codes\app\CntPay
+$PROJ_DIR$\..\..\Codes\app\DataSvr
+$PROJ_DIR$\..\..\Codes\app\Mnfcset
+$PROJ_DIR$\..\..\Codes\drv
+$PROJ_DIR$\..\..\Codes\drv\jmuart
+$PROJ_DIR$\..\..\Codes\drv\mei2c
+$PROJ_DIR$\..\..\Codes\general
+$PROJ_DIR$\..\..\Codes\app\RFm4463
+$PROJ_DIR$\..\..\Codes\drv\RFm4463
+$PROJ_DIR$\..\..\Codes\app\Prot
+$PROJ_DIR$\..\..\Codes\drv\ADC
+$PROJ_DIR$\..\..\Codes\app\PowerManage
