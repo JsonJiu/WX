@@ -1,0 +1,75 @@
+{
+  "C_Cpp_Runner.cCompilerPath": "gcc",
+  "C_Cpp_Runner.cppCompilerPath": "g++",
+  "C_Cpp_Runner.debuggerPath": "gdb",
+  "C_Cpp_Runner.cStandard": "",
+  "C_Cpp_Runner.cppStandard": "",
+  "C_Cpp_Runner.msvcBatchPath": "C:/Program Files/Microsoft Visual Studio/VR_NR/Community/VC/Auxiliary/Build/vcvarsall.bat",
+  "C_Cpp_Runner.useMsvc": false,
+  "C_Cpp_Runner.warnings": [
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Wshadow",
+    "-Wformat=2",
+    "-Wcast-align",
+    "-Wconversion",
+    "-Wsign-conversion",
+    "-Wnull-dereference"
+  ],
+  "C_Cpp_Runner.msvcWarnings": [
+    "/W4",
+    "/permissive-",
+    "/w14242",
+    "/w14287",
+    "/w14296",
+    "/w14311",
+    "/w14826",
+    "/w44062",
+    "/w44242",
+    "/w14905",
+    "/w14906",
+    "/w14263",
+    "/w44265",
+    "/w14928"
+  ],
+  "C_Cpp_Runner.enableWarnings": true,
+  "C_Cpp_Runner.warningsAsError": false,
+  "C_Cpp_Runner.compilerArgs": [],
+  "C_Cpp_Runner.linkerArgs": [],
+  "C_Cpp_Runner.includePaths": [
+    "c:\\Users\\huawei\\Desktop\\工作文件\\源码\\一体化流量计工装\\一体化流量计通讯板\\一体化流量计通信板测试程序\\Drivers\\CMSIS\\Inculde",
+    "c:\\Users\\huawei\\Desktop\\工作文件\\源码\\一体化流量计工装\\一体化流量计通讯板\\一体化流量计通信板测试程序\\Drivers\\CMSIS\\Device\\FM\\FM33xx\\Include",
+    "c:\\Users\\huawei\\Desktop\\工作文件\\源码\\一体化流量计工装\\一体化流量计通讯板\\一体化流量计通信板测试程序\\Drivers\\FM33LG0xx_FL_Driver\\Inc",
+    "c:\\Users\\huawei\\Desktop\\工作文件\\源码\\一体化流量计工装\\一体化流量计通讯板\\一体化流量计通信板测试程序\\MF-config\\Inc",
+    "c:\\Users\\huawei\\Desktop\\工作文件\\源码\\一体化流量计工装\\一体化流量计通讯板\\一体化流量计通信板测试程序\\Inc",
+    "c:\\Users\\huawei\\Desktop\\工作文件\\源码\\一体化流量计工装\\一体化流量计通讯板\\一体化流量计通信板测试程序\\MDK-ARM\\radio",
+    "D:\\Keil_v5\\ARM\\ARMCC\\include",
+    "c:\\Users\\huawei\\Desktop\\工作文件\\源码\\一体化流量计工装\\一体化流量计通讯板\\一体化流量计通信板测试程序\\Drivers\\CMSIS\\Device\\FM\\FM33xx\\Source\\Templates\\ARM",
+    "c:\\Users\\huawei\\Desktop\\工作文件\\源码\\一体化流量计工装\\一体化流量计通讯板\\一体化流量计通信板测试程序\\MF-config\\Src",
+    "c:\\Users\\huawei\\Desktop\\工作文件\\源码\\一体化流量计工装\\一体化流量计通讯板\\一体化流量计通信板测试程序\\Src",
+    "c:\\Users\\huawei\\Desktop\\工作文件\\源码\\一体化流量计工装\\一体化流量计通讯板\\一体化流量计通信板测试程序\\Drivers\\CMSIS\\Device\\FM\\FM33xx\\Source",
+    "c:\\Users\\huawei\\Desktop\\工作文件\\源码\\一体化流量计工装\\一体化流量计通讯板\\一体化流量计通信板测试程序\\Drivers\\FM33LG0xx_FL_Driver\\Src"
+  ],
+  "C_Cpp_Runner.includeSearch": [
+    "*",
+    "**/*"
+  ],
+  "C_Cpp_Runner.excludeSearch": [
+    "**/build",
+    "**/build/**",
+    "**/.*",
+    "**/.*/**",
+    "**/.vscode",
+    "**/.vscode/**"
+  ],
+  "C_Cpp_Runner.useAddressSanitizer": false,
+  "C_Cpp_Runner.useUndefinedSanitizer": false,
+  "C_Cpp_Runner.useLeakSanitizer": false,
+  "C_Cpp_Runner.showCompilationTime": false,
+  "C_Cpp_Runner.useLinkTimeOptimization": false,
+  "C_Cpp_Runner.msvcSecureNoWarnings": false,
+  "files.associations": {
+    "stdint.h": "c"
+  }
+}
