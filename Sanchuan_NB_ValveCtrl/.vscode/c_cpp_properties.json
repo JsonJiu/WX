@@ -1,0 +1,70 @@
+{
+  "configurations": [
+    {
+      "name": "Linux",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "${workspaceFolder}/Inc",
+        "${workspaceFolder}/Src",
+        "${workspaceFolder}/MF-config/Inc",
+        "${workspaceFolder}/Drivers/CMSIS/Device/FM/FM33xx/Include",
+        "${workspaceFolder}/Drivers/FM33LG0xx_FL_Driver/Inc"
+      ],
+      "defines": [
+        "DEBUG",
+        "USE_HAL_DRIVER",
+        "FM33LG04X",
+        "FM33LG0XX",
+        "__GNUC__",
+        "ARM_MATH_CM0PLUS",
+        "__CORTEX_M",
+        "__FPU_PRESENT=0",
+        "__MPU_PRESENT=0"
+      ],
+      "compilerPath": "/usr/bin/arm-none-eabi-gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "gcc-arm",
+      "compilerArgs": [
+        "-mcpu=cortex-m0plus",
+        "-mthumb",
+        "-mfloat-abi=soft",
+        "-std=gnu11",
+        "-Wno-implicit-function-declaration"
+      ]
+    },
+    {
+      "name": "Win32",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "${workspaceFolder}/Inc",
+        "${workspaceFolder}/MF-config/Inc",
+        "${workspaceFolder}/Drivers/CMSIS/Device/FM/FM33xx/Include",
+        "${workspaceFolder}/Drivers/FM33LG0xx_FL_Driver/Inc"
+      ],
+      "defines": [
+        "DEBUG",
+        "USE_HAL_DRIVER",
+        "FM33LG04X",
+        "FM33LG0XX",
+        "__GNUC__",
+        "ARM_MATH_CM0PLUS",
+        "__CORTEX_M",
+        "__FPU_PRESENT=0",
+        "__MPU_PRESENT=0"
+      ],
+      "compilerPath": "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin/arm-none-eabi-gcc.exe",
+      "cStandard": "gnu11",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "gcc-arm",
+      "compilerArgs": [
+        "-mcpu=cortex-m0plus",
+        "-mthumb",
+        "-mfloat-abi=soft",
+        "-std=gnu11",
+        "-Wno-implicit-function-declaration"
+      ]
+    }
+  ],
+  "version": 4
+}

@@ -1,0 +1,253 @@
+[
+  // === BUILD COMMANDS (Linux) ===
+  // 常规构建 (Ctrl+B) - Linux构建
+  {
+    "key": "ctrl+b",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Build: CMake Default (Linux)",
+    "when": "isLinux"
+  },
+  // 快速构建 (Ctrl+Shift+B) - Linux构建
+  {
+    "key": "ctrl+shift+b",
+    "command": "workbench.action.tasks.runTask",
+    "args": "⚡ Fast Incremental Build (Linux)",
+    "when": "isLinux"
+  },
+  // === BUILD COMMANDS (Windows) ===
+  // 常规构建 (Ctrl+B) - Windows默认构建
+  {
+    "key": "ctrl+b",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Build: CMake Default (Windows)",
+    "when": "isWindows"
+  },
+  // 快速增量构建 (Ctrl+Shift+B) - 最常用的快速构建
+  {
+    "key": "ctrl+shift+b",
+    "command": "workbench.action.tasks.runTask",
+    "args": "⚡ Fast Incremental Build (Windows)",
+    "when": "isWindows"
+  },
+  // === FLASH COMMANDS (Linux) ===
+  // 烧录到MCU (Ctrl+Alt+F) - Linux烧录
+  {
+    "key": "ctrl+alt+f",
+    "command": "workbench.action.tasks.runTask",
+    "args": "PyOCD: Flash (Linux)",
+    "when": "isLinux"
+  },
+  // 快速构建+烧录 (Ctrl+Shift+F) - Linux一键构建并烧录
+  {
+    "key": "ctrl+shift+f",
+    "command": "workbench.action.tasks.runTask",
+    "args": "🚀 Fast Build + Flash (Linux)",
+    "when": "isLinux"
+  },
+  // === FLASH COMMANDS (Windows) ===
+  // 烧录到MCU (Ctrl+Alt+F) - 稳定烧录 (12MHz)
+  {
+    "key": "ctrl+alt+f",
+    "command": "workbench.action.tasks.runTask",
+    "args": "PyOCD: Flash (Windows)",
+    "when": "isWindows"
+  },
+  // 高速烧录 (Ctrl+Alt+Shift+F) - 高速烧录 (8MHz + no-wait)
+  {
+    "key": "ctrl+alt+shift+f",
+    "command": "workbench.action.tasks.runTask",
+    "args": "🚀 PyOCD: High-Speed Flash (Windows)",
+    "when": "isWindows"
+  },
+  // 快速构建+烧录 (Ctrl+Shift+F) - 一键构建并烧录
+  {
+    "key": "ctrl+shift+f",
+    "command": "workbench.action.tasks.runTask",
+    "args": "🚀 Fast Build + Flash (Windows)",
+    "when": "isWindows"
+  },
+  // === ERASE & CLEAN COMMANDS (Linux) ===
+  // 擦除MCU闪存 (Ctrl+Alt+E) - Linux
+  {
+    "key": "ctrl+alt+e",
+    "command": "workbench.action.tasks.runTask",
+    "args": "PyOCD: Erase (Linux)",
+    "when": "isLinux"
+  },
+  // 清理构建 (Ctrl+Alt+R) - Linux清理编译文件
+  {
+    "key": "ctrl+alt+r",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Build: Clean (Linux)",
+    "when": "isLinux"
+  },
+  // 清理快速构建 (Ctrl+Shift+R) - Linux清理快速构建目录
+  {
+    "key": "ctrl+shift+r",
+    "command": "workbench.action.tasks.runTask",
+    "args": "🧹 Fast Build: Clean (Linux)",
+    "when": "isLinux"
+  },
+  // === ERASE & CLEAN COMMANDS (Windows) ===
+  // 擦除MCU闪存 (Ctrl+Alt+E)
+  {
+    "key": "ctrl+alt+e",
+    "command": "workbench.action.tasks.runTask",
+    "args": "PyOCD: Erase (Windows)",
+    "when": "isWindows"
+  },
+  // 清理构建 (Ctrl+Alt+R) - 清理编译文件
+  {
+    "key": "ctrl+alt+r",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Build: Clean (Windows)",
+    "when": "isWindows"
+  },
+  // 清理快速构建 (Ctrl+Shift+R) - Windows清理快速构建目录
+  {
+    "key": "ctrl+shift+r",
+    "command": "workbench.action.tasks.runTask",
+    "args": "🧹 Fast Build: Clean (Windows)",
+    "when": "isWindows"
+  },
+  // === DEBUG COMMANDS (Linux) ===
+  // 启动GDB服务器 (Ctrl+Alt+G) - Linux调试准备
+  {
+    "key": "ctrl+alt+g",
+    "command": "workbench.action.tasks.runTask",
+    "args": "PyOCD: Start GDB Server (Linux)",
+    "when": "isLinux"
+  },
+  // === DEBUG COMMANDS (Windows) ===
+  // 启动GDB服务器 (Ctrl+Alt+G) - 调试准备
+  {
+    "key": "ctrl+alt+g",
+    "command": "workbench.action.tasks.runTask",
+    "args": "PyOCD: Start GDB Server (Windows)",
+    "when": "isWindows"
+  },
+  // === CMAKE CONFIGURATION (Linux) ===
+  // 配置CMake (Ctrl+Alt+C) - Linux重新配置项目
+  {
+    "key": "ctrl+alt+c",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Build: Configure (Linux)",
+    "when": "isLinux"
+  },
+  // 快速配置CMake (Ctrl+Alt+Q) - Linux快速配置Release模式
+  {
+    "key": "ctrl+alt+q",
+    "command": "workbench.action.tasks.runTask",
+    "args": "🚀 Fast Build: Configure (Linux)",
+    "when": "isLinux"
+  },
+  // === CMAKE CONFIGURATION (Windows) ===
+  // 配置CMake (Ctrl+Alt+C) - 重新配置项目
+  {
+    "key": "ctrl+alt+c",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Build: Configure (Windows)",
+    "when": "isWindows"
+  },
+  // 快速配置CMake (Ctrl+Alt+Q) - 快速配置Release模式
+  {
+    "key": "ctrl+alt+q",
+    "command": "workbench.action.tasks.runTask",
+    "args": "🚀 Fast Build: Configure (Windows)",
+    "when": "isWindows"
+  },
+  // === MEMORY ANALYSIS (Linux) ===
+  // 内存使用分析 (Ctrl+Alt+M) - Linux查看内存占用
+  {
+    "key": "ctrl+alt+m",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Memory Usage Analysis (Linux)",
+    "when": "isLinux"
+  },
+  // 快速内存分析 (Ctrl+Shift+M) - Linux快速构建的内存分析
+  {
+    "key": "ctrl+shift+m",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Fast Memory Usage Analysis (Linux)",
+    "when": "isLinux"
+  },
+  // === MEMORY ANALYSIS (Windows) ===
+  // 内存使用分析 (Ctrl+Alt+M) - 查看内存占用
+  {
+    "key": "ctrl+alt+m",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Memory Usage Analysis (Windows)",
+    "when": "isWindows"
+  },
+  // 快速内存分析 (Ctrl+Shift+M) - 快速构建的内存分析
+  {
+    "key": "ctrl+shift+m",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Fast Memory Usage Analysis (Windows)",
+    "when": "isWindows"
+  },
+  // === UI & WORKFLOW SHORTCUTS ===
+  // 切换侧边栏 (Ctrl+Shift+S)
+  {
+    "key": "ctrl+shift+s",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  // 打开终端 (Ctrl+Shift+T) - 快速访问终端
+  {
+    "key": "ctrl+alt+t",
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+  // 查看问题面板 (Ctrl+Alt+P) - 查看编译错误
+  {
+    "key": "ctrl+alt+p",
+    "command": "workbench.actions.view.problems"
+  },
+  // === VIM MODE COMPATIBILITY (保留原有的Vim配置) ===
+  // Vim模式下的光标移动
+  {
+    "key": "ctrl+shift+down",
+    "command": "cursorMove",
+    "args": {
+      "to": "down",
+      "by": "wrappedLine",
+      "value": 1
+    },
+    "when": "vim.active && !inDebugRepl"
+  },
+  // Vim模式下跳转到定义
+  {
+    "key": "ctrl+]",
+    "command": "editor.action.revealDefinition",
+    "when": "vim.active"
+  },
+  // === ADVANCED WORKFLOW SHORTCUTS ===
+  // 强制停止当前任务 (Ctrl+Alt+K) - 紧急停止
+  {
+    "key": "ctrl+alt+k",
+    "command": "workbench.action.tasks.terminate"
+  },
+  // 重启任务 (Ctrl+Alt+T) - 重启当前任务
+  {
+    "key": "ctrl+shift+t",
+    "command": "workbench.action.tasks.restartTask"
+  },
+  // 显示任务列表 (Ctrl+Alt+L) - 查看所有可用任务
+  {
+    "key": "ctrl+alt+l",
+    "command": "workbench.action.tasks.runTask"
+  },
+  // MCU 复位 (Ctrl+R) - PyOCD 复位 MCU (Windows)
+  {
+    "key": "ctrl+r",
+    "command": "workbench.action.tasks.runTask",
+    "args": "🔄 PyOCD: Reset (Windows)",
+    "when": "isWindows"
+  },
+  // MCU 复位 (Ctrl+R) - PyOCD 复位 MCU (Linux)
+  {
+    "key": "ctrl+r",
+    "command": "workbench.action.tasks.runTask",
+    "args": "🔄 PyOCD: Reset (Linux)",
+    "when": "isLinux"
+  }
+]

@@ -1,0 +1,72 @@
+{
+    "files.associations": {
+        "tongxin_xieyi_ctrl.h": "c",
+        "led_ctrl.h": "c",
+        "adc_chk.h": "c",
+        "main.h": "c",
+        "typeinfo": "c",
+        "*.h": "c",
+        "*.c": "c",
+        "*.s": "asm",
+        "*.ld": "ld",
+        "*.bak": "c"
+    },
+    "C_Cpp.errorSquiggles": "enabled",
+    "C_Cpp.intelliSenseEngine": "default",
+    "C_Cpp.autocomplete": "default",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+
+    // 🎯 保存时自动格式化设置
+    "editor.formatOnSave": true,
+    "editor.formatOnType": false,
+    "editor.formatOnPaste": true,
+    "editor.defaultFormatter": "xaver.clang-format",
+
+    // C/C++ 格式化设置
+    "C_Cpp.formatting": "clangFormat",
+    "C_Cpp.clang_format_style": "file",
+    "C_Cpp.clang_format_fallbackStyle": "LLVM",
+    // Make sure C/C++ files use clang-format as default formatter explicitly
+    "[c]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+
+    // 禁用clangd以避免与Microsoft C/C++扩展冲突
+    "clangd.enabled": false,
+    "clangd.onConfigChanged": "ignore",
+
+    // Vim 扩展配置 - 正确配置剪贴板
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-c>": false,
+        "<C-v>": false,
+        "<C-x>": false
+    },
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.leader": "<space>",
+
+    "cortex-debug.enableTelemetry": false,
+    "cortex-debug.showRTOS": false,
+    "cmake.buildDirectory": "${workspaceFolder}/build",
+    "cmake.configureOnOpen": false,
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "cortex-debug.armToolchainPath": "/usr/bin",
+    "cortex-debug.gdbPath": "/usr/bin/gdb-multiarch",
+    "cortex-debug.variableUseNaturalFormat": false,
+    "idf.pythonInstallPath": "/usr/bin/python3"
+}

@@ -1,0 +1,97 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    // ✅ 推荐：使用内置 PyOCD 支持，Live Watch 可能工作
+    {
+      "name": "FM33LG0XX Debug (PyOCD)",
+      "cwd": "${workspaceFolder}",
+      "executable": "${workspaceFolder}/build/Sanchuan_NB_ValveCtrl.elf",
+      "request": "launch",
+      "type": "cortex-debug",
+      "runToEntryPoint": "main",
+      "servertype": "pyocd",
+      "targetId": "fm33lg04x",
+      "cmsisPack": "${workspaceFolder}/VscodeGcc/FMSH.FM33LG0XX_DFP.3.0.1.pack",
+      "windows": {
+        "armToolchainPath": "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin",
+        "gdbPath": "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin/arm-none-eabi-gdb.exe",
+        "serverpath": "D:/work/python/pyocd/venv/Scripts/pyocd.exe",
+        "preLaunchTask": "Build: CMake Default (Windows)"
+      },
+      "linux": {
+        "armToolchainPath": "/usr/bin",
+        "gdbPath": "/usr/bin/gdb-multiarch",
+        "preLaunchTask": "Build: CMake Default (Linux)"
+      },
+      "showDevDebugOutput": "raw",
+      "svdFile": "${workspaceFolder}/VscodeGcc/FM33LG0XX.svd",
+      "liveWatch": {
+        "enabled": true,
+        "samplesPerSecond": 4
+      },
+      "swoConfig": {
+        "enabled": false
+      }
+    },
+    // 备用：手动启动 GDB Server 时使用
+    {
+      "name": "FM33LG0XX Debug (External Server)",
+      "cwd": "${workspaceFolder}",
+      "executable": "${workspaceFolder}/build/Sanchuan_NB_ValveCtrl.elf",
+      "request": "launch",
+      "type": "cortex-debug",
+      "runToEntryPoint": "main",
+      "servertype": "external",
+      "gdbTarget": "localhost:3333",
+      "windows": {
+        "armToolchainPath": "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin",
+        "gdbPath": "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin/arm-none-eabi-gdb.exe",
+        "preLaunchTask": "Build: CMake Default (Windows)"
+      },
+      "linux": {
+        "armToolchainPath": "/usr/bin",
+        "gdbPath": "/usr/bin/gdb-multiarch",
+        "preLaunchTask": "Build: CMake Default (Linux)"
+      },
+      "showDevDebugOutput": "raw",
+      "svdFile": "${workspaceFolder}/VscodeGcc/FM33LG0XX.svd",
+      "swoConfig": {
+        "enabled": false
+      },
+      "overrideLaunchCommands": [
+        "monitor reset halt",
+        "load",
+        "monitor reset halt"
+      ],
+      "postLaunchCommands": [
+        "monitor reset halt"
+      ],
+      "overrideRestartCommands": [
+        "monitor reset halt",
+        "load"
+      ]
+    },
+    {
+      "name": "FM33LG0XX Attach",
+      "cwd": "${workspaceFolder}",
+      "executable": "${workspaceFolder}/build/Sanchuan_NB_ValveCtrl.elf",
+      "request": "attach",
+      "type": "cortex-debug",
+      "servertype": "external",
+      "gdbTarget": "localhost:3333",
+      "windows": {
+        "armToolchainPath": "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin",
+        "gdbPath": "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin/arm-none-eabi-gdb.exe"
+      },
+      "linux": {
+        "armToolchainPath": "/usr/bin",
+        "gdbPath": "/usr/bin/gdb-multiarch"
+      },
+      "showDevDebugOutput": "raw",
+      "svdFile": "${workspaceFolder}/VscodeGcc/FM33LG0XX.svd",
+      "overrideAttachCommands": [
+        "monitor reset halt"
+      ]
+    }
+  ]
+}
