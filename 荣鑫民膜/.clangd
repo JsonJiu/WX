@@ -1,0 +1,12 @@
+CompileFlags:
+  CompilationDatabase: build
+  Remove:
+    - -m*
+    - -f*
+    - --specs=*
+    - -specs=*
+
+Diagnostics:
+  UnusedIncludes: None
+  Suppress:
+    - builtin_definition

@@ -1,0 +1,157 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/Inc",
+                "${workspaceFolder}/Inc/Peripheral",
+                "${workspaceFolder}/Inc/Peripheral/**",
+                "${workspaceFolder}/Src",
+                "${workspaceFolder}/Src/Peripheral",
+                "${workspaceFolder}/Src/Peripheral/**",
+                "${workspaceFolder}/Src/Test",
+                "${workspaceFolder}/Src/Test/NB_18_DiaphragmGas_Test",
+                "${workspaceFolder}/Src/Test/Domestic_water_meter_Test",
+                "${workspaceFolder}/MF-config/Inc",
+                "${workspaceFolder}/Components/**",
+                "${workspaceFolder}/Components/TimeManager",
+                "${workspaceFolder}/Components/LedIndicator",
+                "${workspaceFolder}/Components/ValveCtrl",
+                "${workspaceFolder}/Components/Protocol",
+                "${workspaceFolder}/Components/Protocol/PC",
+                "${workspaceFolder}/Components/Protocol/PC/**",
+                "${workspaceFolder}/Components/Protocol/Device",
+                "${workspaceFolder}/Components/Protocol/Device/**",
+                "${workspaceFolder}/Components/Protocol/PC/Domestic/DiaphragmGasMeters",
+                "${workspaceFolder}/Components/EasyLogger/easylogger/inc",
+                "${workspaceFolder}/Drivers/CMSIS/Device/FM/FM33xx/Include",
+                "${workspaceFolder}/Drivers/FM33LG0xx_FL_Driver/Inc",
+                "C:/Program Files (x86)/Arm/GNU Toolchain/mingw-w64-i686-arm-none-eabi/**"
+            ],
+            "defines": [
+                "DEBUG",
+                "USE_HAL_DRIVER",
+                "FM33LG048",
+                "FM33LG0XX",
+                "__GNUC__",
+                "__GNUC_MINOR__",
+                "__GNUC_PATCHLEVEL__",
+                "__arm__",
+                "__ARM_ARCH_6M__",
+                "__ARMEL__",
+                "__THUMBEL__",
+                "__thumb__",
+                "__thumb2__",
+                "ARM_MATH_CM0PLUS",
+                "__CORTEX_M",
+                "__CM0PLUS_REV=0",
+                "__FPU_PRESENT=0",
+                "__MPU_PRESENT=0",
+                "__NVIC_PRIO_BITS=2",
+                "__Vendor_SysTickConfig=0",
+                "__STDC__=1",
+                "__STDC_VERSION__=201112L",
+                "__STDC_HOSTED__=0"
+            ],
+            "compilerPath": "/usr/bin/arm-none-eabi-gcc",
+            "cStandard": "gnu11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-arm",
+            "compilerArgs": [
+                "-mcpu=cortex-m0plus",
+                "-mthumb",
+                "-mfloat-abi=soft",
+                "-std=gnu11",
+                "-Wno-implicit-function-declaration"
+            ],
+            "configurationProvider": "ms-vscode.cmake-tools",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/**"
+                ],
+                "limitSymbolsToIncludedHeaders": false,
+                "databaseFilename": "${workspaceFolder}/.vscode/browse.vc.db"
+            },
+            "forcedInclude": [
+                "${workspaceFolder}/Drivers/CMSIS/Device/FM/FM33xx/Include/core_cm0plus.h"
+            ]
+        },
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/Inc",
+                "${workspaceFolder}/Inc/Peripheral",
+                "${workspaceFolder}/Inc/Peripheral/**",
+                "${workspaceFolder}/Src",
+                "${workspaceFolder}/Src/Peripheral",
+                "${workspaceFolder}/Src/Peripheral/**",
+                "${workspaceFolder}/Src/Test",
+                "${workspaceFolder}/Src/Test/NB_18_DiaphragmGas_Test",
+                "${workspaceFolder}/Src/Test/Domestic_water_meter_Test",
+                "${workspaceFolder}/MF-config/Inc",
+                "${workspaceFolder}/Components/**",
+                "${workspaceFolder}/Components/TimeManager",
+                "${workspaceFolder}/Components/LedIndicator",
+                "${workspaceFolder}/Components/ValveCtrl",
+                "${workspaceFolder}/Components/Protocol",
+                "${workspaceFolder}/Components/Protocol/PC",
+                "${workspaceFolder}/Components/Protocol/PC/**",
+                "${workspaceFolder}/Components/Protocol/Device",
+                "${workspaceFolder}/Components/Protocol/Device/**",
+                "${workspaceFolder}/Components/Protocol/PC/Domestic/DiaphragmGasMeters",
+                "${workspaceFolder}/Components/EasyLogger/easylogger/inc",
+                "${workspaceFolder}/Drivers/CMSIS/Device/FM/FM33xx/Include",
+                "${workspaceFolder}/Drivers/FM33LG0xx_FL_Driver/Inc"
+            ],
+            "defines": [
+                "DEBUG",
+                "USE_HAL_DRIVER",
+                "FM33LG048",
+                "FM33LG0XX",
+                "__GNUC__",
+                "__GNUC_MINOR__",
+                "__GNUC_PATCHLEVEL__",
+                "__arm__",
+                "__ARM_ARCH_6M__",
+                "__ARMEL__",
+                "__THUMBEL__",
+                "__thumb__",
+                "__thumb2__",
+                "ARM_MATH_CM0PLUS",
+                "__CORTEX_M",
+                "__CM0PLUS_REV=0",
+                "__FPU_PRESENT=0",
+                "__MPU_PRESENT=0",
+                "__NVIC_PRIO_BITS=2",
+                "__Vendor_SysTickConfig=0",
+                "__STDC__=1",
+                "__STDC_VERSION__=201112L",
+                "__STDC_HOSTED__=0"
+            ],
+            "compilerPath": "C:/Program Files (x86)/Arm/GNU Toolchain/mingw-w64-i686-arm-none-eabi/bin/arm-none-eabi-gcc.exe",
+            "cStandard": "gnu11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-arm",
+            "compilerArgs": [
+                "-mcpu=cortex-m0plus",
+                "-mthumb",
+                "-mfloat-abi=soft",
+                "-std=gnu11",
+                "-Wno-implicit-function-declaration"
+            ],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/**"
+                ],
+                "limitSymbolsToIncludedHeaders": false,
+                "databaseFilename": "${workspaceFolder}/.vscode/browse.vc.db"
+            },
+            "forcedInclude": [
+                "${workspaceFolder}/Drivers/CMSIS/Device/FM/FM33xx/Include/core_cm0plus.h"
+            ]
+        }
+    ],
+    "version": 4
+}

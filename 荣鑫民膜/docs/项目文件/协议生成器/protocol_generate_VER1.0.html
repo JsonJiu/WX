@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>协议表格生成器</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+        
+        .generate-btn {
+            display: block;
+            margin: 0 auto 30px;
+            background: linear-gradient(45deg, #27ae60, #219653);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(39, 174, 96, 0.3);
+        }
+        
+        .preview-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        
+        .preview-title {
+            font-size: 1.3em;
+            color: #34495e;
+            margin-bottom: 15px;
+            font-weight: bold;
+            border-left: 4px solid #3498db;
+            padding-left: 12px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            font-size: 12px;
+        }
+        
+        th {
+            background: #34495e;
+            color: white;
+            padding: 10px 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        tr:hover {
+            background: #f1f2f6;
+        }
+        
+        .instruction-header {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            color: #155724;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 协议表格生成器</h1>
+        <button class="generate-btn" onclick="generateODS()">🚀 生成完整协议ODS表格</button>
+        
+        <div id="status"></div>
+        
+        <div class="preview-section">
+            <div class="preview-title">📋 表格内容预览</div>
+            <div id="preview"></div>
+        </div>
+    </div>
+
+    <script>
+        // 协议数据定义
+        const protocolData = {
+            "开始测试指令": [
+                ["序号", "内容", "长度", "说明", "数据格式"],
+                [0, "0x68", "1B", "固定帧头，固定值", "HEX"],
+                [1, "0xAA", "1B", "固定值，开始测试指示位", "HEX"],
+                [2, "0x19", "1B", "整包长度,25个字节", "HEX"],
+                [3, "0x00", "1B", "第1工位", "HEX"],
+                [4, "0x00", "1B", "表具编号第1字节", "BCD"],
+                [5, "0x01", "1B", "表具编号第2字节", "BCD"],
+                [6, "0x80", "1B", "表具编号第3字节", "BCD"],
+                [7, "0x12", "1B", "表具编号第4字节", "BCD"],
+                [8, "0x60", "1B", "表具编号第5字节", "BCD"],
+                [9, "0x21", "1B", "表具编号第6字节", "BCD"],
+                [10, "0x00", "1B", "表具类型 00机械表 01超声波表", "HEX"],
+                [11, "0x01", "1B", "表计类型 默认1", "HEX"],
+                [12, "0x01", "1B", "换能器类型 默认1", "HEX"],
+                [13, "0x00", "1B", "管径低字节", "HEX"],
+                [14, "0x0F", "1B", "管径高字节，默认15", "HEX"],
+                [15, "0x00", "1B", "阀门类型 0无阀门 1无线阀 2两线阀", "HEX"],
+                [16, "0x00", "1B", "模组类型 0代表NB 1代表CAT.1", "HEX"],
+                [17, "0x00", "1B", "超声波管径低字节", "HEX"],
+                [18, "0x0F", "1B", "超声波管径高字节，默认15", "HEX"],
+                [19, "0x00", "1B", "超声波阀门类型 0无阀门", "HEX"],
+                [20, "0x14", "1B", "超声波阀门超时时间，默认20秒", "HEX"],
+                [21, "0x00", "1B", "超声波阀门最大电流低字节", "HEX"],
+                [22, "0xE6", "1B", "超声波阀门最大电流高字节，默认230", "HEX"],
+                [23, "0x59", "1B", "和校验", "HEX"],
+                [24, "0x16", "1B", "固定帧尾", "HEX"]
+            ],
+            "工装返回开始测试指令": [
+                ["序号", "内容", "长度", "说明", "数据格式"],
+                [0, "0x68", "1B", "固定帧头", "HEX"],
+                [1, "0xAB", "1B", "已开始测试指示位", "HEX"],
+                [2, "0x06", "1B", "整包长度，6个字节", "HEX"],
+                [3, "0x00", "1B", "第1工位", "HEX"],
+                [4, "0x13", "1B", "和校验", "HEX"],
+                [5, "0x16", "1B", "固定帧尾", "HEX"]
+            ],
+            "查询结果指令": [
+                ["序号", "内容", "长度", "说明", "数据格式"],
+                [0, "0x68", "1B", "固定帧头", "HEX"],
+                [1, "0xAC", "1B", "查询测试结果指示位", "HEX"],
+                [2, "0x06", "1B", "整包长度，6个字节", "HEX"],
+                [3, "0x00", "1B", "第1工位", "HEX"],
+                [4, "0x1A", "1B", "和校验", "HEX"],
+                [5, "0x16", "1B", "固定帧尾", "HEX"]
+            ],
+            "工装返回查询结果指令": [
+                ["序号", "内容", "长度", "说明", "数据格式"],
+                [0, "0x68", "1B", "固定帧头", "HEX"],
+                [1, "0xAD", "1B", "返回测试结果指示位", "HEX"],
+                [2, "0x67", "1B", "整包长度，103个字节", "HEX"],
+                [3, "0x00", "1B", "第1工位", "HEX"],
+                [4, "0x10", "1B", "主电电压（供电电压）低字节", "HEX"],
+                [5, "0x0E", "1B", "主电电压（供电电压）高字节", "HEX"],
+                [6, "0x10", "1B", "主电电压（协议获取）低字节", "HEX"],
+                [7, "0x0E", "1B", "主电电压（协议获取）高字节", "HEX"],
+                [8, "0x0A", "1B", "静态功耗低字节", "HEX"],
+                [9, "0x00", "1B", "静态功耗高字节", "HEX"],
+                [10, "0x0A", "1B", "满水功耗低字节", "HEX"],
+                [11, "0x00", "1B", "满水功耗高字节", "HEX"],
+                [12, "0x0A", "1B", "走水功耗低字节", "HEX"],
+                [13, "0x00", "1B", "走水功耗高字节", "HEX"],
+                [14, "0x10", "1B", "备电/NB/扩频电压（供电电压）低字节", "HEX"],
+                [15, "0x0E", "1B", "备电/NB/扩频电压（供电电压）高字节", "HEX"],
+                [16, "0x10", "1B", "备电/NB/扩频电压（协议获取）低字节", "HEX"],
+                [17, "0x0E", "1B", "备电/NB/扩频电压（协议获取）高字节", "HEX"],
+                [18, "0x0A", "1B", "备电/NB/扩频功耗低字节", "HEX"],
+                [19, "0x00", "1B", "备电/NB/扩频功耗高字节", "HEX"],
+                [20, "0x01", "1B", "蓝牙检测 0异常 1正常", "HEX"],
+                [21, "0x01", "1B", "flash检测 0异常 1正常", "HEX"],
+                [22, "0x01", "1B", "计量检测 0异常 1正常", "HEX"],
+                [23, "0x01", "1B", "红外通信 0异常 1正常", "HEX"],
+                [24, "0x38", "1B", "IMEI号第1位", "ASCII"],
+                [25, "0x38", "1B", "IMEI号第2位", "ASCII"],
+                [26, "0x38", "1B", "IMEI号第3位", "ASCII"],
+                [27, "0x38", "1B", "IMEI号第4位", "ASCII"],
+                [28, "0x38", "1B", "IMEI号第5位", "ASCII"],
+                [29, "0x38", "1B", "IMEI号第6位", "ASCII"],
+                [30, "0x38", "1B", "IMEI号第7位", "ASCII"],
+                [31, "0x38", "1B", "IMEI号第8位", "ASCII"],
+                [32, "0x38", "1B", "IMEI号第9位", "ASCII"],
+                [33, "0x38", "1B", "IMEI号第10位", "ASCII"],
+                [34, "0x38", "1B", "IMEI号第11位", "ASCII"],
+                [35, "0x38", "1B", "IMEI号第12位", "ASCII"],
+                [36, "0x38", "1B", "IMEI号第13位", "ASCII"],
+                [37, "0x38", "1B", "IMEI号第14位", "ASCII"],
+                [38, "0x38", "1B", "IMEI号第15位", "ASCII"],
+                [39, "0x37", "1B", "IMSI号第1位", "ASCII"],
+                [40, "0x37", "1B", "IMSI号第2位", "ASCII"],
+                [41, "0x37", "1B", "IMSI号第3位", "ASCII"],
+                [42, "0x37", "1B", "IMSI号第4位", "ASCII"],
+                [43, "0x37", "1B", "IMSI号第5位", "ASCII"],
+                [44, "0x37", "1B", "IMSI号第6位", "ASCII"],
+                [45, "0x37", "1B", "IMSI号第7位", "ASCII"],
+                [46, "0x37", "1B", "IMSI号第8位", "ASCII"],
+                [47, "0x37", "1B", "IMSI号第9位", "ASCII"],
+                [48, "0x37", "1B", "IMSI号第10位", "ASCII"],
+                [49, "0x37", "1B", "IMSI号第11位", "ASCII"],
+                [50, "0x37", "1B", "IMSI号第12位", "ASCII"],
+                [51, "0x37", "1B", "IMSI号第13位", "ASCII"],
+                [52, "0x37", "1B", "IMSI号第14位", "ASCII"],
+                [53, "0x37", "1B", "IMSI号第15位", "ASCII"],
+                [54, "0x36", "1B", "ICCID第1位", "ASCII"],
+                [55, "0x36", "1B", "ICCID第2位", "ASCII"],
+                [56, "0x36", "1B", "ICCID第3位", "ASCII"],
+                [57, "0x36", "1B", "ICCID第4位", "ASCII"],
+                [58, "0x36", "1B", "ICCID第5位", "ASCII"],
+                [59, "0x36", "1B", "ICCID第6位", "ASCII"],
+                [60, "0x36", "1B", "ICCID第7位", "ASCII"],
+                [61, "0x36", "1B", "ICCID第8位", "ASCII"],
+                [62, "0x36", "1B", "ICCID第9位", "ASCII"],
+                [63, "0x36", "1B", "ICCID第10位", "ASCII"],
+                [64, "0x36", "1B", "ICCID第11位", "ASCII"],
+                [65, "0x36", "1B", "ICCID第12位", "ASCII"],
+                [66, "0x36", "1B", "ICCID第13位", "ASCII"],
+                [67, "0x36", "1B", "ICCID第14位", "ASCII"],
+                [68, "0x36", "1B", "ICCID第15位", "ASCII"],
+                [69, "0x36", "1B", "ICCID第16位", "ASCII"],
+                [70, "0x36", "1B", "ICCID第17位", "ASCII"],
+                [71, "0x36", "1B", "ICCID第18位", "ASCII"],
+                [72, "0x36", "1B", "ICCID第19位", "ASCII"],
+                [73, "0x36", "1B", "ICCID第20位", "ASCII"],
+                [74, "0x19", "1B", "信号强度", "HEX"],
+                [75, "0x01", "1B", "阀门 0异常 1正常", "HEX"],
+                [76, "0x01", "1B", "阀门到位 0异常 1正常", "HEX"],
+                [77, "0x01", "1B", "EEPROM 0异常 1正常", "HEX"],
+                [78, "0x10", "1B", "GP30电压低字节", "HEX"],
+                [79, "0x0E", "1B", "GP30电压高字节", "HEX"],
+                [80, "0x33", "1B", "LoRa EUI第1字节", "ASCII"],
+                [81, "0x66", "1B", "LoRa EUI第2字节", "ASCII"],
+                [82, "0x35", "1B", "LoRa EUI第3字节", "ASCII"],
+                [83, "0x33", "1B", "LoRa EUI第4字节", "ASCII"],
+                [84, "0x30", "1B", "LoRa EUI第5字节", "ASCII"],
+                [85, "0x31", "1B", "LoRa EUI第6字节", "ASCII"],
+                [86, "0x32", "1B", "LoRa EUI第7字节", "ASCII"],
+                [87, "0x62", "1B", "LoRa EUI第8字节", "ASCII"],
+                [88, "0x30", "1B", "LoRa EUI第9字节", "ASCII"],
+                [89, "0x30", "1B", "LoRa EUI第10字节", "ASCII"],
+                [90, "0x30", "1B", "LoRa EUI第11字节", "ASCII"],
+                [91, "0x30", "1B", "LoRa EUI第12字节", "ASCII"],
+                [92, "0x31", "1B", "LoRa EUI第13字节", "ASCII"],
+                [93, "0x62", "1B", "LoRa EUI第14字节", "ASCII"],
+                [94, "0x33", "1B", "LoRa EUI第15字节", "ASCII"],
+                [95, "0x33", "1B", "LoRa EUI第16字节", "ASCII"],
+                [96, "0x01", "1B", "强磁检测 0异常 1正常", "HEX"],
+                [97, "0x01", "1B", "开盖检测 0异常 1正常", "HEX"],
+                [98, "0x01", "1B", "GPS模组状态 0异常 1正常", "HEX"],
+                [99, "0x00", "1B", "无磁模组信号强度", "HEX"],
+                [100, "0x00", "1B", "海外用程序校验码低字节", "HEX"],
+                [101, "0x00", "1B", "海外用程序校验码高字节", "HEX"],
+                [102, "0x00", "1B", "程序版本号低字节", "HEX"],
+                [103, "0x00", "1B", "程序版本号高字节", "HEX"],
+                [104, "0x00", "1B", "水温检测 0异常 1正常", "HEX"],
+                [105, "0x01", "1B", "压强检测 0异常 1正常", "HEX"],
+                [106, "0xC4", "1B", "和校验", "HEX"],
+                [107, "0x16", "1B", "固定帧尾", "HEX"]
+            ]
+        };
+
+        function generatePreview() {
+            const previewDiv = document.getElementById('preview');
+            let html = '';
+            
+            Object.keys(protocolData).forEach(instructionName => {
+                html += `<h3 class="instruction-header">${instructionName}</h3>`;
+                html += '<table>';
+                
+                protocolData[instructionName].forEach((row, index) => {
+                    if (index === 0) {
+                        html += '<tr>';
+                        row.forEach(cell => {
+                            html += `<th>${cell}</th>`;
+                        });
+                        html += '</tr>';
+                    } else {
+                        html += '<tr>';
+                        row.forEach(cell => {
+                            html += `<td>${cell}</td>`;
+                        });
+                        html += '</tr>';
+                    }
+                });
+                
+                html += '</table>';
+            });
+            
+            previewDiv.innerHTML = html;
+        }
+
+        function generateODS() {
+            try {
+                // 创建新的工作簿
+                const wb = XLSX.utils.book_new();
+                
+                // 为每个指令类型创建工作表
+                Object.keys(protocolData).forEach(instructionName => {
+                    const ws = XLSX.utils.aoa_to_sheet(protocolData[instructionName]);
+                    
+                    // 设置列宽
+                    const colWidths = [
+                        {wch: 8},  // 序号
+                        {wch: 12}, // 内容
+                        {wch: 8},  // 长度
+                        {wch: 40}, // 说明
+                        {wch: 12}  // 数据格式
+                    ];
+                    ws['!cols'] = colWidths;
+                    
+                    // 添加工作表到工作簿
+                    XLSX.utils.book_append_sheet(wb, ws, instructionName);
+                });
+                
+                // 创建一个总览工作表
+                const summaryData = [
+                    ["指令类型", "指令代码", "长度(字节)", "功能说明"],
+                    ["开始测试指令", "0x68 AA", "25", "发送给工装，开始测试"],
+                    ["工装返回开始测试指令", "0x68 AB", "6", "工装确认开始测试"],
+                    ["查询结果指令", "0x68 AC", "6", "查询测试结果"],
+                    ["工装返回查询结果指令", "0x68 AD", "103", "返回详细测试结果"],
+                    ["", "", "", ""],
+                    ["额外检测项目", "", "", ""],
+                    ["触摸按键", "", "", "人工目检"],
+                    ["液晶显示", "", "", "人工目检"],
+                    ["LoRa检测", "", "", "需勾选，根据EUI查询信号强度"],
+                    ["", "", "", ""],
+                    ["数据格式说明", "", "", ""],
+                    ["HEX", "", "", "16进制格式"],
+                    ["BCD", "", "", "BCD码格式"],
+                    ["ASCII", "", "", "ASCII字符格式"],
+                    ["小端模式", "", "", "低字节在前，高字节在后"]
+                ];
+                
+                const summaryWs = XLSX.utils.aoa_to_sheet(summaryData);
+                summaryWs['!cols'] = [
+                    {wch: 20},
+                    {wch: 15},
+                    {wch: 12},
+                    {wch: 30}
+                ];
+                
+                XLSX.utils.book_append_sheet(wb, summaryWs, "总览说明", 0);
+                
+                // 生成ODS文件
+                const wbout = XLSX.write(wb, {
+                    bookType: 'ods',
+                    type: 'array'
+                });
+                
+                // 下载文件
+                const blob = new Blob([wbout], {type: 'application/vnd.oasis.opendocument.spreadsheet'});
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = '完整测试指令协议表格.ods';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                document.getElementById('status').innerHTML = 
+                    '<div class="status">✅ ODS表格生成成功！文件已开始下载。</div>';
+                
+            } catch (error) {
+                console.error('生成ODS文件失败:', error);
+                document.getElementById('status').innerHTML = 
+                    '<div class="status" style="background:#f8d7da; border-color:#f5c6cb; color:#721c24;">❌ 生成失败: ' + error.message + '</div>';
+            }
+        }
+        
+        // 页面加载时生成预览
+        window.onload = function() {
+            generatePreview();
+        };
+    </script>
+</body>
+</html>

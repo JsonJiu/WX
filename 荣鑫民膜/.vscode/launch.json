@@ -1,0 +1,97 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "FM33LG0XX Debug (External Server) - Linux",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/NB_IOT_Gas_Meter_Board_18.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "runToEntryPoint": "main",
+            "servertype": "external",
+            "gdbTarget": "localhost:3333",
+            "armToolchainPath": "/usr/bin",
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "preLaunchTask": "Build: CMake Default (Linux)",
+            "showDevDebugOutput": "raw",
+            "svdFile": "${workspaceFolder}/VscodeGcc/FM33LG0XX.svd",
+            "swoConfig": {
+                "enabled": false
+            },
+            "overrideLaunchCommands": [
+                "monitor reset halt",
+                "load",
+                "monitor reset halt"
+            ],
+            "postLaunchCommands": [
+                "monitor reset halt"
+            ],
+            "overrideRestartCommands": [
+                "monitor reset halt",
+                "load"
+            ]
+        },
+        {
+            "name": "FM33LG0XX Attach - Linux",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/WaterMeterTestProgram.elf",
+            "request": "attach",
+            "type": "cortex-debug",
+            "servertype": "external",
+            "gdbTarget": "localhost:3333",
+            "armToolchainPath": "/usr/bin",
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "showDevDebugOutput": "raw",
+            "svdFile": "${workspaceFolder}/VscodeGcc/FM33LG0XX.svd",
+            "overrideAttachCommands": [
+                "monitor reset halt"
+            ]
+        },
+        {
+            "name": "FM33LG0XX Debug (External Server)",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/WaterMeterTestProgram.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "runToEntryPoint": "main",
+            "servertype": "external",
+            "gdbTarget": "localhost:3333",
+            "armToolchainPath": "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin",
+            "gdbPath": "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin/arm-none-eabi-gdb.exe",
+            "preLaunchTask": "Build: CMake Default (Windows)",
+            "showDevDebugOutput": "raw",
+            "svdFile": "${workspaceFolder}/VscodeGcc/FM33LG0XX.svd",
+            "swoConfig": {
+                "enabled": false
+            },
+            "overrideLaunchCommands": [
+                "monitor reset halt",
+                "load",
+                "monitor reset halt"
+            ],
+            "postLaunchCommands": [
+                "monitor reset halt"
+            ],
+            "overrideRestartCommands": [
+                "monitor reset halt",
+                "load"
+            ]
+        },
+        {
+            "name": "FM33LG0XX Attach",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/WaterMeterTestProgram.elf",
+            "request": "attach",
+            "type": "cortex-debug",
+            "servertype": "external",
+            "gdbTarget": "localhost:3333",
+            "armToolchainPath": "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin",
+            "gdbPath": "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin/arm-none-eabi-gdb.exe",
+            "showDevDebugOutput": "raw",
+            "svdFile": "${workspaceFolder}/VscodeGcc/FM33LG0XX.svd",
+            "overrideAttachCommands": [
+                "monitor reset halt"
+            ]
+        }
+    ]
+}
