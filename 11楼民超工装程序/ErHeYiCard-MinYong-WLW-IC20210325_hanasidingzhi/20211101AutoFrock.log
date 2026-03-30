@@ -1,0 +1,2035 @@
+[2021-11-01]
+14:55:34 730911 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为1=销毁定时器
+14:55:34 730911 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为2=销毁定时器
+14:55:34 730911 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为3=销毁定时器
+14:55:34 730911 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为4=销毁定时器
+14:55:50 746963 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)开始调用=MES检测
+14:55:50 747135 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)结束调用=MES检测
+14:55:50 747135 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### MES:【<ProductInfo>
+  <taskinfo>
+    <bill_no>2110001435H1</bill_no>
+    <So_name> </So_name>
+    <product_desc>UWLWn-B5,,串口,6.0V,,中文,两线,电信流量,,温压补偿,浙江电信杭州分公司NB卡</product_desc>
+    <product_name>民用NB-IoT物联网超声波燃气表主控板(杭州电信定制版)</product_name>
+    <product_code>202020301-0184</product_code>
+  </taskinfo>
+</ProductInfo>】【<Test_info>
+  <test_standard_array dim="[14]">
+    <test_item>
+      <ti_id>C-AJJC</ti_id>
+      <ti_name>按键检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-BDGH</ti_id>
+      <ti_name>备电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-EEPROM</ti_id>
+      <ti_name>EEPROM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ESAM</ti_id>
+      <ti_name>ESAM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-FKJC</ti_id>
+      <ti_name>阀控检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-GD</ti_id>
+      <ti_name>光电检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-LED</ti_id>
+      <ti_name>LED检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-UMU</ti_id>
+      <ti_name>UMU检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-WYJC</ti_id>
+      <ti_name>温压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-XSJC</ti_id>
+      <ti_name>显示检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDDY</ti_id>
+      <ti_name>主电电压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDGH</ti_id>
+      <ti_name>主电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-BHSZ</ti_id>
+      <ti_name>表号设置</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-NBXHQD</ti_id>
+      <ti_name>NB物联网信号强度</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>32</ti_upper>
+      <ti_lower>5</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+  </test_standard_array>
+</Test_info>】=条码检测
+14:55:50 747151 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55010A007316】=启动检测
+14:55:50 747151 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为1=启动定时器
+14:55:55 752158 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:56:00 757166 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:56:05 762174 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:56:10 767181 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:56:15 772189 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:56:20 777196 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:56:25 782204 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:56:30 787212 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:56:35 792219 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:56:40 797227 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:56:45 802235 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:56:50 807242 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:56:55 812250 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:57:00 817258 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:57:05 822265 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:57:10 827273 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:57:15 832280 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:57:20 837288 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:57:25 842296 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:57:30 847303 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:57:35 852311 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:57:40 857319 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:57:46 862326 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:57:51 867334 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:57:56 872341 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:58:01 877349 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:58:06 882357 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:58:11 887364 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:58:16 892372 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:58:21 897380 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:58:26 902387 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:58:31 907395 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:58:36 912403 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:58:36 912449 发送:【68AB55020B007516,0,8】=失败
+14:58:41 917410 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:58:41 917441 发送:【68AB55020B007516,0,8】=失败
+14:58:46 922418 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:58:46 922449 发送:【68AB55020B007516,0,8】=失败
+14:58:47 924243 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为1=销毁定时器
+14:58:47 924243 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为2=销毁定时器
+14:58:47 924243 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为3=销毁定时器
+14:58:47 924243 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为4=销毁定时器
+14:58:50 926786 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为1=销毁定时器
+14:58:50 926786 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为2=销毁定时器
+14:58:50 926786 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为3=销毁定时器
+14:58:50 926786 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为4=销毁定时器
+14:58:53 929391 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)开始调用=MES检测
+14:58:53 929500 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)结束调用=MES检测
+14:58:53 929500 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### MES:【<ProductInfo>
+  <taskinfo>
+    <bill_no>2110001435H1</bill_no>
+    <So_name> </So_name>
+    <product_desc>UWLWn-B5,,串口,6.0V,,中文,两线,电信流量,,温压补偿,浙江电信杭州分公司NB卡</product_desc>
+    <product_name>民用NB-IoT物联网超声波燃气表主控板(杭州电信定制版)</product_name>
+    <product_code>202020301-0184</product_code>
+  </taskinfo>
+</ProductInfo>】【<Test_info>
+  <test_standard_array dim="[14]">
+    <test_item>
+      <ti_id>C-AJJC</ti_id>
+      <ti_name>按键检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-BDGH</ti_id>
+      <ti_name>备电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-EEPROM</ti_id>
+      <ti_name>EEPROM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ESAM</ti_id>
+      <ti_name>ESAM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-FKJC</ti_id>
+      <ti_name>阀控检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-GD</ti_id>
+      <ti_name>光电检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-LED</ti_id>
+      <ti_name>LED检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-UMU</ti_id>
+      <ti_name>UMU检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-WYJC</ti_id>
+      <ti_name>温压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-XSJC</ti_id>
+      <ti_name>显示检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDDY</ti_id>
+      <ti_name>主电电压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDGH</ti_id>
+      <ti_name>主电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-BHSZ</ti_id>
+      <ti_name>表号设置</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-NBXHQD</ti_id>
+      <ti_name>NB物联网信号强度</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>32</ti_upper>
+      <ti_lower>5</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+  </test_standard_array>
+</Test_info>】=条码检测
+14:58:53 929500 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55010A007316】=启动检测
+14:58:53 929500 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为1=启动定时器
+14:58:58 934508 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:59:03 939516 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:59:08 944523 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:59:13 949531 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:59:18 954538 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:59:23 959546 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:59:28 964554 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:59:33 969561 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:59:38 974569 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:59:43 979577 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:59:48 984584 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:59:53 989592 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+14:59:58 994599 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:00:03 999607 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:00:08 1004615 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:00:13 1009622 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:00:18 1014630 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:00:23 1019638 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:00:28 1024645 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:00:33 1029653 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:00:38 1034661 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:00:43 1039668 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:00:48 1044676 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:00:53 1049683 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:00:58 1054691 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:01:03 1059699 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:01:08 1064706 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:01:13 1069714 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:01:18 1074722 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:01:23 1079729 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:01:28 1084737 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:06:15 1372122 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为1=销毁定时器
+15:06:15 1372122 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为2=销毁定时器
+15:06:15 1372122 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为3=销毁定时器
+15:06:15 1372137 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为4=销毁定时器
+15:06:22 1379251 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)开始调用=MES检测
+15:06:23 1379392 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)结束调用=MES检测
+15:06:23 1379392 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### MES:【<ProductInfo>
+  <taskinfo>
+    <bill_no>2110001435H1</bill_no>
+    <So_name> </So_name>
+    <product_desc>UWLWn-B5,,串口,6.0V,,中文,两线,电信流量,,温压补偿,浙江电信杭州分公司NB卡</product_desc>
+    <product_name>民用NB-IoT物联网超声波燃气表主控板(杭州电信定制版)</product_name>
+    <product_code>202020301-0184</product_code>
+  </taskinfo>
+</ProductInfo>】【<Test_info>
+  <test_standard_array dim="[14]">
+    <test_item>
+      <ti_id>C-AJJC</ti_id>
+      <ti_name>按键检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-BDGH</ti_id>
+      <ti_name>备电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-EEPROM</ti_id>
+      <ti_name>EEPROM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ESAM</ti_id>
+      <ti_name>ESAM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-FKJC</ti_id>
+      <ti_name>阀控检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-GD</ti_id>
+      <ti_name>光电检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-LED</ti_id>
+      <ti_name>LED检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-UMU</ti_id>
+      <ti_name>UMU检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-WYJC</ti_id>
+      <ti_name>温压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-XSJC</ti_id>
+      <ti_name>显示检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDDY</ti_id>
+      <ti_name>主电电压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDGH</ti_id>
+      <ti_name>主电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-BHSZ</ti_id>
+      <ti_name>表号设置</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-NBXHQD</ti_id>
+      <ti_name>NB物联网信号强度</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>32</ti_upper>
+      <ti_lower>5</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+  </test_standard_array>
+</Test_info>】=条码检测
+15:06:23 1379392 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55010A007316】=启动检测
+15:06:23 1379392 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为1=启动定时器
+15:06:28 1384399 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:06:33 1389407 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:06:38 1394414 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:06:43 1399422 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:06:48 1404430 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:06:53 1409437 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:06:58 1414445 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:07:03 1419453 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:07:08 1424460 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:07:13 1429468 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:07:18 1434475 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:07:23 1439483 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:07:28 1444491 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:07:33 1449498 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:07:38 1454506 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:07:43 1459514 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:07:48 1464521 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:07:53 1469529 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:07:58 1474537 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:08:03 1479544 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:08:08 1484552 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:08:13 1489559 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:08:18 1494567 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:08:23 1499575 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:08:28 1504582 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:08:33 1509590 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:08:38 1514598 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:08:43 1519605 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:08:48 1524613 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:08:53 1529621 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:08:58 1534628 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:09:03 1539636 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:09:08 1544643 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:09:13 1549651 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:09:18 1554659 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:09:23 1559666 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:09:28 1564674 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:09:33 1569682 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:09:38 1574689 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:09:43 1579697 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:09:48 1584704 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:09:53 1589712 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:09:58 1594720 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:10:03 1599727 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:10:08 1604735 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:10:13 1609743 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:10:18 1614750 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:10:23 1619758 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:10:28 1624766 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:10:33 1629773 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:10:38 1634781 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:10:43 1639788 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:10:48 1644796 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:10:53 1649804 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:10:58 1654811 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:11:03 1659819 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:11:07 1663579 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)开始调用=MES检测
+15:11:07 1663719 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)结束调用=MES检测
+15:11:07 1663719 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### MES:【<ProductInfo>
+  <taskinfo>
+    <bill_no>2110001435H1</bill_no>
+    <So_name> </So_name>
+    <product_desc>UWLWn-B5,,串口,6.0V,,中文,两线,电信流量,,温压补偿,浙江电信杭州分公司NB卡</product_desc>
+    <product_name>民用NB-IoT物联网超声波燃气表主控板(杭州电信定制版)</product_name>
+    <product_code>202020301-0184</product_code>
+  </taskinfo>
+</ProductInfo>】【<Test_info>
+  <test_standard_array dim="[14]">
+    <test_item>
+      <ti_id>C-AJJC</ti_id>
+      <ti_name>按键检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-BDGH</ti_id>
+      <ti_name>备电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-EEPROM</ti_id>
+      <ti_name>EEPROM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ESAM</ti_id>
+      <ti_name>ESAM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-FKJC</ti_id>
+      <ti_name>阀控检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-GD</ti_id>
+      <ti_name>光电检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-LED</ti_id>
+      <ti_name>LED检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-UMU</ti_id>
+      <ti_name>UMU检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-WYJC</ti_id>
+      <ti_name>温压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-XSJC</ti_id>
+      <ti_name>显示检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDDY</ti_id>
+      <ti_name>主电电压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDGH</ti_id>
+      <ti_name>主电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-BHSZ</ti_id>
+      <ti_name>表号设置</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-NBXHQD</ti_id>
+      <ti_name>NB物联网信号强度</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>32</ti_upper>
+      <ti_lower>5</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+  </test_standard_array>
+</Test_info>】=条码检测
+15:11:07 1663719 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55010A007316】=启动检测
+15:11:07 1663719 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为1=启动定时器
+15:11:12 1668727 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:11:17 1673734 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:11:22 1678742 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:11:27 1683749 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:11:32 1688757 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:11:37 1693765 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:11:42 1698772 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:11:47 1703780 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:11:52 1708788 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:11:57 1713795 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:12:02 1718803 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:12:07 1723811 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:12:12 1728818 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:12:17 1733826 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:12:22 1738833 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:12:27 1743841 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:12:32 1748849 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:12:37 1753856 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:12:42 1758864 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:12:47 1763872 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:12:52 1768879 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:12:55 1771469 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为1=销毁定时器
+15:12:55 1771469 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为2=销毁定时器
+15:12:55 1771469 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为3=销毁定时器
+15:12:55 1771469 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为4=销毁定时器
+15:13:06 1783029 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 定时器ID为1=销毁定时器
+15:13:06 1783029 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 定时器ID为2=销毁定时器
+15:13:06 1783029 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 定时器ID为3=销毁定时器
+15:13:06 1783029 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 定时器ID为4=销毁定时器
+15:13:23 1799580 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)开始调用=MES检测
+15:13:23 1799674 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)结束调用=MES检测
+15:13:23 1799674 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### MES:【<ProductInfo>
+  <taskinfo>
+    <bill_no>2110001435H1</bill_no>
+    <So_name> </So_name>
+    <product_desc>UWLWn-B5,,串口,6.0V,,中文,两线,电信流量,,温压补偿,浙江电信杭州分公司NB卡</product_desc>
+    <product_name>民用NB-IoT物联网超声波燃气表主控板(杭州电信定制版)</product_name>
+    <product_code>202020301-0184</product_code>
+  </taskinfo>
+</ProductInfo>】【<Test_info>
+  <test_standard_array dim="[14]">
+    <test_item>
+      <ti_id>C-AJJC</ti_id>
+      <ti_name>按键检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-BDGH</ti_id>
+      <ti_name>备电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-EEPROM</ti_id>
+      <ti_name>EEPROM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ESAM</ti_id>
+      <ti_name>ESAM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-FKJC</ti_id>
+      <ti_name>阀控检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-GD</ti_id>
+      <ti_name>光电检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-LED</ti_id>
+      <ti_name>LED检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-UMU</ti_id>
+      <ti_name>UMU检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-WYJC</ti_id>
+      <ti_name>温压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-XSJC</ti_id>
+      <ti_name>显示检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDDY</ti_id>
+      <ti_name>主电电压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDGH</ti_id>
+      <ti_name>主电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-BHSZ</ti_id>
+      <ti_name>表号设置</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-NBXHQD</ti_id>
+      <ti_name>NB物联网信号强度</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>32</ti_upper>
+      <ti_lower>5</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+  </test_standard_array>
+</Test_info>】=条码检测
+15:13:23 1799674 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 发送:【68AB55010A017416】=启动检测
+15:13:23 1799674 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 定时器ID为2=启动定时器
+15:13:28 1804681 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 发送:【68AB55020B017616】=获取检测结果
+15:13:33 1809689 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 发送:【68AB55020B017616】=获取检测结果
+15:13:38 1814697 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 发送:【68AB55020B017616】=获取检测结果
+15:13:43 1819704 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 发送:【68AB55020B017616】=获取检测结果
+15:13:48 1824712 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 发送:【68AB55020B017616】=获取检测结果
+15:13:53 1829720 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 发送:【68AB55020B017616】=获取检测结果
+15:13:58 1834727 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 发送:【68AB55020B017616】=获取检测结果
+15:14:03 1839735 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 发送:【68AB55020B017616】=获取检测结果
+15:14:08 1844743 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 发送:【68AB55020B017616】=获取检测结果
+15:14:13 1849750 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 发送:【68AB55020B017616】=获取检测结果
+15:14:18 1854758 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 发送:【68AB55020B017616】=获取检测结果
+15:14:23 1859765 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 发送:【68AB55020B017616】=获取检测结果
+15:14:28 1864773 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 发送:【68AB55020B017616】=获取检测结果
+15:14:33 1869781 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 发送:【68AB55020B017616】=获取检测结果
+15:14:38 1874788 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 发送:【68AB55020B017616】=获取检测结果
+15:14:39 1875444 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 通道2读检测结果:【68DB6855012028004C20280118010101010168AB5758AAAAAAAAAAF27788995583001AE20AAAAAAAAAAA000133000000007389FF00000000FFFF106645B6167D16】=接收数据
+15:14:39 1875444 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 定时器ID为2=销毁定时器
+15:14:39 1875522 CAutoFrock_UltrasonicChinaGasCPUIOT_Module ### 保存:insert UltrasonicChinaGasCPUIOT_Module (MeterCode,ModuleID,ModuleIDFlag,RZDDY,RZDDYFlag,RZDGH,RZDGHFlag,RBDGH,RBDGHFlag,RGD,RGDFlag,RESAM,RESAMFlag,RUMU,RUMUFlag,RKJKJC,RKJKJCFlag,REEPROM,REEPROMFlag,RWYJC,RWYJCFlag,RLED,RLEDFlag,RFKJC,RFKJCFlag,RWXHQD,RWXHQDFlag,RecordTime,staff,staffResCode,UpDataFlag) values('S02213863687','AAAAAAAAAA','1','主:8.232,采:6.645','0','6.6','1','26.0','1','01','1','FF','1','TX:01 RX:00 流量:1.3300','0','','','00','1','T:00 P:00','1','01','1','01','1','12','0','2021-11-01 15:14:39','2269','MKFC-01', '0')=保存
+15:14:39 1875553 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)开始调用=MES检测
+15:14:39 1875678 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)结束调用=MES检测
+15:15:38 1934412 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为1=销毁定时器
+15:15:38 1934412 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为2=销毁定时器
+15:15:38 1934412 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为3=销毁定时器
+15:15:38 1934412 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为4=销毁定时器
+15:15:55 1951556 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)开始调用=MES检测
+15:15:55 1951666 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)结束调用=MES检测
+15:15:55 1951666 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### MES:【<ProductInfo>
+  <taskinfo>
+    <bill_no>2110001435H1</bill_no>
+    <So_name> </So_name>
+    <product_desc>UWLWn-B5,,串口,6.0V,,中文,两线,电信流量,,温压补偿,浙江电信杭州分公司NB卡</product_desc>
+    <product_name>民用NB-IoT物联网超声波燃气表主控板(杭州电信定制版)</product_name>
+    <product_code>202020301-0184</product_code>
+  </taskinfo>
+</ProductInfo>】【<Test_info>
+  <test_standard_array dim="[14]">
+    <test_item>
+      <ti_id>C-AJJC</ti_id>
+      <ti_name>按键检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-BDGH</ti_id>
+      <ti_name>备电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-EEPROM</ti_id>
+      <ti_name>EEPROM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ESAM</ti_id>
+      <ti_name>ESAM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-FKJC</ti_id>
+      <ti_name>阀控检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-GD</ti_id>
+      <ti_name>光电检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-LED</ti_id>
+      <ti_name>LED检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-UMU</ti_id>
+      <ti_name>UMU检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-WYJC</ti_id>
+      <ti_name>温压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-XSJC</ti_id>
+      <ti_name>显示检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDDY</ti_id>
+      <ti_name>主电电压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDGH</ti_id>
+      <ti_name>主电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-BHSZ</ti_id>
+      <ti_name>表号设置</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-NBXHQD</ti_id>
+      <ti_name>NB物联网信号强度</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>32</ti_upper>
+      <ti_lower>5</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+  </test_standard_array>
+</Test_info>】=条码检测
+15:15:55 1951666 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55010A007316】=启动检测
+15:15:55 1951666 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为1=启动定时器
+15:16:00 1956689 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:16:05 1961696 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:16:10 1966704 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:16:15 1971712 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:16:20 1976719 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:16:25 1981727 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:16:30 1986735 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:16:35 1991742 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:16:40 1996750 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:16:45 2001758 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:16:50 2006765 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:16:55 2011773 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:17:00 2016780 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:17:05 2021788 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:17:10 2026796 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:17:15 2031803 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:17:20 2036811 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:17:25 2041819 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:17:30 2046826 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:17:35 2051834 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:17:40 2056841 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:17:45 2061849 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:17:50 2066857 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:17:55 2071864 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:18:00 2076872 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:18:05 2081880 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:18:10 2086887 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:18:15 2091895 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:18:20 2096903 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:18:25 2101910 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:18:30 2106918 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:18:35 2111925 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:18:40 2116933 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:18:45 2121941 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:18:50 2126948 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:18:55 2131956 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:19:00 2136964 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:19:05 2141971 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:19:10 2146979 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:19:15 2151986 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:19:20 2156994 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:19:25 2162002 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:19:30 2167009 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:19:35 2172017 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:19:40 2177025 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:19:45 2182032 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:19:50 2187040 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:19:55 2192048 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:20:00 2197055 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:20:05 2202063 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:20:10 2207070 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:20:15 2212078 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:20:20 2217086 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:20:25 2222093 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:20:30 2227101 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:20:35 2232109 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:20:40 2237116 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:20:45 2242124 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:20:50 2247132 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:20:55 2252139 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:21:00 2257147 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:21:05 2262154 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:21:10 2267162 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:21:15 2272170 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:21:20 2277177 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:21:25 2282185 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:21:30 2287193 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:21:35 2292200 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:21:40 2297208 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:21:45 2302215 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:21:50 2307223 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:21:55 2312231 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:22:00 2317238 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:22:05 2322246 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:22:10 2327254 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:22:15 2332261 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:22:20 2337269 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:22:25 2342277 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:22:30 2347284 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:22:35 2352292 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:22:40 2357299 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:22:45 2362307 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:22:50 2367315 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:22:55 2372322 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:23:01 2377330 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:23:06 2382338 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:23:11 2387345 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:23:16 2392353 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:23:21 2397360 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:23:26 2402368 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:23:31 2407376 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:23:36 2412383 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:23:41 2417391 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:23:46 2422399 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:23:51 2427406 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:23:56 2432414 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:24:01 2437422 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:24:06 2442429 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:24:11 2447437 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:24:16 2452444 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:24:21 2457452 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:24:26 2462460 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:24:31 2467467 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:24:36 2472475 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:24:41 2477483 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:24:46 2482490 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:24:51 2487498 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:24:56 2492505 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:25:01 2497513 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:25:06 2502521 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:25:11 2507528 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:25:16 2512536 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:25:21 2517544 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:25:26 2522551 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:25:31 2527559 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:25:36 2532567 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:25:41 2537574 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:25:46 2542582 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:25:51 2547589 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:25:56 2552597 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:26:01 2557605 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:26:06 2562612 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:26:11 2567620 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:26:16 2572628 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:26:21 2577635 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:26:26 2582643 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:26:31 2587650 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:26:36 2592658 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:26:41 2597666 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:26:46 2602673 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:26:51 2607681 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:26:56 2612689 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:27:01 2617696 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:27:06 2622704 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:27:11 2627712 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:27:16 2632719 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:27:21 2637727 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:27:26 2642734 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:27:31 2647742 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:27:36 2652750 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:27:41 2657757 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:27:46 2662765 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:27:51 2667773 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:27:56 2672780 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:28:01 2677788 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:28:06 2682795 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:28:11 2687803 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:28:16 2692811 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:28:21 2697818 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:28:21 2698099 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 通道1读检测结果:【68DB68550008F502090A410153010001010168AB5758AAAAAAAAAAF27788995583001AE20AAAAAAAAAAA000133000000007393FF00000000FFFF1B6655DB163836373939323034343932393938323436303131333137383030313538333839383631313231323535303134363333363431AB16】=接收数据
+15:28:21 2698099 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为1=销毁定时器
+15:28:21 2698162 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 保存:insert UltrasonicGasIOT_ModuleV2 (MeterCode,ModuleID,ModuleIDFlag,RZDDY,RZDDYFlag,RZDGH,RZDGHFlag,RBDGH,RBDGHFlag,RGD,RGDFlag,RESAM,RESAMFlag,RUMU,RUMUFlag,RKJKJC,RKJKJCFlag,REEPROM,REEPROMFlag,RWYJC,RWYJCFlag,RLED,RLEDFlag,RFKJC,RFKJCFlag,RWXHQD,RWXHQDFlag,RIMEI,RIMEIFlag,RIMSI,RIMSIFlag,RICCID,RICCIDFlag,RecordTime,staff,staffResCode,UpDataFlag) values('S02213863687','AAAAAAAAAA','1','主:2.293,采:6.655','0','51.1','0','31.9','1','01','1','FF','1','TX:01 RX:00 流量:1.3300','0','','','00','1','T:00 P:00','1','00','0','01','1','23','0','867992044929982','1','460113178001583','1','89861121255014633641','1','2021-11-01 15:28:21','2269','MKFC-01', '0')=保存
+15:28:21 2698193 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)开始调用=MES检测
+15:28:21 2698302 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)结束调用=MES检测
+15:30:33 2829998 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)开始调用=MES检测
+15:30:33 2830107 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)结束调用=MES检测
+15:30:33 2830107 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### MES:【<ProductInfo>
+  <taskinfo>
+    <bill_no>2110001435H1</bill_no>
+    <So_name> </So_name>
+    <product_desc>UWLWn-B5,,串口,6.0V,,中文,两线,电信流量,,温压补偿,浙江电信杭州分公司NB卡</product_desc>
+    <product_name>民用NB-IoT物联网超声波燃气表主控板(杭州电信定制版)</product_name>
+    <product_code>202020301-0184</product_code>
+  </taskinfo>
+</ProductInfo>】【<Test_info>
+  <test_standard_array dim="[14]">
+    <test_item>
+      <ti_id>C-AJJC</ti_id>
+      <ti_name>按键检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-BDGH</ti_id>
+      <ti_name>备电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-EEPROM</ti_id>
+      <ti_name>EEPROM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ESAM</ti_id>
+      <ti_name>ESAM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-FKJC</ti_id>
+      <ti_name>阀控检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-GD</ti_id>
+      <ti_name>光电检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-LED</ti_id>
+      <ti_name>LED检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-UMU</ti_id>
+      <ti_name>UMU检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-WYJC</ti_id>
+      <ti_name>温压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-XSJC</ti_id>
+      <ti_name>显示检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDDY</ti_id>
+      <ti_name>主电电压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDGH</ti_id>
+      <ti_name>主电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-BHSZ</ti_id>
+      <ti_name>表号设置</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-NBXHQD</ti_id>
+      <ti_name>NB物联网信号强度</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>32</ti_upper>
+      <ti_lower>5</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+  </test_standard_array>
+</Test_info>】=条码检测
+15:30:33 2830107 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55010A007316】=启动检测
+15:30:33 2830107 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为1=启动定时器
+15:30:38 2835130 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:30:43 2840138 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:30:48 2845146 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:30:53 2850153 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:30:58 2855161 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:31:03 2860169 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:31:08 2865176 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:31:13 2870184 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:31:18 2875192 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:31:23 2880199 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:31:28 2885207 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:31:33 2890214 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:31:38 2895222 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:31:43 2900230 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:31:48 2905237 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:31:53 2910245 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:31:54 2910526 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 通道1读检测结果:【68DB68550008F502110A410154010001010168AB5758AAAAAAAAAAF27788995583001AE20AAAAAAAAAAA000133100000007397FF00000000FFFF126655E6163836373939323034343932393938323436303131333137383030313538333839383631313231323535303134363333363431CA16】=接收数据
+15:31:54 2910526 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为1=销毁定时器
+15:31:54 2910588 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 保存:update UltrasonicGasIOT_ModuleV2 set ModuleID='AAAAAAAAAA',ModuleIDFlag='1',RZDDY='主:2.293,采:6.655',RZDDYFlag='0',RZDGH='51.9',RZDGHFlag='0',RBDGH='32.0',RBDGHFlag='1',RGD='01',RGDFlag='1',RESAM='FF',RESAMFlag='1',RUMU='TX:01 RX:00 流量:1.3310',RUMUFlag='0',RKJKJC='',RKJKJCFlag='',REEPROM='00',REEPROMFlag='1',RWYJC='T:00 P:00',RWYJCFlag='1',RLED='00',RLEDFlag='0',RFKJC='01',RFKJCFlag='1',RWXHQD='14',RWXHQDFlag='0',RIMEI='867992044929982',RIMEIFlag='1',RIMSI='460113178001583',RIMSIFlag='1',RICCID='89861121255014633641',RICCIDFlag='1',RecordTime='2021-11-01 15:31:54',staff='2269',staffResCode='MKFC-01', UpDataFlag='0' where MeterCode='S02213863687'=保存
+15:31:54 2910588 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)开始调用=MES检测
+15:31:54 2910713 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)结束调用=MES检测
+15:42:07 3523797 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为1=销毁定时器
+15:42:07 3523797 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为2=销毁定时器
+15:42:07 3523797 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为3=销毁定时器
+15:42:07 3523797 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为4=销毁定时器
+15:42:33 3550286 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)开始调用=MES检测
+15:42:34 3550426 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)结束调用=MES检测
+15:42:34 3550426 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### MES:【<ProductInfo>
+  <taskinfo>
+    <bill_no>2110001435H1</bill_no>
+    <So_name> </So_name>
+    <product_desc>UWLWn-B5,,串口,6.0V,,中文,两线,电信流量,,温压补偿,浙江电信杭州分公司NB卡</product_desc>
+    <product_name>民用NB-IoT物联网超声波燃气表主控板(杭州电信定制版)</product_name>
+    <product_code>202020301-0184</product_code>
+  </taskinfo>
+</ProductInfo>】【<Test_info>
+  <test_standard_array dim="[14]">
+    <test_item>
+      <ti_id>C-AJJC</ti_id>
+      <ti_name>按键检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-BDGH</ti_id>
+      <ti_name>备电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-EEPROM</ti_id>
+      <ti_name>EEPROM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ESAM</ti_id>
+      <ti_name>ESAM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-FKJC</ti_id>
+      <ti_name>阀控检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-GD</ti_id>
+      <ti_name>光电检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-LED</ti_id>
+      <ti_name>LED检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-UMU</ti_id>
+      <ti_name>UMU检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-WYJC</ti_id>
+      <ti_name>温压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-XSJC</ti_id>
+      <ti_name>显示检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDDY</ti_id>
+      <ti_name>主电电压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDGH</ti_id>
+      <ti_name>主电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-BHSZ</ti_id>
+      <ti_name>表号设置</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-NBXHQD</ti_id>
+      <ti_name>NB物联网信号强度</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>32</ti_upper>
+      <ti_lower>5</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+  </test_standard_array>
+</Test_info>】=条码检测
+15:42:34 3550426 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55010A007316】=启动检测
+15:42:34 3550426 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为1=启动定时器
+15:42:39 3555434 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:42:44 3560442 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:42:49 3565449 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:42:54 3570457 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:42:59 3575464 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:43:04 3580472 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:43:09 3585480 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:43:14 3590487 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:43:19 3595495 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:43:24 3600503 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:43:29 3605510 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:43:34 3610518 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:43:39 3615525 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:43:44 3620533 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:43:49 3625541 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:43:54 3630548 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:43:54 3630829 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 通道1读检测结果:【68DB68550008F502180A380154010001010168AB5758AAAAAAAAAAF27788995583001AE20AAAAAAAAAAA000133100000007397FF00000000FFFF1B6727C21638363739393230343439323939383234363031313331373830303135383338393836313132313235353031343633333634318016】=接收数据
+15:43:54 3630829 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为1=销毁定时器
+15:43:54 3630892 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 保存:update UltrasonicGasIOT_ModuleV2 set ModuleID='AAAAAAAAAA',ModuleIDFlag='1',RZDDY='主:2.293,采:6.727',RZDDYFlag='0',RZDGH='33.6',RZDGHFlag='1',RBDGH='32.0',RBDGHFlag='1',RGD='01',RGDFlag='1',RESAM='FF',RESAMFlag='1',RUMU='TX:01 RX:00 流量:1.3310',RUMUFlag='1',RKJKJC='',RKJKJCFlag='',REEPROM='00',REEPROMFlag='1',RWYJC='T:00 P:00',RWYJCFlag='1',RLED='00',RLEDFlag='0',RFKJC='01',RFKJCFlag='1',RWXHQD='23',RWXHQDFlag='0',RIMEI='867992044929982',RIMEIFlag='1',RIMSI='460113178001583',RIMSIFlag='1',RICCID='89861121255014633641',RICCIDFlag='1',RecordTime='2021-11-01 15:43:54',staff='2269',staffResCode='MKFC-01', UpDataFlag='0' where MeterCode='S02213863687'=保存
+15:43:54 3630892 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)开始调用=MES检测
+15:43:54 3631016 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)结束调用=MES检测
+15:51:55 4112092 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为1=销毁定时器
+15:51:55 4112092 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为2=销毁定时器
+15:51:55 4112092 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为3=销毁定时器
+15:51:55 4112092 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为4=销毁定时器
+15:52:02 4119128 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)开始调用=MES检测
+15:52:02 4119253 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)结束调用=MES检测
+15:52:02 4119268 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### MES:【<ProductInfo>
+  <taskinfo>
+    <bill_no>2110001435H1</bill_no>
+    <So_name> </So_name>
+    <product_desc>UWLWn-B5,,串口,6.0V,,中文,两线,电信流量,,温压补偿,浙江电信杭州分公司NB卡</product_desc>
+    <product_name>民用NB-IoT物联网超声波燃气表主控板(杭州电信定制版)</product_name>
+    <product_code>202020301-0184</product_code>
+  </taskinfo>
+</ProductInfo>】【<Test_info>
+  <test_standard_array dim="[14]">
+    <test_item>
+      <ti_id>C-AJJC</ti_id>
+      <ti_name>按键检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-BDGH</ti_id>
+      <ti_name>备电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-EEPROM</ti_id>
+      <ti_name>EEPROM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ESAM</ti_id>
+      <ti_name>ESAM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-FKJC</ti_id>
+      <ti_name>阀控检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-GD</ti_id>
+      <ti_name>光电检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-LED</ti_id>
+      <ti_name>LED检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-UMU</ti_id>
+      <ti_name>UMU检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-WYJC</ti_id>
+      <ti_name>温压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-XSJC</ti_id>
+      <ti_name>显示检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDDY</ti_id>
+      <ti_name>主电电压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDGH</ti_id>
+      <ti_name>主电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-BHSZ</ti_id>
+      <ti_name>表号设置</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-NBXHQD</ti_id>
+      <ti_name>NB物联网信号强度</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>32</ti_upper>
+      <ti_lower>5</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+  </test_standard_array>
+</Test_info>】=条码检测
+15:52:02 4119268 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55010A007316】=启动检测
+15:52:02 4119268 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为1=启动定时器
+15:52:04 4120516 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863690)开始调用=MES检测
+15:52:04 4120641 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863690)结束调用=MES检测
+15:52:04 4120641 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### MES:【<ProductInfo>
+  <taskinfo>
+    <bill_no>2110001435H1</bill_no>
+    <So_name> </So_name>
+    <product_desc>UWLWn-B5,,串口,6.0V,,中文,两线,电信流量,,温压补偿,浙江电信杭州分公司NB卡</product_desc>
+    <product_name>民用NB-IoT物联网超声波燃气表主控板(杭州电信定制版)</product_name>
+    <product_code>202020301-0184</product_code>
+  </taskinfo>
+</ProductInfo>】【<Test_info>
+  <test_standard_array dim="[14]">
+    <test_item>
+      <ti_id>C-AJJC</ti_id>
+      <ti_name>按键检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-BDGH</ti_id>
+      <ti_name>备电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-EEPROM</ti_id>
+      <ti_name>EEPROM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ESAM</ti_id>
+      <ti_name>ESAM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-FKJC</ti_id>
+      <ti_name>阀控检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-GD</ti_id>
+      <ti_name>光电检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-LED</ti_id>
+      <ti_name>LED检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-UMU</ti_id>
+      <ti_name>UMU检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-WYJC</ti_id>
+      <ti_name>温压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-XSJC</ti_id>
+      <ti_name>显示检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDDY</ti_id>
+      <ti_name>主电电压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDGH</ti_id>
+      <ti_name>主电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-BHSZ</ti_id>
+      <ti_name>表号设置</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-NBXHQD</ti_id>
+      <ti_name>NB物联网信号强度</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>32</ti_upper>
+      <ti_lower>5</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+  </test_standard_array>
+</Test_info>】=条码检测
+15:52:04 4120657 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55010A017416】=启动检测
+15:52:04 4120657 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为2=启动定时器
+15:52:05 4122108 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863693)开始调用=MES检测
+15:52:05 4122170 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863693)结束调用=MES检测
+15:52:05 4122170 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### MES:【<ProductInfo>
+  <taskinfo>
+    <bill_no>2110001435H1</bill_no>
+    <So_name> </So_name>
+    <product_desc>UWLWn-B5,,串口,6.0V,,中文,两线,电信流量,,温压补偿,浙江电信杭州分公司NB卡</product_desc>
+    <product_name>民用NB-IoT物联网超声波燃气表主控板(杭州电信定制版)</product_name>
+    <product_code>202020301-0184</product_code>
+  </taskinfo>
+</ProductInfo>】【<Test_info>
+  <test_standard_array dim="[14]">
+    <test_item>
+      <ti_id>C-AJJC</ti_id>
+      <ti_name>按键检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-BDGH</ti_id>
+      <ti_name>备电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-EEPROM</ti_id>
+      <ti_name>EEPROM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ESAM</ti_id>
+      <ti_name>ESAM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-FKJC</ti_id>
+      <ti_name>阀控检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-GD</ti_id>
+      <ti_name>光电检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-LED</ti_id>
+      <ti_name>LED检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-UMU</ti_id>
+      <ti_name>UMU检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-WYJC</ti_id>
+      <ti_name>温压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-XSJC</ti_id>
+      <ti_name>显示检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDDY</ti_id>
+      <ti_name>主电电压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDGH</ti_id>
+      <ti_name>主电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-BHSZ</ti_id>
+      <ti_name>表号设置</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-NBXHQD</ti_id>
+      <ti_name>NB物联网信号强度</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>32</ti_upper>
+      <ti_lower>5</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+  </test_standard_array>
+</Test_info>】=条码检测
+15:52:05 4122170 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55010A027516】=启动检测
+15:52:05 4122170 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为3=启动定时器
+15:52:06 4122997 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863696)开始调用=MES检测
+15:52:06 4123044 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863696)结束调用=MES检测
+15:52:06 4123044 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### MES:【<ProductInfo>
+  <taskinfo>
+    <bill_no>2110001435H1</bill_no>
+    <So_name> </So_name>
+    <product_desc>UWLWn-B5,,串口,6.0V,,中文,两线,电信流量,,温压补偿,浙江电信杭州分公司NB卡</product_desc>
+    <product_name>民用NB-IoT物联网超声波燃气表主控板(杭州电信定制版)</product_name>
+    <product_code>202020301-0184</product_code>
+  </taskinfo>
+</ProductInfo>】【<Test_info>
+  <test_standard_array dim="[14]">
+    <test_item>
+      <ti_id>C-AJJC</ti_id>
+      <ti_name>按键检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-BDGH</ti_id>
+      <ti_name>备电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-EEPROM</ti_id>
+      <ti_name>EEPROM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ESAM</ti_id>
+      <ti_name>ESAM检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-FKJC</ti_id>
+      <ti_name>阀控检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-GD</ti_id>
+      <ti_name>光电检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-LED</ti_id>
+      <ti_name>LED检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-UMU</ti_id>
+      <ti_name>UMU检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-WYJC</ti_id>
+      <ti_name>温压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-XSJC</ti_id>
+      <ti_name>显示检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDDY</ti_id>
+      <ti_name>主电电压检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>C-ZDGH</ti_id>
+      <ti_name>主电功耗检测</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>50</ti_upper>
+      <ti_lower>0</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-BHSZ</ti_id>
+      <ti_name>表号设置</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper></ti_upper>
+      <ti_lower></ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+    <test_item>
+      <ti_id>Z-NBXHQD</ti_id>
+      <ti_name>NB物联网信号强度</ti_name>
+      <ti_standard>0</ti_standard>
+      <ti_upper>32</ti_upper>
+      <ti_lower>5</ti_lower>
+      <ti_Class>C-CSB2H1WLW-NB</ti_Class>
+    </test_item>
+  </test_standard_array>
+</Test_info>】=条码检测
+15:52:06 4123044 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55010A037616】=启动检测
+15:52:06 4123044 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为4=启动定时器
+15:52:07 4124276 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:52:09 4125664 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B017616】=获取检测结果
+15:52:10 4127178 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:52:11 4128051 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:52:12 4129284 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:52:14 4130672 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B017616】=获取检测结果
+15:52:15 4132185 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:52:16 4133059 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:52:17 4134291 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:52:19 4135680 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B017616】=获取检测结果
+15:52:20 4137193 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:52:21 4138066 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:52:22 4139299 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:52:24 4140687 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B017616】=获取检测结果
+15:52:25 4142200 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:52:26 4143074 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:52:27 4144306 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:52:29 4145695 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B017616】=获取检测结果
+15:52:30 4147208 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:52:31 4148082 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:52:32 4149314 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:52:34 4150703 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B017616】=获取检测结果
+15:52:35 4152216 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:52:36 4153089 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:52:38 4154322 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:52:39 4155710 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B017616】=获取检测结果
+15:52:40 4157223 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:52:41 4158097 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:52:43 4159329 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:52:44 4160718 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B017616】=获取检测结果
+15:52:45 4162231 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:52:46 4163105 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:52:48 4164337 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:52:49 4165725 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B017616】=获取检测结果
+15:52:50 4167239 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:52:51 4168112 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:52:53 4169345 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:52:54 4170733 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B017616】=获取检测结果
+15:52:55 4172246 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:52:56 4173120 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:52:58 4174352 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:52:59 4175741 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B017616】=获取检测结果
+15:53:00 4177254 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:53:01 4178127 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:53:03 4179360 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:53:04 4180748 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B017616】=获取检测结果
+15:53:05 4182262 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:53:06 4183135 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:53:08 4184368 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:53:09 4185756 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B017616】=获取检测结果
+15:53:10 4187269 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:53:11 4188143 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:53:13 4189375 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:53:14 4190764 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B017616】=获取检测结果
+15:53:15 4192277 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:53:16 4193150 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:53:18 4194383 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:53:19 4195771 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B017616】=获取检测结果
+15:53:20 4197284 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:53:21 4198158 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:53:23 4199390 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B007516】=获取检测结果
+15:53:23 4199656 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 通道1读检测结果:【68DB68550008F502180A490154010101010168AB5758AAAAAAAAAAF27788995583001AE20AAAAAAAAAAA000133100000007396FF00000000FFFF1768871E1638363739393230343439323939383234363031313331373830303135383338393836313132313235353031343633333634314A16】=接收数据
+15:53:23 4199671 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为1=销毁定时器
+15:53:23 4199702 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 保存:update UltrasonicGasIOT_ModuleV2 set ModuleID='AAAAAAAAAA',ModuleIDFlag='1',RZDDY='主:2.293,采:6.887',RZDDYFlag='0',RZDGH='33.6',RZDGHFlag='1',RBDGH='32.0',RBDGHFlag='1',RGD='01',RGDFlag='1',RESAM='FF',RESAMFlag='1',RUMU='TX:01 RX:00 流量:1.3310',RUMUFlag='1',RKJKJC='',RKJKJCFlag='',REEPROM='00',REEPROMFlag='1',RWYJC='T:00 P:00',RWYJCFlag='1',RLED='01',RLEDFlag='1',RFKJC='01',RFKJCFlag='1',RWXHQD='19',RWXHQDFlag='0',RIMEI='867992044929982',RIMEIFlag='1',RIMSI='460113178001583',RIMSIFlag='1',RICCID='89861121255014633641',RICCIDFlag='1',RecordTime='2021-11-01 15:53:23',staff='2269',staffResCode='MKFC-01', UpDataFlag='0' where MeterCode='S02213863687'=保存
+15:53:23 4199718 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)开始调用=MES检测
+15:53:23 4199843 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863687)结束调用=MES检测
+15:53:24 4200779 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B017616】=获取检测结果
+15:53:24 4201060 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 通道2读检测结果:【68DB6855010A27022607B30107010101010168AB5758AAAAAAAAAAF27788995583001AE20AAAAAAAAAAA000133000000007391FF00000000FFFF116860DC1638363739393230343439393530313734363031313331373830303033383738393836313132313235353031343633333533341D16】=接收数据
+15:53:24 4201060 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为2=销毁定时器
+15:53:24 4201060 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 保存:insert UltrasonicGasIOT_ModuleV2 (MeterCode,ModuleID,ModuleIDFlag,RZDDY,RZDDYFlag,RZDGH,RZDGHFlag,RBDGH,RBDGHFlag,RGD,RGDFlag,RESAM,RESAMFlag,RUMU,RUMUFlag,RKJKJC,RKJKJCFlag,REEPROM,REEPROMFlag,RWYJC,RWYJCFlag,RLED,RLEDFlag,RFKJC,RFKJCFlag,RWXHQD,RWXHQDFlag,RIMEI,RIMEIFlag,RIMSI,RIMSIFlag,RICCID,RICCIDFlag,RecordTime,staff,staffResCode,UpDataFlag) values('S02213863690','AAAAAAAAAA','1','主:2.599,采:6.860','0','35.0','1','24.3','1','01','1','FF','1','TX:01 RX:00 流量:1.3300','1','','','00','1','T:00 P:00','1','01','1','01','1','13','0','867992044995017','1','460113178000387','1','89861121255014633534','1','2021-11-01 15:53:24','2269','MKFC-01', '0')=保存
+15:53:24 4201075 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863690)开始调用=MES检测
+15:53:24 4201138 CMESMethod ### CMESMethod::GetProductInfo(CString _strProBar:S02213863690)结束调用=MES检测
+15:53:25 4202292 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:53:26 4203166 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:53:27 4203337 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 结束符不符合要求:【,68DB6855020A38022607D5011B01010100013836373939323034343931353435323436303131333137383030303339343839383631313231323535303134363333363039921668DB6855030A3801FB07D501170101010001383637393932303434393934383631343630313133313738303031】=接收数据
+15:53:30 4207300 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:53:31 4208173 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:53:32 4208345 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 结束符不符合要求:【,35383138393836313132313235353031343633333632356B1668DB6855020A38022607D5011B01010100013836373939323034343931353435323436303131333137383030303339343839383631313231323535303134363333363039921668DB6855030A3801FB07D501170101010001383637393932303434393934383631343630313133313738303031】=接收数据
+15:53:35 4212307 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:53:36 4213181 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:53:37 4213353 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 结束符不符合要求:【,35383138393836313132313235353031343633333632356B1668DB6855020A38022607D5011B01010100013836373939323034343931353435323436303131333137383030303339343839383631313231323535303134363333363039921668DB6855030A3801FB07D501170101010001383637393932303434393934383631343630313133313738303031】=接收数据
+15:53:40 4217315 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:53:41 4218189 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:53:42 4218360 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 结束符不符合要求:【,35383138393836313132313235353031343633333632356B1668DB6855020A38022607D5011B01010100013836373939323034343931353435323436303131333137383030303339343839383631313231323535303134363333363039921668DB6855030A3801FB07D501170101010001383637393932303434393934383631343630313133313738303031】=接收数据
+15:53:46 4222323 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:53:46 4223196 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:53:47 4223368 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 结束符不符合要求:【,35383138393836313132313235353031343633333632356B1668DB6855020A38022607D5011B01010100013836373939323034343931353435323436303131333137383030303339343839383631313231323535303134363333363039921668DB6855030A3801FB07D501170101010001383637393932303434393934383631343630313133313738303031】=接收数据
+15:53:51 4227330 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:53:51 4228204 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:53:52 4228375 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 结束符不符合要求:【,35383138393836313132313235353031343633333632356B1668DB6855020A38022607D5011B01010100013836373939323034343931353435323436303131333137383030303339343839383631313231323535303134363333363039921668DB6855030A3801FB07D501170101010001383637393932303434393934383631343630313133313738303031】=接收数据
+15:53:56 4232338 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:53:56 4233274 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:53:57 4233445 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 结束符不符合要求:【,35383138393836313132313235353031343633333632356B1668DB6855020A38022607D5011B01010100013836373939323034343931353435323436303131333137383030303339343839383631313231323535303134363333363039921668DB6855030A3801FB07D501170101010001383637393932303434393934383631343630313133313738303031】=接收数据
+15:54:01 4237345 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B027716】=获取检测结果
+15:54:01 4238219 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 发送:【68AB55020B037816】=获取检测结果
+15:54:02 4238391 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 结束符不符合要求:【,35383138393836313132313235353031343633333632356B1668DB6855020A38022607D5011B01010100013836373939323034343931353435323436303131333137383030303339343839383631313231323535303134363333363039921668DB6855030A3801FB07D501170101010001383637393932303434393934383631343630313133313738303031】=接收数据
+15:54:02 4239015 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为1=销毁定时器
+15:54:02 4239015 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为2=销毁定时器
+15:54:02 4239015 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为3=销毁定时器
+15:54:02 4239015 CAutoFrock_UltrasonicGasIOT_ModuleV2 ### 定时器ID为4=销毁定时器

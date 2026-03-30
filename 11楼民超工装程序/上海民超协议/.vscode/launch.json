@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "d:/cx1/11楼民超工装程序/ErHeYiCard-MinYong-WLW-IC20210325_hanasidingzhi/ZKB_Addr_20170814_MCP6141_加板载压力/GZ_User",
+      "program": "d:/cx1/11楼民超工装程序/ErHeYiCard-MinYong-WLW-IC20210325_hanasidingzhi/ZKB_Addr_20170814_MCP6141_加板载压力/GZ_User/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

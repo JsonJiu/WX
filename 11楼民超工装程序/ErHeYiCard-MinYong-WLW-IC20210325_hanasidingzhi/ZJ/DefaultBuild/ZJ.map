@@ -1,0 +1,497 @@
+
+
+
+78K0R Linker W1.80                            Date:26 Feb 2026 Page:   1
+
+Command:   -yD:\cs+\CS+\CACX\Device\RL78\Devicefile -_msgoff -dcg_src\r_
+           lk.dr -oDefaultBuild\ZJ.lmf -gi00000000000000000000h -go04h,1
+           FE00h,512 -gb0EFFFEAH -mi0 -s -pDefaultBuild\ZJ.map D:\cs+\CS
+           +\CACX\CA78K0R\V1.71\lib78k0r\s0rll.rel DefaultBuild\r_cg_mai
+           n.rel DefaultBuild\r_cg_systeminit.rel DefaultBuild\r_cg_cgc.
+           rel DefaultBuild\r_cg_rtc.rel DefaultBuild\r_cg_sau.rel Defau
+           ltBuild\r_cg_intp.rel DefaultBuild\r_cg_tau.rel DefaultBuild\
+           IOIntp.rel DefaultBuild\Struct.rel DefaultBuild\Timer.rel Def
+           aultBuild\Uart.rel DefaultBuild\User.rel DefaultBuild\MyDefin
+           e.rel -bcl0ram.lib -bcl0rm.lib -bcl0rmf.lib -iD:\cs+\CS+\CACX
+           \CA78K0R\V1.71\lib78k0r
+Para-file:
+Out-file:  DefaultBuild\ZJ.lmf
+Map-file:  DefaultBuild\ZJ.map
+Direc-file:cg_src\r_lk.dr
+Directive: ;/***********************************************************
+           ************************************************************
+           ;* DISCLAIMER
+           ;* This software is supplied by Renesas Electronics Corporati
+           on and is only 
+           ;* intended for use with Renesas products. No other uses are 
+           authorized. This 
+           ;* software is owned by Renesas Electronics Corporation and i
+           s protected under 
+           ;* all applicable laws, including copyright laws.
+           ;* THIS SOFTWARE IS PROVIDED "AS IS" AND RENESAS MAKES NO WAR
+           RANTIES REGARDING 
+           ;* THIS SOFTWARE, WHETHER EXPRESS, IMPLIED OR STATUTORY, INCL
+           UDING BUT NOT 
+           ;* LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PA
+           RTICULAR PURPOSE 
+           ;* AND NON-INFRINGEMENT.  ALL SUCH WARRANTIES ARE EXPRESSLY D
+           ISCLAIMED.
+           ;* TO THE MAXIMUM EXTENT PERMITTED NOT PROHIBITED BY LAW, NEI
+           THER RENESAS 
+           ;* ELECTRONICS CORPORATION NOR ANY OF ITS AFFILIATED COMPANIE
+           S SHALL BE LIABLE 
+           ;* FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL OR CONSEQUEN
+           TIAL DAMAGES FOR 
+           ;* ANY REASON RELATED TO THIS SOFTWARE, EVEN IF RENESAS OR IT
+           S AFFILIATES HAVE 
+           ;* BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+           ;* Renesas reserves the right, without notice, to make change
+           s to this software 
+           ;* and to discontinue the availability of this software.  By 
+           using this software, 
+           ;* you agree to the additional terms and conditions found by 
+           accessing the 
+           ;* following link:
+           ;* http://www.renesas.com/disclaimer
+           ;*
+           ;* Copyright (C) 2013 Renesas Electronics Corporation. All ri
+           ghts reserved.
+           ;************************************************************
+           ***********************************************************/
+           
+           ;/***********************************************************
+           ************************************************************
+           ;* File Name    : r_lk.dr
+           ;* Version      : Code Generator for RL78/L13 V1.01.00.01 [26
+            Jul 2013]
+           ;* Device(s)    : R5F10WMG
+           ;* Tool-Chain   : CA78K0R
+           ;* Description  : This is the link file.
+           ;* Creation Date: 2016-12-23
+           ;************************************************************
+           ***********************************************************/
+           ; [Sample of Link Directive File]
+           ; ***********************************************************
+           **
+           ; Link Directive File is created by users when memory or segm
+           ent
+           ; location needs to be changed from the default as the follow
+           ing
+           ; cases, for instance:
+           ;    1. In case the stack area should be in fixed area
+           ;    2. In case the external memory should be used
+           ;
+           ; Please change the start address, the size of memory, 
+           ; and the name of memory or segment according to your system,
+           
+           ; and link this file with -D linker option if necessary.
+           ;
+           ;   MEMORY directive : Declares an address in installed memor
+           y.
+           ;                      Devides memory into two or more areas 
+           and
+           ;                      specifies a memory area
+           ;   MERGE directive  : Specifies location of a segment
+           ; ***********************************************************
+           **
+           
+           ; <Example on how to specify the stack area>
+           ;  Please specify the linker option -SSTK.
+           ;  The stack area should be in the internal RAM area.
+           ;
+           ;      START ADDRESS, STACK SIZE
+           ;memory STK : ( 0FB000H, 100H )
+           ; <Example of locating data in external memory>
+           ; The section name output by C compiler can be changed with
+           ; #pragma section function.
+           ;
+           ; If the name of ROMization-related section which has global
+           ; variables with initial values is changed, the modification 
+           of
+           ; C start-up routine will be required. 
+           ; Please refer the CC78K0R C Compiler Language User's Manual 
+           
+           ; Language Chap.11 in detail.
+           ;
+           ; ex. This is the example of renaming the @@DATAL segment.
+           ;   #pragma section @@DATAL EXTDATA
+           ;
+           ;   By the following directives, "EXTDATA" segment is located
+            in EXMEM area.
+           ;
+           ;        START ADDRESS, MEMORY SIZE
+           ;memory EXMEM : ( 040000H, 1000H )
+           ;merge  EXTDATA := EXMEM
+
+
+*** Link information ***
+
+    44 output segment(s)
+  A5FH byte(s) real data
+  1046 symbol(s) defined
+
+
+*** Memory map ***
+
+
+  SPACE=REGULAR
+
+  MEMORY=ROM
+  BASE ADDRESS=00000H   SIZE=10000H
+         OUTPUT   INPUT    INPUT      BASE      SIZE
+         SEGMENT  SEGMENT  MODULE     ADDRESS
+         @@VECT00                     00000H    00002H  CSEG AT
+                  @@VECT00 @cstart    00000H    00002H
+         @@CNST                       00002H    00000H  CSEG UNITP
+                  @@CNST   @cstart    00002H    00000H
+                  @@CNST   r_cg_main
+                                      00002H    00000H
+                  @@CNST   r_cg_systeminit
+                                      00002H    00000H
+                  @@CNST   r_cg_cgc   00002H    00000H
+                  @@CNST   r_cg_rtc   00002H    00000H
+                  @@CNST   r_cg_sau   00002H    00000H
+                  @@CNST   r_cg_intp
+                                      00002H    00000H
+                  @@CNST   r_cg_tau   00002H    00000H
+                  @@CNST   IOIntp     00002H    00000H
+                  @@CNST   Struct     00002H    00000H
+                  @@CNST   Timer      00002H    00000H
+                  @@CNST   Uart       00002H    00000H
+                  @@CNST   User       00002H    00000H
+                  @@CNST   MyDefine   00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  @cstart    00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_main
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_systeminit
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_cgc   00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_rtc   00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_sau   00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_intp
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_tau   00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  IOIntp     00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  Struct     00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  Timer      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  Uart       00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  User       00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  MyDefine   00002H    00000H
+         @@R_INIT                     00002H    00000H  CSEG UNIT64KP
+                  @@R_INIT @cstart    00002H    00000H
+                  @@R_INIT r_cg_main
+                                      00002H    00000H
+                  @@R_INIT r_cg_systeminit
+                                      00002H    00000H
+                  @@R_INIT r_cg_cgc   00002H    00000H
+                  @@R_INIT r_cg_rtc   00002H    00000H
+                  @@R_INIT r_cg_sau   00002H    00000H
+                  @@R_INIT r_cg_intp
+                                      00002H    00000H
+                  @@R_INIT r_cg_tau   00002H    00000H
+                  @@R_INIT IOIntp     00002H    00000H
+                  @@R_INIT Struct     00002H    00000H
+                  @@R_INIT Timer      00002H    00000H
+                  @@R_INIT Uart       00002H    00000H
+                  @@R_INIT User       00002H    00000H
+                  @@R_INIT MyDefine   00002H    00000H
+                  @@R_INIT @rom       00002H    00000H
+         @@RLINIT                     00002H    00000H  CSEG UNIT64KP
+                  @@RLINIT @cstart    00002H    00000H
+                  @@RLINIT r_cg_main
+                                      00002H    00000H
+                  @@RLINIT r_cg_systeminit
+                                      00002H    00000H
+                  @@RLINIT r_cg_cgc   00002H    00000H
+                  @@RLINIT r_cg_rtc   00002H    00000H
+                  @@RLINIT r_cg_sau   00002H    00000H
+                  @@RLINIT r_cg_intp
+                                      00002H    00000H
+                  @@RLINIT r_cg_tau   00002H    00000H
+                  @@RLINIT IOIntp     00002H    00000H
+                  @@RLINIT Struct     00002H    00000H
+                  @@RLINIT Timer      00002H    00000H
+                  @@RLINIT Uart       00002H    00000H
+                  @@RLINIT User       00002H    00000H
+                  @@RLINIT MyDefine   00002H    00000H
+                  @@RLINIT @rom       00002H    00000H
+         @@R_INIS                     00002H    00000H  CSEG UNIT64KP
+                  @@R_INIS @cstart    00002H    00000H
+                  @@R_INIS r_cg_main
+                                      00002H    00000H
+                  @@R_INIS r_cg_systeminit
+                                      00002H    00000H
+                  @@R_INIS r_cg_cgc   00002H    00000H
+                  @@R_INIS r_cg_rtc   00002H    00000H
+                  @@R_INIS r_cg_sau   00002H    00000H
+                  @@R_INIS r_cg_intp
+                                      00002H    00000H
+                  @@R_INIS r_cg_tau   00002H    00000H
+                  @@R_INIS IOIntp     00002H    00000H
+                  @@R_INIS Struct     00002H    00000H
+                  @@R_INIS Timer      00002H    00000H
+                  @@R_INIS Uart       00002H    00000H
+                  @@R_INIS User       00002H    00000H
+                  @@R_INIS MyDefine   00002H    00000H
+                  @@R_INIS @rom       00002H    00000H
+         @@CALT                       00002H    00000H  CSEG
+                  @@CALT   @cstart    00002H    00000H
+                  @@CALT   r_cg_main
+                                      00002H    00000H
+                  @@CALT   r_cg_systeminit
+                                      00002H    00000H
+                  @@CALT   r_cg_cgc   00002H    00000H
+                  @@CALT   r_cg_rtc   00002H    00000H
+                  @@CALT   r_cg_sau   00002H    00000H
+                  @@CALT   r_cg_intp
+                                      00002H    00000H
+                  @@CALT   r_cg_tau   00002H    00000H
+                  @@CALT   IOIntp     00002H    00000H
+                  @@CALT   Struct     00002H    00000H
+                  @@CALT   Timer      00002H    00000H
+                  @@CALT   Uart       00002H    00000H
+                  @@CALT   User       00002H    00000H
+                  @@CALT   MyDefine   00002H    00000H
+         ??NMIROM                     00002H    00002H  CSEG
+* gap *                               00004H    0000CH
+         @@VECT10                     00010H    00004H  CSEG AT
+                  @@VECT10 IOIntp     00010H    00004H
+* gap *                               00014H    00002H
+         @@VECT16                     00016H    00002H  CSEG AT
+                  @@VECT16 Uart       00016H    00002H
+* gap *                               00018H    00008H
+         @@VECT20                     00020H    00002H  CSEG AT
+                  @@VECT20 Timer      00020H    00002H
+* gap *                               00022H    00010H
+         @@VECT32                     00032H    00002H  CSEG AT
+                  @@VECT32 Timer      00032H    00002H
+* gap *                               00034H    00006H
+         @@VECT3A                     0003AH    00002H  CSEG AT
+                  @@VECT3A Timer      0003AH    00002H
+* gap *                               0003CH    00006H
+         @@VECT42                     00042H    00002H  CSEG AT
+                  @@VECT42 Uart       00042H    00002H
+* gap *                               00044H    0007CH
+         ?CSEGOB0                     000C0H    00004H  CSEG OPT_BYTE
+         @@CODE                       000C4H    00000H  CSEG BASE
+                  @@CODE   r_cg_main
+                                      000C4H    00000H
+                  @@CODE   r_cg_systeminit
+                                      000C4H    00000H
+                  @@CODE   r_cg_cgc   000C4H    00000H
+                  @@CODE   r_cg_rtc   000C4H    00000H
+                  @@CODE   r_cg_sau   000C4H    00000H
+                  @@CODE   r_cg_intp
+                                      000C4H    00000H
+                  @@CODE   r_cg_tau   000C4H    00000H
+                  @@CODE   IOIntp     000C4H    00000H
+                  @@CODE   Struct     000C4H    00000H
+                  @@CODE   Timer      000C4H    00000H
+                  @@CODE   Uart       000C4H    00000H
+                  @@CODE   User       000C4H    00000H
+                  @@CODE   MyDefine   000C4H    00000H
+         ?CSEGSI                      000C4H    0000AH  CSEG
+         ?OCDSTAD                     000CEH    0000AH  CSEG
+         @@LCODE                      000D8H    000ADH  CSEG BASE
+                  @@LCODE  @cstart    000D8H    000ADH
+         @@BASE                       00185H    00154H  CSEG BASE
+                  @@BASE   r_cg_main
+                                      00185H    00000H
+                  @@BASE   r_cg_systeminit
+                                      00185H    00000H
+                  @@BASE   r_cg_cgc   00185H    00000H
+                  @@BASE   r_cg_rtc   00185H    00000H
+                  @@BASE   r_cg_sau   00185H    00000H
+                  @@BASE   r_cg_intp
+                                      00185H    00000H
+                  @@BASE   r_cg_tau   00185H    00000H
+                  @@BASE   IOIntp     00185H    00082H
+                  @@BASE   Struct     00207H    00000H
+                  @@BASE   Timer      00207H    0008DH
+                  @@BASE   Uart       00294H    00045H
+                  @@BASE   User       002D9H    00000H
+                  @@BASE   MyDefine   002D9H    00000H
+         @@CODEL                      002D9H    007D4H  CSEG
+                  @@CODEL  r_cg_main
+                                      002D9H    00034H
+                  @@CODEL  r_cg_systeminit
+                                      0030DH    0002AH
+                  @@CODEL  r_cg_cgc   00337H    0002BH
+                  @@CODEL  r_cg_rtc   00362H    00045H
+                  @@CODEL  r_cg_sau   003A7H    001FAH
+                  @@CODEL  r_cg_intp
+                                      005A1H    00078H
+                  @@CODEL  r_cg_tau   00619H    000E7H
+                  @@CODEL  IOIntp     00700H    00048H
+                  @@CODEL  Struct     00748H    00000H
+                  @@CODEL  Timer      00748H    0004EH
+                  @@CODEL  Uart       00796H    00291H
+                  @@CODEL  User       00A27H    00040H
+                  @@CODEL  MyDefine   00A67H    00046H
+         @@LCODEL                     00AADH    00060H  CSEG
+                  @@LCODEL @stkinit   00AADH    00044H
+                  @@LCODEL exit       00AF1H    0001CH
+* gap *                               00B0DH    0F4F3H
+
+  MEMORY=RAM
+  BASE ADDRESS=FDF00H   SIZE=02100H
+         OUTPUT   INPUT    INPUT      BASE      SIZE
+         SEGMENT  SEGMENT  MODULE     ADDRESS
+         @@DATA                       FDF00H    003E4H  DSEG BASEP
+                  @@DATA   @cstart    FDF00H    000BAH
+                  @@DATA   r_cg_main
+                                      FDFBAH    00000H
+                  @@DATA   r_cg_systeminit
+                                      FDFBAH    00000H
+                  @@DATA   r_cg_cgc   FDFBAH    00000H
+                  @@DATA   r_cg_rtc   FDFBAH    00000H
+                  @@DATA   r_cg_sau   FDFBAH    00000H
+                  @@DATA   r_cg_intp
+                                      FDFBAH    00000H
+                  @@DATA   r_cg_tau   FDFBAH    00000H
+                  @@DATA   IOIntp     FDFBAH    00000H
+                  @@DATA   Struct     FDFBAH    0032AH
+                  @@DATA   Timer      FE2E4H    00000H
+                  @@DATA   Uart       FE2E4H    00000H
+                  @@DATA   User       FE2E4H    00000H
+                  @@DATA   MyDefine   FE2E4H    00000H
+                  @@DATA   @rom       FE2E4H    00000H
+         @@INIT                       FE2E4H    00000H  DSEG BASEP
+                  @@INIT   @cstart    FE2E4H    00000H
+                  @@INIT   r_cg_main
+                                      FE2E4H    00000H
+                  @@INIT   r_cg_systeminit
+                                      FE2E4H    00000H
+                  @@INIT   r_cg_cgc   FE2E4H    00000H
+                  @@INIT   r_cg_rtc   FE2E4H    00000H
+                  @@INIT   r_cg_sau   FE2E4H    00000H
+                  @@INIT   r_cg_intp
+                                      FE2E4H    00000H
+                  @@INIT   r_cg_tau   FE2E4H    00000H
+                  @@INIT   IOIntp     FE2E4H    00000H
+                  @@INIT   Struct     FE2E4H    00000H
+                  @@INIT   Timer      FE2E4H    00000H
+                  @@INIT   Uart       FE2E4H    00000H
+                  @@INIT   User       FE2E4H    00000H
+                  @@INIT   MyDefine   FE2E4H    00000H
+                  @@INIT   @rom       FE2E4H    00000H
+         @@INIS                       FE2E4H    00000H  DSEG UNITP
+                  @@INIS   @cstart    FE2E4H    00000H
+                  @@INIS   r_cg_main
+                                      FE2E4H    00000H
+                  @@INIS   r_cg_systeminit
+                                      FE2E4H    00000H
+                  @@INIS   r_cg_cgc   FE2E4H    00000H
+                  @@INIS   r_cg_rtc   FE2E4H    00000H
+                  @@INIS   r_cg_sau   FE2E4H    00000H
+                  @@INIS   r_cg_intp
+                                      FE2E4H    00000H
+                  @@INIS   r_cg_tau   FE2E4H    00000H
+                  @@INIS   IOIntp     FE2E4H    00000H
+                  @@INIS   Struct     FE2E4H    00000H
+                  @@INIS   Timer      FE2E4H    00000H
+                  @@INIS   Uart       FE2E4H    00000H
+                  @@INIS   User       FE2E4H    00000H
+                  @@INIS   MyDefine   FE2E4H    00000H
+                  @@INIS   @rom       FE2E4H    00000H
+         @@DATS                       FE2E4H    00000H  DSEG UNITP
+                  @@DATS   @cstart    FE2E4H    00000H
+                  @@DATS   r_cg_main
+                                      FE2E4H    00000H
+                  @@DATS   r_cg_systeminit
+                                      FE2E4H    00000H
+                  @@DATS   r_cg_cgc   FE2E4H    00000H
+                  @@DATS   r_cg_rtc   FE2E4H    00000H
+                  @@DATS   r_cg_sau   FE2E4H    00000H
+                  @@DATS   r_cg_intp
+                                      FE2E4H    00000H
+                  @@DATS   r_cg_tau   FE2E4H    00000H
+                  @@DATS   IOIntp     FE2E4H    00000H
+                  @@DATS   Struct     FE2E4H    00000H
+                  @@DATS   Timer      FE2E4H    00000H
+                  @@DATS   Uart       FE2E4H    00000H
+                  @@DATS   User       FE2E4H    00000H
+                  @@DATS   MyDefine   FE2E4H    00000H
+                  @@DATS   @rom       FE2E4H    00000H
+         @@INITL                      FE2E4H    00000H  DSEG UNIT64KP
+                  @@INITL  @cstart    FE2E4H    00000H
+                  @@INITL  r_cg_main
+                                      FE2E4H    00000H
+                  @@INITL  r_cg_systeminit
+                                      FE2E4H    00000H
+                  @@INITL  r_cg_cgc   FE2E4H    00000H
+                  @@INITL  r_cg_rtc   FE2E4H    00000H
+                  @@INITL  r_cg_sau   FE2E4H    00000H
+                  @@INITL  r_cg_intp
+                                      FE2E4H    00000H
+                  @@INITL  r_cg_tau   FE2E4H    00000H
+                  @@INITL  IOIntp     FE2E4H    00000H
+                  @@INITL  Struct     FE2E4H    00000H
+                  @@INITL  Timer      FE2E4H    00000H
+                  @@INITL  Uart       FE2E4H    00000H
+                  @@INITL  User       FE2E4H    00000H
+                  @@INITL  MyDefine   FE2E4H    00000H
+                  @@INITL  @rom       FE2E4H    00000H
+         @@DATAL                      FE2E4H    00000H  DSEG UNIT64KP
+                  @@DATAL  @cstart    FE2E4H    00000H
+                  @@DATAL  r_cg_main
+                                      FE2E4H    00000H
+                  @@DATAL  r_cg_systeminit
+                                      FE2E4H    00000H
+                  @@DATAL  r_cg_cgc   FE2E4H    00000H
+                  @@DATAL  r_cg_rtc   FE2E4H    00000H
+                  @@DATAL  r_cg_sau   FE2E4H    00000H
+                  @@DATAL  r_cg_intp
+                                      FE2E4H    00000H
+                  @@DATAL  r_cg_tau   FE2E4H    00000H
+                  @@DATAL  IOIntp     FE2E4H    00000H
+                  @@DATAL  Struct     FE2E4H    00000H
+                  @@DATAL  Timer      FE2E4H    00000H
+                  @@DATAL  Uart       FE2E4H    00000H
+                  @@DATAL  User       FE2E4H    00000H
+                  @@DATAL  MyDefine   FE2E4H    00000H
+                  @@DATAL  @rom       FE2E4H    00000H
+         @@BITS                       FE2E4H    00000H  BSEG
+                  @@BITS   @cstart    FE2E4H.0  00000H.0
+                  @@BITS   r_cg_main
+                                      FE2E4H.0  00000H.0
+                  @@BITS   r_cg_systeminit
+                                      FE2E4H.0  00000H.0
+                  @@BITS   r_cg_cgc   FE2E4H.0  00000H.0
+                  @@BITS   r_cg_rtc   FE2E4H.0  00000H.0
+                  @@BITS   r_cg_sau   FE2E4H.0  00000H.0
+                  @@BITS   r_cg_intp
+                                      FE2E4H.0  00000H.0
+                  @@BITS   r_cg_tau   FE2E4H.0  00000H.0
+                  @@BITS   IOIntp     FE2E4H.0  00000H.0
+                  @@BITS   Struct     FE2E4H.0  00000H.0
+                  @@BITS   Timer      FE2E4H.0  00000H.0
+                  @@BITS   Uart       FE2E4H.0  00000H.0
+                  @@BITS   User       FE2E4H.0  00000H.0
+                  @@BITS   MyDefine   FE2E4H.0  00000H.0
+* gap *                               FE2E4H    01BF0H
+         @@SEGREG                     FFED4H    00004H  DSEG AT
+                  @@SEGREG @SEGREG    FFED4H    00004H
+         @@RTARG0                     FFED8H    00008H  DSEG AT
+                  @@RTARG0 @RTARG0    FFED8H    00008H
+* gap *                               FFEE0H    00020H
+* gap (Not Free Area) *               FFF00H    00100H
+
+
+ Target chip : R5F10WMG
+ Device file : V1.01
+

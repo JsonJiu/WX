@@ -1,0 +1,1302 @@
+#include "User.h"
+#include "Struct.h"
+#include "IOIntp.h"
+#include "Uart.h"
+#include "r_cg_sau.h"
+#include "CAT24L.h"
+#include "Irda.h"
+#include "r_cg_rtc.h"
+#include "TMP102.h"
+#include "HP206.h"
+#include "Valve.h"
+#include "Lcd.h"
+#define BIAOKUANGTYPE
+
+unsigned char ChaiBiaoQieHuanTime = 0;
+unsigned short S_Version = 0x102;
+unsigned long LastTimeUp;
+unsigned long LastTimeDown;
+unsigned long TimeUp;
+unsigned long TimeDown;
+unsigned char Boot_Wait_Time;
+float Low_Flow_Buff[10] = {4000.0,10000.0,25000.0,100000.0,350000.0,700000.0,1320000.0,2250000.0,4000000.0,99999999.0};
+float Mid_Flow_Buff[10] = {4000.0,10000.0,40000.0,160000.0,560000.0,1120000.0,2120000.0,3600000.0,5200000.0,99999999.0};
+float High_Flow_Buff[10] = {4000.0,10000.0,60000.0,240000.0,840000.0,1680000.0,3180000.0,5400000.0,7300000.0,99999999.0};
+void HIC_Init()
+{
+  UMU_EN(0);
+  HIC_RST();
+}
+void HIC_RST()
+{
+  HIC_EXT(1);
+  Delay_ms(20);
+  HIC_EXT(0);
+}
+void SET_HIC_Status(unsigned char Status)
+{
+  if(Status)
+  {
+    HIC_INSP(1);  
+  }
+  else
+  {
+    HIC_INSP(0); 
+  }
+}
+void HIC_ACK()
+{
+  Uart1_SendByte(Hic_Ack);
+}
+void ScanHic()
+{
+  if(TempUserData.EMGTimes < 3600)
+  {
+    TempUserData.EMGTimes++;
+  }
+  else
+  {
+    Flag.EMGErr = 1;
+    if(Flag.Valve_Status)
+    {
+			CloseValve();
+    }
+    if(TempUserData.Hic_Time<40)
+    {
+      TempUserData.Hic_Time++;
+    }
+    else
+    {
+      TempUserData.Hic_Time = 0;
+      HIC_RST();
+    }
+  } 
+}
+
+extern unsigned char Boot_Wait_Flag;
+void ScanBootWait()
+{
+	if(Boot_Wait_Flag == 1)
+	{
+		if(Boot_Wait_Time < 255)
+		{
+	     Boot_Wait_Time++;
+		}
+		if(Boot_Wait_Time > 40)
+		{
+			Boot_Wait_Flag = 0;
+			Boot_Wait_Time = 0;
+		}
+	}
+	else
+	{
+		Boot_Wait_Time = 0;
+	}
+}
+
+void Check_UMU_Data()
+{
+  if(Flag.UMU_Data)
+  {
+    unsigned char Check_Hic_i,Check_Hic_X;
+    unsigned short Check_Hic_Y;
+    Flag.UMU_Data=0;
+    if(Csb.CSB_UMU_RX_BuffLen >= 14)
+    {
+      Check_Hic_X=Csb.CSB_UMU_RX_BuffLen/14;
+      for(Check_Hic_i=0;Check_Hic_i<Check_Hic_X;Check_Hic_i++)
+      {
+        Check_Hic_Y=14*Check_Hic_i;
+        Analysis_UMU(Csb.CSB_UMU_RX_Buff+Check_Hic_Y);
+      }
+    }
+    Csb.CSB_UMU_RX_BuffLen = 0;
+  }
+}
+void Analysis_UMU(unsigned char *UMU_RData)
+{
+  if((*UMU_RData == 0x02)&&(*(UMU_RData+12) == 0x03))
+  {
+    unsigned char BBC_Data = 0;
+    unsigned char Analysis_UMU_i;
+    for(Analysis_UMU_i=0;Analysis_UMU_i<13;Analysis_UMU_i++)
+    {
+      BBC_Data ^= *(UMU_RData+Analysis_UMU_i);
+    }
+    if(*(UMU_RData+13) == BBC_Data)
+    {
+      TempUserData.EMGTimes = 0;
+      Flag.EMGErr = 0;
+      Handle_HicData(UMU_RData,Flag.WorkMode);
+    }
+  }
+}
+void Handle_HicData(unsigned char *hicdata,unsigned char work_mode)
+{
+  unsigned char SectionDot = 0;
+  unsigned char PON = 1;
+  unsigned char DirectFlag = 0;
+  unsigned long HICFLOW123;
+  float SB;
+  HICFLOW123=*(hicdata+1);
+  HICFLOW123=(HICFLOW123<<8)+*(hicdata+2);
+  HICFLOW123=(HICFLOW123<<8)+*(hicdata+3);
+  if(HICFLOW123 & 0x00800000)
+  {
+    HICFLOW123 &= 0x007fffff;
+    PON = 0;
+  }
+  if(TempUserData.Direct)
+  {
+    if(PON)
+    {
+			HICFLOW123 = HICFLOW123 * 10;
+    }
+    else
+    {
+      if(HICFLOW123 > 4000)
+      {
+        DirectFlag = 1;
+      }
+      HICFLOW123 = 0;
+    }
+  }
+  else
+  {
+   if(PON)
+   {
+     if(HICFLOW123 > 4000)
+     {
+        DirectFlag = 1;
+     }
+     HICFLOW123 = 0;
+   }
+   else
+   {
+			HICFLOW123 = HICFLOW123 * 10;
+   }
+  }
+  if(DirectFlag)
+  {
+    TempUserData.DirectTimes++;
+    if(TempUserData.DirectTimes > 23)
+    {
+     TempUserData.Direct += 1;
+     if(TempUserData.Direct > 1)
+     {
+       TempUserData.Direct = 0;
+     }
+   }
+   TempUserData.StartMeasure = 0;
+   TempUserData.GK_HicFlow = 0;
+   TempUserData.BK_HicFlow = 0;
+  }
+  else
+  {
+    TempUserData.DirectTimes = 0;
+    if(HICFLOW123 < 4000)
+    {
+      HICFLOW123 = 0;
+      TempUserData.StartMeasure = 0;
+      TempUserData.GK_HicFlow = 0;
+      TempUserData.BK_HicFlow = 0;
+    }
+    else
+    {
+      TempUserData.GK_HicFlow = (float)HICFLOW123;
+    }
+  }
+  if(TempUserData.Direct!=SysPara.MeterPath)
+  {
+    SysPara.MeterPath = TempUserData.Direct;
+    WriteSysPara();
+		CSB_LCD_FanX(TempUserData.Direct);
+  }
+  switch(work_mode)
+  {
+  case Insp_Status:
+    {
+      TempUserData.BK_HicFlow = TempUserData.GK_HicFlow;
+      if(TempUserData.BK_HicFlow>99999999.0)
+      {
+         TempUserData.BK_HicFlow=90000000.0;
+      }
+      if(SysPara.MeterType == 0)
+      {
+        while(TempUserData.BK_HicFlow>=Low_Flow_Buff[SectionDot])SectionDot++;
+      }
+      else if(SysPara.MeterType == 1)
+      {
+        while(TempUserData.BK_HicFlow>=Mid_Flow_Buff[SectionDot])SectionDot++;
+      }
+      else
+      {
+				while(TempUserData.BK_HicFlow>=High_Flow_Buff[SectionDot])SectionDot++;
+      }
+      if(SectionDot>8)
+      {
+        SectionDot=1;
+      }
+      if(SectionDot>0)
+      {
+        SB=(float)SysPara.B[SectionDot-1];
+        SB=SB*1000000.0;
+        TempUserData.BK_HicFlow=TempUserData.BK_HicFlow*SysPara.K[SectionDot-1];
+        TempUserData.BK_HicFlow=TempUserData.BK_HicFlow+SB;
+      }
+      else
+      {
+        TempUserData.BK_HicFlow=0;
+      }
+      if(TempUserData.BK_HicFlow<14000000000.0)
+      {
+        TempUserData.ToNormalTime++;
+      }
+      else
+      {
+        TempUserData.ToNormalTime=0;
+      }
+      Insp_Work();
+    }
+    break;
+  case Regulate_Status:
+    {
+     TempUserData.BK_HicFlow = TempUserData.GK_HicFlow;
+      if(TempUserData.BK_HicFlow>0)
+      {
+        TempUserData.BK_HicFlow=TempUserData.BK_HicFlow*1000000.0;
+      }
+      if(TempUserData.BK_HicFlow<14000000000.0)
+      {
+        TempUserData.ToNormalTime++;
+      }
+      else
+      {
+        TempUserData.ToNormalTime=0;
+      }
+      Regulate_Work();
+    }
+   break;
+  default:
+  {
+    if(TempUserData.GK_HicFlow>0)
+    {
+      if(TempUserData.GK_HicFlow>50000000.0)
+      {
+        TempUserData.GK_HicFlow=50000000.0;
+      }
+      if(TempUserData.StartMeasure)
+      {
+        if(SysPara.MeterType == 0)
+	      {
+	        while(TempUserData.GK_HicFlow>=Low_Flow_Buff[SectionDot])SectionDot++;
+	      }
+	      else if(SysPara.MeterType == 1)
+	      {
+	        while(TempUserData.GK_HicFlow>=Mid_Flow_Buff[SectionDot])SectionDot++;
+	      }
+	      else
+	      {
+					while(TempUserData.GK_HicFlow>=High_Flow_Buff[SectionDot])SectionDot++;
+	      }
+        if(SectionDot>8)
+        {
+          SectionDot=1;
+        }
+        SB=(float)SysPara.B[SectionDot-1];
+        SB=SB*1000000.0;
+        TempUserData.GK_HicFlow=TempUserData.GK_HicFlow*SysPara.K[SectionDot-1]+SB;
+				if(ConfigPara.TempEN)
+				{
+					TempUserData.BK_HicFlow=TempUserData.GK_HicFlow*TempRatio;
+					if(ConfigPara.PreEN)
+					{
+						TempUserData.BK_HicFlow=TempUserData.BK_HicFlow*PreRatio;
+					}
+				}
+				else
+				{
+					if(ConfigPara.PreEN)
+					{
+						TempUserData.BK_HicFlow=TempUserData.GK_HicFlow*PreRatio;
+					}
+					else
+					{
+						TempUserData.BK_HicFlow = TempUserData.GK_HicFlow;
+					}
+				}
+				Csb.CSB_FlowRate = (unsigned long)(TempUserData.BK_HicFlow/100000000);
+				//TempUserData.UMUtoZNTime = 4;
+				Flag.CSB_LCD = 1;
+      }
+     else
+     {
+      if(TempUserData.GK_HicFlow<20000.0)
+      {
+        TempUserData.Volume_ml+=TempUserData.GK_HicFlow;
+        TempUserData.DisTimes+=1;
+      }
+      else if(TempUserData.GK_HicFlow<160000.0)
+      {
+        TempUserData.Volume_ml+=TempUserData.GK_HicFlow;
+        TempUserData.DisTimes+=2;
+      }
+      else
+      {
+        TempUserData.Volume_ml+=TempUserData.GK_HicFlow;
+        TempUserData.DisTimes+=4;
+      }
+      TempUserData.GK_HicFlow=0;
+			TempUserData.BK_HicFlow = 0;
+			Csb.CSB_FlowRate = 0;
+			TempUserData.BK_CurrentFlow = 0;
+      if(TempUserData.DisTimes>6)
+      {
+				Flag.CSB_LCD = 1;
+        TempUserData.StartMeasure=1;
+        UserData.BiaoKuangLJL+=(TempUserData.Volume_ml*1000000.0);
+				UserData.GongKuangLJL+=(TempUserData.Volume_ml*1000000.0);
+				TempUserData.UMUtoZNTime = 0;
+      }
+     }
+    }
+    else
+    {
+      TempUserData.StartMeasure = 0;
+      TempUserData.Volume_ml=0;
+      TempUserData.DisTimes=0;
+			TempUserData.BK_HicFlow = 0;
+			Csb.CSB_FlowRate = 0;
+			TempUserData.BK_CurrentFlow = 0;
+    }
+    Normal_Work();
+   //TempUserData.UMUtoZNTime = 4;
+   //CheckQiYuan();
+   CheckFlowStatus(Csb.CSB_FlowRate);
+  }
+  break;
+  }
+}
+void CheckQiYuan()
+{
+	TimeUp = Csb.CSB_UMU_RX_Buff[4];
+	TimeUp <<=8;
+	TimeUp |= Csb.CSB_UMU_RX_Buff[5];
+	TimeUp <<=8;
+	TimeUp |= Csb.CSB_UMU_RX_Buff[6];
+	TimeUp <<=8;
+	TimeUp |= Csb.CSB_UMU_RX_Buff[7];
+	
+	TimeDown = Csb.CSB_UMU_RX_Buff[8];
+	TimeDown <<=8;
+	TimeDown |= Csb.CSB_UMU_RX_Buff[9];
+	TimeDown <<=8;
+	TimeDown |= Csb.CSB_UMU_RX_Buff[10];
+	TimeDown <<=8;
+	TimeDown |= Csb.CSB_UMU_RX_Buff[11];
+	
+	if(!ConfigPara.ChaiBiaoEN)
+	{
+////////////////////////切换为天然气/////////////////////////////////////		
+		if((LastTimeUp > TimeUp)&&(LastTimeDown > TimeDown))
+		{
+			if(((LastTimeUp - TimeUp)>200)&&((LastTimeDown - TimeDown) > 200))
+			{
+				ChaiBiaoQieHuanTime++;
+				if(ChaiBiaoQieHuanTime > 100)
+				{
+					ChaiBiaoQieHuanTime = 0;
+					ConfigPara.ChaiBiaoEN = 1;
+					Chai_Biao.ChaiBiaoStatus = KQ_TRQ;
+					RecordChaiBiao();
+				}
+			}
+			else
+			{
+				ChaiBiaoQieHuanTime = 0;
+			}
+		}
+		else
+		{
+			ChaiBiaoQieHuanTime = 0;
+		}
+	}
+	else
+	{
+		if(Chai_Biao.ChaiBiaoStatus == KQ_TRQ)
+		{
+////////////////////////天然气到空气/////////////////////////////////////		
+			if((TimeUp > LastTimeUp)&&(TimeDown > LastTimeDown))
+			{
+				if(((TimeUp - LastTimeUp)>200)&&((TimeDown - LastTimeDown) > 200))
+				{
+					ChaiBiaoQieHuanTime++;
+					if(ChaiBiaoQieHuanTime > 100)
+					{
+						ChaiBiaoQieHuanTime = 0;
+						Chai_Biao.ChaiBiaoStatus = TRQ_KQ;
+						RecordChaiBiao();
+					}
+				}
+				else
+				{
+					ChaiBiaoQieHuanTime = 0;
+				}
+			}
+			else
+			{
+				ChaiBiaoQieHuanTime = 0;
+			}
+		}
+		else
+		{
+			////////////////////////切换为天然气/////////////////////////////////////		
+			if((LastTimeUp > TimeUp)&&(LastTimeDown > TimeDown))
+			{
+				if(((LastTimeUp - TimeUp)>200)&&((LastTimeDown - TimeDown) > 200))
+				{
+					ChaiBiaoQieHuanTime++;
+					if(ChaiBiaoQieHuanTime > 100)
+					{
+						ChaiBiaoQieHuanTime = 0;
+						Chai_Biao.ChaiBiaoStatus = KQ_TRQ;
+						RecordChaiBiao();
+					}
+				}
+				else
+				{
+					ChaiBiaoQieHuanTime = 0;
+				}
+			}
+			else
+			{
+				ChaiBiaoQieHuanTime = 0;
+			}
+		}
+	}
+}
+void CheckFlowStatus(unsigned long FLD)
+{
+	if(FLD > 0)////////Csb.CSB_FlowRata和TempUserData.Hic_Flow
+  {
+    if(TempUserData.XiaoLiuLiangSheThreshold > FLD)
+    {
+      if(TempUserData.XiaoLiuLiangTime < 14400)/////
+      {
+        TempUserData.XiaoLiuLiangTime++;				
+      }
+      else
+      {
+      	Csb.LiuLiangFlag = 1;
+				TempUserData.GuanFaStatus |=0x01;
+      }
+    }
+    else
+    {
+      TempUserData.XiaoLiuLiangTime = 0;
+      TempUserData.GuanFaStatus &=~0x01;
+    }
+    if(TempUserData.DaLiuLiangThreshold < FLD)
+    {
+      if(TempUserData.DaLiuLiangTime < 15)
+      {
+        TempUserData.DaLiuLiangTime++;
+      }
+      else
+      {
+      	Csb.LiuLiangFlag = 2;
+				TempUserData.GuanFaStatus |=0x02;
+      }
+    }
+    else
+    {
+      TempUserData.DaLiuLiangTime = 0;
+      TempUserData.GuanFaStatus &=~0x02;
+      if(TempUserData.GuoLiuLiangThreshold < FLD)
+      {
+        if(TempUserData.GuoLiuLiangTime < 15)
+        {
+           TempUserData.GuoLiuLiangTime++;				  
+        }
+        else
+        {
+        	  Csb.LiuLiangFlag = 3;
+				    TempUserData.GuanFaStatus |=0x04;
+        }
+      }
+      else
+      {
+        TempUserData.GuoLiuLiangTime = 0;
+        TempUserData.GuanFaStatus &=~0x04;
+      }
+    }
+   if(FLD > TempUserData.MaxFlow)
+   {
+   	TempUserData.MaxFlow = FLD;
+   }
+  }
+  else
+  {
+    TempUserData.GuoLiuLiangTime = 0;
+    TempUserData.DaLiuLiangTime = 0;
+    TempUserData.XiaoLiuLiangTime = 0;
+    TempUserData.GuanFaStatus = 0;
+  }
+}
+void RecordChaiBiao()
+{
+	unsigned short RecordPP;
+	LastTimeUp = TimeUp;
+	LastTimeDown = TimeDown;
+	ConfigPara.ChaiBiaoTimer++;
+	if(ConfigPara.ChaiBiaoTimer > 5)
+	{
+		ConfigPara.ChaiBiaoTimer=1;
+	}
+	WriteConfigPara();
+	RecordPP = ConfigPara.ChaiBiaoTimer - 1;
+	RecordPP *=RecordPP;
+	RecordPP +=ChaiBiaoPosition;
+	R_RTC_Get_CounterValue();
+	Chai_Biao.ChaiBiaoTime[0]=Rtc.Year;
+	Chai_Biao.ChaiBiaoTime[1]=Rtc.Mon;
+	Chai_Biao.ChaiBiaoTime[2]=Rtc.Day;
+	Chai_Biao.ChaiBiaoTime[3]=Rtc.Hour;
+	Chai_Biao.ChaiBiaoTime[4]=Rtc.Min;
+	Write_CAT24L(RecordPP,(unsigned char *)&Chai_Biao,ChaiBiao_Len);
+}
+void RecordLiuLiangStatus()
+{
+	unsigned char StatusTime;
+	unsigned short RecordPP;
+	switch(Csb.LiuLiangFlag)
+	{
+		case 1:///XLL
+		ConfigPara.XiaoLLTimer++;
+		if(ConfigPara.XiaoLLTimer > 5)
+		{
+			ConfigPara.XiaoLLTimer=1;
+		}
+		StatusTime = ConfigPara.XiaoLLTimer;
+		break;
+		case 2:///DLL
+		ConfigPara.DaLLTimer++;
+		if(ConfigPara.DaLLTimer > 5)
+		{
+			ConfigPara.DaLLTimer=1;
+		}
+		StatusTime = ConfigPara.DaLLTimer;
+		break;
+		case 3:///HLL
+		ConfigPara.GuoLLTimer++;
+		if(ConfigPara.GuoLLTimer > 5)
+		{
+			ConfigPara.GuoLLTimer=1;
+		}
+		StatusTime = ConfigPara.GuoLLTimer;
+		break;
+		default:
+		break;
+	}
+	WriteConfigPara();
+	RecordPP = StatusTime - 1;
+	RecordPP *=RecordPP;
+	R_RTC_Get_CounterValue();
+	Chai_Biao.ChaiBiaoTime[0]=Rtc.Year;
+	Chai_Biao.ChaiBiaoTime[1]=Rtc.Mon;
+	Chai_Biao.ChaiBiaoTime[2]=Rtc.Day;
+	Chai_Biao.ChaiBiaoTime[3]=Rtc.Hour;
+	Chai_Biao.ChaiBiaoTime[4]=Rtc.Min;
+	switch(Csb.LiuLiangFlag)
+	{
+		case 1:///XLL
+		RecordPP +=XiaoLiuLiangPosition;
+		Write_CAT24L(RecordPP,(unsigned char *)&Chai_Biao.ChaiBiaoTime,5);
+		break;
+		case 2:///DLL
+		RecordPP +=DaLiuLiangPosition;
+		Write_CAT24L(RecordPP,(unsigned char *)&Chai_Biao.ChaiBiaoTime,5);
+		break;
+		case 3:///HLL
+		RecordPP +=HengLiuLiangPosition;
+		Write_CAT24L(RecordPP,(unsigned char *)&Chai_Biao.ChaiBiaoTime,5);
+		break;
+		default:
+		break;
+	}
+}
+void Normal_Work()
+{
+  if(TempUserData.GK_HicFlow>0)
+  {
+    TempUserData.BK_CurrentFlow = (unsigned long)(TempUserData.BK_HicFlow/1000000);
+    UserData.BiaoKuangLJL +=TempUserData.BK_HicFlow;
+		if(UserData.BiaoKuangLJL >= M3_1_Uint)
+    {
+      UserData.BiaoKuang_Vol +=1;
+      UserData.BiaoKuangLJL -= M3_1_Uint;
+			WriteVol();
+    }
+    TempUserData.BK_CurrentVolume=(unsigned long)((UserData.BiaoKuangLJL)/Ml_Uint);
+    
+		#ifdef BIAOKUANGTYPE
+		TempUserData.GK_CurrentFlow = (unsigned long)(TempUserData.GK_HicFlow/1000000);
+    UserData.GongKuangLJL +=TempUserData.GK_HicFlow;
+    TempUserData.GK_CurrentVolume=(unsigned long)((UserData.GongKuangLJL)/Ml_Uint);
+    if(UserData.GongKuangLJL >= M3_1_Uint)
+    {
+      UserData.GongKuang_Vol +=1;
+      UserData.GongKuangLJL -= M3_1_Uint;
+			//WriteVol();
+    }
+		#endif
+  }
+	/*if(TempUserData.UMUtoZNTime < 5)
+	{
+		TempUserData.UMUtoZNTime++;
+		UMU_to_ZNData();
+	}*/
+}
+void Regulate_Work()
+{
+  TempUserData.DisFlowRate+=TempUserData.BK_HicFlow;
+  TempUserData.DisTimes++;
+  if(TempUserData.DisTimes>7)
+  {
+    TempUserData.DisTimes=0;
+    TempUserData.BK_CurrentFlow = (unsigned long)(TempUserData.DisFlowRate/8000000.0);
+    #ifdef BIAOKUANGTYPE
+    TempUserData.GK_CurrentFlow = TempUserData.BK_CurrentFlow;
+    #endif
+    TempUserData.DisFlowRate=TempUserData.DisFlowRate/16.0;
+    #ifdef BIAOKUANGTYPE
+    UserData.GongKuangLJL +=TempUserData.DisFlowRate;
+    #endif
+    UserData.BiaoKuangLJL +=TempUserData.DisFlowRate;
+    TempUserData.FlowRate[TempUserData.Times]=TempUserData.BK_CurrentFlow;
+    TempUserData.Times++;
+    if(TempUserData.Times>19)
+    {
+      TempUserData.Times=0;
+    }
+    TempUserData.DisFlowRate=0;
+    #ifdef BIAOKUANGTYPE
+    TempUserData.GK_CurrentVolume=(unsigned long)((UserData.GongKuangLJL)/Ml_Uint);
+    #endif
+		if(UserData.BiaoKuangLJL >= M3_1_Uint)
+    {
+      UserData.BiaoKuang_Vol +=1;
+      UserData.BiaoKuangLJL -= M3_1_Uint;
+      WriteVol();
+    }
+    TempUserData.BK_CurrentVolume=(unsigned long)((UserData.BiaoKuangLJL)/Ml_Uint);
+    
+    #ifdef BIAOKUANGTYPE
+    if(UserData.GongKuangLJL >= M3_1_Uint)
+    {
+      UserData.GongKuang_Vol +=1;
+      UserData.GongKuangLJL -= M3_1_Uint;
+      //WriteVol();
+    }
+    #endif
+    //UMU_to_ZNData();
+		Csb.CSB_FlowRate = TempUserData.BK_CurrentFlow/100;
+		Flag.CSB_LCD = 1;
+  }
+  GoToNormalMode(TempUserData.ToNormalTime);
+}
+
+void Insp_Work()
+{
+  TempUserData.DisFlowRate +=TempUserData.BK_HicFlow;
+  TempUserData.Volume_ml +=TempUserData.BK_HicFlow;
+  TempUserData.DisTimes++;
+  if(TempUserData.DisTimes>7)
+  {
+    TempUserData.DisTimes=0;
+    TempUserData.BK_CurrentFlow=(unsigned long)(TempUserData.DisFlowRate/8000000.0);
+    #ifdef BIAOKUANGTYPE
+    TempUserData.GK_CurrentFlow=TempUserData.BK_CurrentFlow;
+    #endif
+    TempUserData.DisFlowRate=TempUserData.DisFlowRate/16.0;
+    UserData.BiaoKuangLJL +=TempUserData.DisFlowRate;
+    #ifdef BIAOKUANGTYPE
+    UserData.GongKuangLJL +=TempUserData.DisFlowRate;
+    #endif
+    TempUserData.FlowRate[TempUserData.Times]=TempUserData.BK_CurrentFlow;
+    TempUserData.Times++;
+    if(TempUserData.Times>19)
+    {
+      TempUserData.Times=0;
+    }
+    TempUserData.DisFlowRate=0;
+    #ifdef BIAOKUANGTYPE
+    TempUserData.GK_CurrentVolume=(unsigned long)((UserData.GongKuangLJL)/Ml_Uint);
+		
+    if(UserData.GongKuangLJL >= M3_1_Uint)
+    {
+      UserData.GongKuang_Vol +=1;
+      UserData.GongKuangLJL -= M3_1_Uint;
+      //WriteVol();
+    }
+    #endif
+		if(UserData.BiaoKuangLJL >= M3_1_Uint)
+    {
+      UserData.BiaoKuang_Vol +=1;
+      UserData.BiaoKuangLJL -= M3_1_Uint;
+      WriteVol();
+    }
+    TempUserData.BK_CurrentVolume=(unsigned long)((UserData.BiaoKuangLJL)/Ml_Uint);
+    //UMU_to_ZNData();
+		Csb.CSB_FlowRate = TempUserData.BK_CurrentFlow/100;
+		Flag.CSB_LCD = 1;
+  }
+  if(Flag.OpenLed)
+  {
+    TempUserData.TempTime++;
+    if(TempUserData.TempTime>=1)
+    {
+      Flag.OpenLed=0;
+      Led(0);
+    }
+  }
+  if(TempUserData.BK_HicFlow<300000000000.0)
+  {
+    if(TempUserData.Volume_ml>=28800000000000.0)//1L
+    {
+      TempUserData.Volume_ml -=28800000000000.0;
+      Flag.OpenLed=1;
+      TempUserData.TempTime=0;
+      Led(1);
+    }
+  }
+  else
+  {
+    if(TempUserData.Volume_ml>=288000000000000.0)//10L
+    {
+      TempUserData.Volume_ml -=288000000000000.0;
+      Flag.OpenLed=1;
+      TempUserData.TempTime=0;
+      Led(1);
+    }
+  }
+  GoToNormalMode(TempUserData.ToNormalTime);
+}
+void ToNormalStatus()
+{
+  Led(0);
+  Flag.WorkMode=Normal_Status;
+  TempUserData.Times=0;
+  TempUserData.DisTimes=0; 
+  TempUserData.Volume_ml=0;
+	TempUserData.UMUtoZNTime = 0;
+	Flag.CSB_LCD = 1;
+  SET_HIC_Status(1);
+}
+void ToRegulateStatus()
+{
+  Led(0);
+  Flag.WorkMode=Regulate_Status;
+  TempUserData.Volume_ml=0;
+  TempUserData.DisTimes=0;
+  TempUserData.Times=0; 
+  TempUserData.DisFlowRate=0;
+  TempUserData.ToNormalTime=0;
+  SET_HIC_Status(0);
+}
+void ToInspStatus()
+{
+  ToRegulateStatus();
+  Flag.WorkMode=Insp_Status;
+}
+void GoToNormalMode(unsigned int T_Time)
+{
+  if(T_Time>4800)
+  {
+    T_Time = 0;
+    ToNormalStatus();
+  }
+}
+void ClearTempAndPre()
+{
+	Temp_POWER(0);
+	TempUserData.UMUtoZNTime = 0;
+}
+void UpData_TempAndPre()
+{
+  static unsigned short UpData_Temp_i=299;
+  UpData_Temp_i++;
+  if(UpData_Temp_i >= 301)
+  {
+		if((ConfigPara.TempEN)||(ConfigPara.PreEN))
+		{
+			switch(UpData_Temp_i)
+			{
+				case 300:
+				//Temp_POWER(1);
+				break;
+				case 301:
+				Temp_POWER(1);
+				break;
+				case 302:
+				if(ConfigPara.TempEN)
+				{
+					Read_TM();
+				}
+				if(ConfigPara.PreEN)
+				{
+					if(ReadHP206Para() == FALSE)
+					{
+						ClearTempAndPre();
+						UpData_Temp_i = 0;
+					}
+					else
+					{
+						Temp_POWER(0);
+					}
+				}
+				else
+				{
+					ClearTempAndPre();
+					UpData_Temp_i = 0;
+				}
+				
+				break;
+				case 303:
+				Temp_POWER(1);
+				ReadHP206PreStep1();
+				break;
+				case 304:
+				ReadHP206PreStep2();
+				break;
+				case 305:
+				ReadHP206PreStep3();
+				ClearTempAndPre();
+				UpData_Temp_i = 0;
+				break;
+				default:
+				break;
+			}
+		}
+		else
+		{
+			UpData_Temp_i = 0;
+			ClearTempAndPre();
+		}
+  }
+}
+void CSB_Display()
+{
+	static unsigned char CSB_Display_i=0;
+  switch(CSB_Display_i)
+  {
+  case 0:
+    CSB_LCD_DisFlow(Flag.EMGErr,TempUserData.BK_CurrentFlow/100);
+    break;
+  case 10:
+    CSB_LCD_DisFlow(Flag.EMGErr,TempUserData.BK_CurrentFlow/100);
+    if(Flag.EEPROM)
+    {
+    	CSB_LCD_DisUPErr(2);	
+    }	
+    else if(Flag.EMGErr)
+    {
+      CSB_LCD_DisUPErr(9);
+    }
+    else if(TempUserData.GuanFaStatus&0x01)
+    {
+        CSB_LCD_DisUPErr(7);
+    }
+    else if(TempUserData.GuanFaStatus&0x02)
+    {
+        CSB_LCD_DisUPErr(8);
+    }    
+    break;
+  case 20:
+    CSB_LCD_DisTemp(Flag.TMPErr,Disp_T);
+    break;
+  case 30:
+    CSB_LCD_DisPre(Flag.PREErr,Disp_P);
+    break;
+  }
+  if(Csb.CSB_FlowRate>0)
+  {
+      CSB_Display_i +=5;
+  }
+  else
+  {
+      CSB_Display_i++;
+  }
+  #if DisPreEnable
+	if(CSB_Display_i>=40)
+  {
+    CSB_Display_i=0;
+  }
+  #else
+  if(CSB_Display_i>=30)
+  {
+    CSB_Display_i=0;
+  }
+  #endif
+  /*if(Csb.CSB_Pre_Status == 0xAA)
+  {
+      if(CSB_Display_i>=30)
+      {
+        CSB_Display_i=0;
+      }
+  }
+  else
+  {
+      if(CSB_Display_i>=40)
+      {
+        CSB_Display_i=0;
+      }
+  }*/
+}
+void CSB_INSP_Display()
+{
+	static unsigned CSB_INSP_Display_i=0;
+  switch(CSB_INSP_Display_i)
+  {
+  case 0:
+    CSB_LCD_Insp_DisFlow(Flag.PREErr,TempUserData.BK_CurrentFlow/100);
+    break;
+  case 1:
+    CSB_LCD_Insp_DisFlow(Flag.PREErr,TempUserData.BK_CurrentFlow/100);
+ 		if(Flag.PREErr)
+    {
+      CSB_LCD_DisUPErr(93);
+    }
+    break;
+  default:
+    break;
+  }
+  CSB_INSP_Display_i++;
+  if(CSB_INSP_Display_i>=2)
+  {
+    CSB_INSP_Display_i = 0;
+  }
+}
+void Check_KEY_Data()
+{
+  if(Flag.Key1Come)
+  {
+		Flag.Key1Come = 0;
+		Flag.KeyCounter = 0;
+		Flag.KeyType++;
+		if(Flag.KeyType > 6)
+		{
+			Flag.KeyType = 1;
+		}
+		Start_Intp(KEY1_INTP);
+  }
+	if(Flag.Key2Come)
+	{
+		Flag.Key2Come = 0;
+		Flag.KeyCounter = 0;
+		Flag.KeyType++;
+		if(Flag.KeyType > 6)
+		{
+			Flag.KeyType = 1;
+		}
+		Start_Intp(KEY2_INTP);
+	}
+}
+void User_Pro()
+{
+	if(Flag.WorkMode==Normal_Status)
+	{
+		CSB_Display();
+	}
+	else
+	{
+		CSB_INSP_Display();
+	}
+	if(Flag.KeyType > 0)
+	{
+		switch(Flag.KeyType)
+		{
+			case 1:
+			CSB_LCD_Link();
+			if(Flag.EMGErr)
+			{
+				CSB_LCD_DisDOWNErr(9);
+			}
+			else
+			{
+				if((!Flag.Valve_Status)&&(TempUserData.BatteryVolt > 30))
+				{
+					OpenValve();
+				}
+			}
+			break;
+			case 2:
+			CSB_LCD_SoftVision(S_Version);
+			break;
+			case 3:
+			if((ConfigPara.TempEN)&&(ConfigPara.PreEN))
+			{
+				CSB_LCD_DispMeterType(SysPara.MeterType,0);
+			}
+			else
+			{
+				if(ConfigPara.TempEN)
+				{
+					CSB_LCD_DispMeterType(SysPara.MeterType,0x0F);
+				}
+				else
+				{
+					CSB_LCD_DispMeterType(SysPara.MeterType,0xF0);
+				}
+			}
+			break;
+			case 4:
+			R_RTC_Get_CounterValue();
+			CSB_LCD_DispDate(Rtc.Year,Rtc.Mon,Rtc.Day);
+			break;
+			case 5:
+			R_RTC_Get_CounterValue();
+			CSB_LCD_DispTime(Rtc.Hour,Rtc.Min,Rtc.Sec);
+			break;
+			case 6:
+			if(Flag.WorkMode==Normal_Status)
+			{
+				CSB_LCD_DisVolume(Csb_AMOUNTVOL,UserData.BiaoKuang_Vol,TempUserData.BK_CurrentVolume/100);
+			}
+			else
+			{
+				CSB_LCD_DisInspVolume(UserData.BiaoKuang_Vol,TempUserData.BK_CurrentVolume/100);
+			}
+			break;
+			default:
+			break;
+		}
+		if(Flag.KeyCounter<60)
+		{
+			Flag.KeyCounter++;
+		}
+		else
+		{
+			Flag.KeyType = 0;
+			Flag.KeyCounter = 0;
+			Flag.CSB_LCD = 1;
+		}
+	}
+	else
+	{
+		if(Flag.CSB_LCD)
+		{
+			Flag.CSB_LCD = 0;
+			if(Flag.WorkMode==Normal_Status)
+			{
+				CSB_LCD_DisVolume(Csb_AMOUNTVOL,UserData.BiaoKuang_Vol,TempUserData.BK_CurrentVolume/100);
+			}
+			else
+			{
+			  CSB_LCD_DisInspVolume(UserData.BiaoKuang_Vol,TempUserData.BK_CurrentVolume/100);
+			}
+		}
+	}
+}
+void Scan_Irda()
+{
+	static Scan_Irda_i=0;
+	Scan_Irda_i++;
+	if(Scan_Irda_i>=2)
+	{
+		Scan_Irda_i = 0;
+		if(!Flag.ZNFall)
+		{
+			IRDA_RxPOW(1);
+			Start_Intp(ZN_INTP);
+			Delay_ms(2);
+			if(!Flag.ZNFall)
+			{
+				Stop_Intp(ZN_INTP);
+				IRDA_RxPOW(0);
+			}
+		}
+	}
+}
+void UMU_to_ZNData()
+{
+	unsigned char UMU_to_ZNData_i,UMU_to_ZNData_cc = 0;
+	Csb.CSB_UMUTOZN_BuffLen = 0;
+	TempUserData.BK_CurrentFlow /= 100;
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = 0xFE;
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = 0xFE;
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = 0x68;
+	//#ifdef BIAOKUANGTYPE
+	//Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = 0x24;
+	//TempUserData.GK_CurrentFlow /= 100;
+	/////////////GKCurrentFlow///////////////////////
+	//Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.GK_CurrentFlow >> 24);
+	//Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.GK_CurrentFlow >> 16);
+	//Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.GK_CurrentFlow >> 8);
+	//Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = TempUserData.GK_CurrentFlow;
+	/////////////GKCurrentVolumeZhengShu/////////////////////////////
+	//Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (UserData.GongKuang_Vol >> 24);
+	//Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (UserData.GongKuang_Vol >> 16);
+	//Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (UserData.GongKuang_Vol >> 8);
+	//Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = UserData.GongKuang_Vol;
+	/////////////GKCurrentVolumeXiaoShu/////////////////////////////
+	//Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.GK_CurrentVolume >> 24);
+	//Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.GK_CurrentVolume >> 16);
+	//Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.GK_CurrentVolume >> 8);
+	//Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = TempUserData.GK_CurrentVolume;
+	//#else
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = 0x18;
+	//#endif
+	/////////////BKCurrentFlow///////////////////////
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.BK_CurrentFlow >> 24);
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.BK_CurrentFlow >> 16);
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.BK_CurrentFlow >> 8);
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = TempUserData.BK_CurrentFlow;
+	/////////////BKCurrentVolumeZhengShu/////////////////////////////
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (UserData.BiaoKuang_Vol >> 24);
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (UserData.BiaoKuang_Vol >> 16);
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (UserData.BiaoKuang_Vol >> 8);
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = UserData.BiaoKuang_Vol;
+	/////////////BKCurrentVolumeXiaoShu/////////////////////////////
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.BK_CurrentVolume >> 24);
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.BK_CurrentVolume >> 16);
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.BK_CurrentVolume >> 8);
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = TempUserData.BK_CurrentVolume;
+	///////////////????+????////////////////////
+	UMU_to_ZNData_cc = SysPara.MeterType;
+	UMU_to_ZNData_cc <<=4;
+	if(Flag.WorkMode!=Normal_Status)
+	{
+		UMU_to_ZNData_cc |=0x01;
+	}
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = UMU_to_ZNData_cc;
+	///////////////??????////////////////////////
+	UMU_to_ZNData_cc = Flag.TMPErr;
+	UMU_to_ZNData_cc |= Flag.PREErr;
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = UMU_to_ZNData_cc;
+	///////////////???////////////////////////
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = Disp_T >> 8;
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = Disp_T;
+	///////////////???////////////////////////////////
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = Disp_P >> 8;
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = Disp_P;
+	///////////////????+????///////////////////////////////
+	UMU_to_ZNData_cc = TempUserData.Direct;
+	UMU_to_ZNData_cc >>=4;
+	UMU_to_ZNData_cc |=TempUserData.GuanFaStatus;
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = UMU_to_ZNData_cc;
+	
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = TempUserData.BatteryVolt;
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = Flag.Valve_Status;
+	
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = 0;
+	
+	//UMU_to_ZNData_cc = 0;///////?????
+	//UMU_to_ZNData_cc = 0xA0;///////?????
+	//UMU_to_ZNData_cc |= 0;///////?????
+	//UMU_to_ZNData_cc |= 0x0A;///////?????
+	//Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = UMU_to_ZNData_cc;
+	//UMU_to_ZNData_cc = 0;///////?????
+	UMU_to_ZNData_cc = 0xAA;///////?????
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = UMU_to_ZNData_cc;
+	
+	if(ConfigPara.TempEN)
+	{
+		UMU_to_ZNData_cc = 0;
+	}
+	else
+	{
+		UMU_to_ZNData_cc = 0xF0;
+	}
+	if(ConfigPara.PreEN)
+	{
+		UMU_to_ZNData_cc |= 0;
+	}
+	else
+	{
+		UMU_to_ZNData_cc |= 0x0F;
+	}
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = UMU_to_ZNData_cc;
+	///////////////???///////////////////////////////
+	UMU_to_ZNData_cc = 0;
+	for(UMU_to_ZNData_i = 2;UMU_to_ZNData_i < Csb.CSB_UMUTOZN_BuffLen;UMU_to_ZNData_i++)
+	{
+		UMU_to_ZNData_cc += Csb.CSB_UMUTOZN_Buff[UMU_to_ZNData_i];
+	}
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = UMU_to_ZNData_cc;
+	///////////////JIE SHU FU////////////////////////////////////////
+	Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = 0x16;
+	Stop_Intp(ZN_INTP);
+	IrdaSendByte(0xFE);
+	if(!Csb.CSB_ZN_RX_BuffLen)
+	{
+		Start_Intp(ZN_INTP);
+	}
+	IrdaSendBytes(Csb.CSB_UMUTOZN_Buff,Csb.CSB_UMUTOZN_BuffLen);
+}
+void UMU_to_ZNCMD(unsigned char ZNCMD)
+{
+	unsigned char UMU_to_ZNData_i,UMU_to_ZNData_cc = 0;
+	switch(ZNCMD)
+	{
+		case 0xEA:
+		Csb.CSB_UMUTOZN_BuffLen = 0;
+		//TempUserData.BK_CurrentFlow /= 100;
+		//TempUserData.GK_CurrentFlow /= 100;
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = 0xFE;
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = 0xFE;
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = 0x68;
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = 0x19;
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = ZNCMD;
+		/////////////GKCurrentFlow///////////////////////
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.GK_CurrentFlow >> 24);
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.GK_CurrentFlow >> 16);
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.GK_CurrentFlow >> 8);
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = TempUserData.GK_CurrentFlow;
+		/////////////GKCurrentVolumeZhengShu/////////////////////////////
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (UserData.GongKuang_Vol >> 24);
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (UserData.GongKuang_Vol >> 16);
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (UserData.GongKuang_Vol >> 8);
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = UserData.GongKuang_Vol;
+		/////////////GKCurrentVolumeXiaoShu/////////////////////////////
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.GK_CurrentVolume >> 24);
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.GK_CurrentVolume >> 16);
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.GK_CurrentVolume >> 8);
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = TempUserData.GK_CurrentVolume;
+		/////////////BKCurrentFlow///////////////////////
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.BK_CurrentFlow >> 24);
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.BK_CurrentFlow >> 16);
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.BK_CurrentFlow >> 8);
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = TempUserData.BK_CurrentFlow;
+		/////////////BKCurrentVolumeZhengShu/////////////////////////////
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (UserData.BiaoKuang_Vol >> 24);
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (UserData.BiaoKuang_Vol >> 16);
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (UserData.BiaoKuang_Vol >> 8);
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = UserData.BiaoKuang_Vol;
+		/////////////BKCurrentVolumeXiaoShu/////////////////////////////
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.BK_CurrentVolume >> 24);
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.BK_CurrentVolume >> 16);
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = (TempUserData.BK_CurrentVolume >> 8);
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = TempUserData.BK_CurrentVolume;
+		
+		UMU_to_ZNData_cc = 0;
+		for(UMU_to_ZNData_i = 2;UMU_to_ZNData_i < Csb.CSB_UMUTOZN_BuffLen;UMU_to_ZNData_i++)
+		{
+			UMU_to_ZNData_cc += Csb.CSB_UMUTOZN_Buff[UMU_to_ZNData_i];
+		}
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = UMU_to_ZNData_cc;
+		///////////////JIE SHU FU////////////////////////////////////////
+		Csb.CSB_UMUTOZN_Buff[Csb.CSB_UMUTOZN_BuffLen++] = 0x32;
+		Stop_Intp(ZN_INTP);
+		IrdaSendByte(0xFE);
+		if(!Csb.CSB_ZN_RX_BuffLen)
+		{
+			Start_Intp(ZN_INTP);
+		}
+		IrdaSendBytes(Csb.CSB_UMUTOZN_Buff,Csb.CSB_UMUTOZN_BuffLen);
+		NOP();
+		break;
+		default:
+		break;
+	}
+}

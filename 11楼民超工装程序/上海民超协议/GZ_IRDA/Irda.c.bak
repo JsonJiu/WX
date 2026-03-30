@@ -1,0 +1,675 @@
+#include "Irda.h"
+#include "Struct.h"
+#include "IOIntp.h"
+#include "Uart.h"
+#include "User.h"
+#include "CAT24L.h"
+#include "r_cg_rtc.h"
+#include "Valve.h"
+#include "Lcd.h"
+unsigned char Irda_Send_Buff[50];
+unsigned char Boot_Wait_Flag;
+void Check_IRDA_Data()
+{
+	if(Flag.ZN_Data)
+	{
+		unsigned char Uart2_Irda_Check_i;
+		unsigned char Uart2_Irda_Check_cs = 0; 
+		Flag.ZN_Data = 0;
+		if(Csb.CSB_ZN_RX_BuffLen >= 19 + Csb.CSB_ZN_RX_Buff[15] + Csb.CSB_ZN_RX_Buff[16])
+		{
+			Csb.CSB_ZN_RX_BuffLen = 19 + Csb.CSB_ZN_RX_Buff[15] + Csb.CSB_ZN_RX_Buff[16];
+			for(Uart2_Irda_Check_i = 0;Uart2_Irda_Check_i < (Csb.CSB_ZN_RX_BuffLen-2);Uart2_Irda_Check_i++)
+      {
+        Uart2_Irda_Check_cs += Csb.CSB_ZN_RX_Buff[Uart2_Irda_Check_i];
+      }
+			if( Uart2_Irda_Check_cs == Csb.CSB_ZN_RX_Buff[Csb.CSB_ZN_RX_BuffLen-2])
+      {
+      	Flag.CSB_LCD = 1;
+				Led(1);
+				Irda_Data_Handling(Csb.CSB_ZN_RX_Buff);
+				Led(0);
+      }
+		}
+		else
+		{
+			if(Csb.CSB_ZN_RX_BuffLen >= 2)
+			{
+				if(Csb.CSB_ZN_RX_Buff[1] == 0xFA)
+				{
+					TempUserData.UMUtoZNTime = 0;
+				}
+				else if(Csb.CSB_ZN_RX_Buff[1] == 0xFC)
+				{
+					//TempUserData.UMUtoZNTime = 0;
+				}
+				else if(Csb.CSB_ZN_RX_Buff[1] == 0xFD)
+				{
+					Flag.Key1Come = 1;
+				}
+				else if(Csb.CSB_ZN_RX_Buff[1] == 0xEA)
+				{
+					UMU_to_ZNCMD(Csb.CSB_ZN_RX_Buff[1]);
+				}
+			}
+		}
+		Csb.CSB_ZN_RX_BuffLen = 0;
+		Flag.ZNFall = 0;
+	}
+}
+unsigned char Irda_Data_Handling(unsigned char *Irda_Buff)
+{
+	unsigned char Irda_Data_Handling_i,Order_Direct,FE = 0xfe;
+	unsigned short Caculate_Data,Data_Len,Command;
+	unsigned long Irda_Vol_Handing;
+	unsigned char SetBootFlag = 0;
+	unsigned char flash_flag[1];
+	TempUserData.UMUtoZNTime = 0;
+	Order_Direct = *(Irda_Buff + CMD);
+	if(Order_Direct != 0xFF)
+	{
+	  Order_Direct &= 0x80;
+	  if(Order_Direct != 0)
+	    return 0;
+	}
+	Copy_Datas(Irda_Send_Buff,Csb.CSB_ZN_RX_Buff,Csb.CSB_ZN_RX_BuffLen);
+	Command = *(Irda_Buff + CMD_Front);
+	Command <<= 8;
+	Command |= *(Irda_Buff + CMD_Behind);
+	if((Compary_Data((Irda_Buff + 4),0xAA,5) == TRUE)||(Compary_Datas((Irda_Buff + 4),SysPara.MeterID,5) == TRUE))
+	{
+		switch(Command)
+		{
+			case Status_CMD:
+			{
+				if(*(Irda_Buff + Data_Start) == 0x01)
+				{
+					ToRegulateStatus();
+				}
+				else if(*(Irda_Buff + Data_Start) == 0x02)
+				{
+					ToInspStatus();
+				}
+				else
+				{
+					ToNormalStatus();
+				}
+			}
+			return 1;
+			case Read_ID_CMD:
+			{
+				for(Irda_Data_Handling_i = 0;Irda_Data_Handling_i < 5;Irda_Data_Handling_i++)
+				{
+					Irda_Send_Buff[4 + Irda_Data_Handling_i] = Irda_Send_Buff[9 + Irda_Data_Handling_i];
+					Irda_Send_Buff[9 + Irda_Data_Handling_i] = SysPara.MeterID[Irda_Data_Handling_i];
+				}
+				Data_Len = 3;
+			}
+			break;
+			case Set_ID_CMD:
+			case Mod_ID_CMD:
+			{
+				for(Irda_Data_Handling_i = 0;Irda_Data_Handling_i < 5;Irda_Data_Handling_i++)
+				{
+					SysPara.MeterID[Irda_Data_Handling_i] = *(Irda_Buff + Data_Start + Irda_Data_Handling_i);
+				}
+				WriteSysPara();
+			}
+			return 1;
+			case Up_K0_CMD:
+			case Up_K1_CMD:
+			case Up_K2_CMD:
+			case Up_K3_CMD:
+			case Up_K4_CMD:
+			case Up_K5_CMD:
+			case Up_K6_CMD:
+			case Up_K7_CMD:
+			case Down_K0_CMD:
+			case Down_K1_CMD:
+			case Down_K2_CMD:
+			case Down_K3_CMD:
+			case Down_K4_CMD:
+			case Down_K5_CMD:
+			case Down_K6_CMD:
+			case Down_K7_CMD:
+			{
+				if(*(Irda_Buff + 17) == 0xff)
+				{
+					if(*(Irda_Buff + 18) > 6)
+					{
+						SysPara.K[0] += 5000;
+					}
+					else
+					{
+						SysPara.K[*(Irda_Buff + 18) + 1] += 5000;
+					}
+				}
+				else
+				{
+					if(*(Irda_Buff + 18) > 6)
+					{
+						SysPara.K[0] -= 5000;
+					}
+					else
+					{
+						SysPara.K[*(Irda_Buff + 18) + 1] -= 5000;
+					}
+				}
+				WriteSysPara();
+			}
+			return 1;
+			case Set_Flow_CMD:
+			{
+				SysPara.MeterType = *(Irda_Buff + Data_Start) - 2;
+				WriteSysPara();
+				switch(SysPara.MeterType)
+				{
+					case 0:////G1.6
+					ConfigPara.XiaoLiuLiangValue = 2;
+				  ConfigPara.DaLiuLiangValue = 30;
+				  //ConfigPara.GuoLiuLiangValue = 30;
+					break;
+					case 1:////G2.5
+					ConfigPara.XiaoLiuLiangValue = 2 ;
+				  ConfigPara.DaLiuLiangValue = 48;
+				  //ConfigPara.GuoLiuLiangValue = 48;
+					break;
+					case 2:////G4.0
+					ConfigPara.XiaoLiuLiangValue = 2;
+				  ConfigPara.DaLiuLiangValue = 72;
+				  //ConfigPara.GuoLiuLiangValue = 72;
+					break;
+					case 3:////G6.0
+					ConfigPara.XiaoLiuLiangValue = 2;
+				  ConfigPara.DaLiuLiangValue = 120;
+				  //ConfigPara.GuoLiuLiangValue = 120;
+					break;
+					case 4:////G10.0
+					ConfigPara.XiaoLiuLiangValue = 2;
+				  ConfigPara.DaLiuLiangValue = 192;
+				  //ConfigPara.GuoLiuLiangValue = 192;
+					break;
+					case 5:////G16.0
+					ConfigPara.XiaoLiuLiangValue = 2;
+				  ConfigPara.DaLiuLiangValue = 300;
+				  //ConfigPara.GuoLiuLiangValue = 300;
+					break;
+					case 6:////G25.0
+					ConfigPara.XiaoLiuLiangValue = 2;
+				  ConfigPara.DaLiuLiangValue = 480;
+				  //ConfigPara.GuoLiuLiangValue = 480;
+					break;
+					case 7:////G40.0
+					ConfigPara.XiaoLiuLiangValue = 2;
+				  ConfigPara.DaLiuLiangValue = 780;
+				  //ConfigPara.GuoLiuLiangValue = 780;
+					break;
+					case 8:////G65.0
+					ConfigPara.XiaoLiuLiangValue = 2;
+				  ConfigPara.DaLiuLiangValue = 1200;
+				  //ConfigPara.GuoLiuLiangValue = 1200;
+					break;
+					default:
+					ConfigPara.XiaoLiuLiangValue = 2 ;
+				  ConfigPara.DaLiuLiangValue = 48;
+				  //ConfigPara.GuoLiuLiangValue = 48;
+					break;
+				}
+				WriteConfigPara();
+				TempUserData.XiaoLiuLiangSheThreshold = ConfigPara.XiaoLiuLiangValue;
+			  TempUserData.XiaoLiuLiangSheThreshold *=100;
+			  TempUserData.GuoLiuLiangThreshold = ConfigPara.GuoLiuLiangValue;
+			  TempUserData.GuoLiuLiangThreshold *=1000;
+			  TempUserData.DaLiuLiangThreshold = ConfigPara.DaLiuLiangValue;
+			  TempUserData.DaLiuLiangThreshold *=1000;
+				return 1;
+			}
+			case Read_Flow_CMD:
+      Irda_Send_Buff[Data_Start]=(SysPara.MeterType + 2);
+      Data_Len=6;
+      break;
+			case Set_KB_CMD:
+			{
+				unsigned long K_Temp = 0;
+				unsigned long B_Temp = 0;
+				K_Temp = *(Irda_Buff + 22);
+				K_Temp = (K_Temp << 8) | *(Irda_Buff + 23);
+				K_Temp = (K_Temp << 8) | *(Irda_Buff + 24);
+				K_Temp = (K_Temp << 8) | *(Irda_Buff + 25);
+				SysPara.K[*(Irda_Buff + 30) + 1] = Calculate_K(K_Temp);
+				B_Temp = *(Irda_Buff + 26);
+				B_Temp = (B_Temp << 8) | *(Irda_Buff + 27);
+				B_Temp = (B_Temp << 8) | *(Irda_Buff + 28);
+				B_Temp = (B_Temp << 8) | *(Irda_Buff + 29);
+				SysPara.B[*(Irda_Buff + 30) + 1] = Calculate_B(B_Temp);
+				Data_Len = 14;
+			}
+			break;
+			case Read_KB_CMD:
+			{
+				unsigned long x;
+				signed long y;
+				x = SysPara.K[*(Irda_Buff + 20) + 1];
+				y = SysPara.B[*(Irda_Buff + 20) + 1];
+				Irda_Send_Buff[Data_Start] = x >> 16;
+				Irda_Send_Buff[Data_Start + 1] = x >> 8;
+				Irda_Send_Buff[Data_Start + 2] = x;
+				Irda_Send_Buff[Data_Start + 3] = y >> 16;
+				Irda_Send_Buff[Data_Start + 4] = y >> 8;
+				Irda_Send_Buff[Data_Start + 5] = y;
+				Data_Len = 11;
+			}
+			break;
+			case Normal_R_CMD:
+			{
+				Irda_Vol_Handing = UserData.BiaoKuang_Vol;
+				Irda_Vol_Handing *= 1000;
+				for(Irda_Data_Handling_i = 0;Irda_Data_Handling_i < 5;Irda_Data_Handling_i++)
+				{
+					Irda_Send_Buff[9 + Irda_Data_Handling_i] = SysPara.MeterID[Irda_Data_Handling_i];
+				}
+				Data_Len = 26;
+				Irda_Send_Buff[20] = 0;
+				Irda_Send_Buff[21] = 0;
+				Irda_Send_Buff[22] = 0x06;
+				for(Irda_Data_Handling_i = 0;Irda_Data_Handling_i < 4;Irda_Data_Handling_i++)
+				{
+					Irda_Send_Buff[23 + Irda_Data_Handling_i] = (Irda_Vol_Handing >> (24 - Irda_Data_Handling_i * 8));
+				}
+				for(Irda_Data_Handling_i = 0;Irda_Data_Handling_i < 4;Irda_Data_Handling_i++)
+				{
+					Irda_Send_Buff[27 + Irda_Data_Handling_i] = Csb.CSB_UMU_RX_Buff[4 + Irda_Data_Handling_i];
+				}
+				for(Irda_Data_Handling_i = 0;Irda_Data_Handling_i < 4;Irda_Data_Handling_i++)
+				{
+					Irda_Send_Buff[31+ Irda_Data_Handling_i] = Csb.CSB_UMU_RX_Buff[8 + Irda_Data_Handling_i];
+				}
+				Irda_Send_Buff[35] = Hardware_Version >> 8;
+			  Irda_Send_Buff[36] = Hardware_Version;
+				Irda_Send_Buff[37] = Software_Version >> 8;
+				Irda_Send_Buff[38] = Software_Version;
+			}
+			break;
+			case Flow_Rate_CMD:
+			{
+				uint32_t Buff_Vol;
+				uint32_t Tatol_Flow_Rate = 0;
+				for(Irda_Data_Handling_i = 0;Irda_Data_Handling_i < 20;Irda_Data_Handling_i++)
+				{
+					Tatol_Flow_Rate += TempUserData.FlowRate[Irda_Data_Handling_i];
+				}
+				Tatol_Flow_Rate = (Tatol_Flow_Rate / 20);
+				Buff_Vol = Data_Data(Tatol_Flow_Rate);
+				for(Irda_Data_Handling_i =0;Irda_Data_Handling_i < 4;Irda_Data_Handling_i++)
+				{
+					Irda_Send_Buff[20 + Irda_Data_Handling_i] = (Buff_Vol >> (Irda_Data_Handling_i * 8));
+				}
+				Data_Len = 7;
+			}
+			break;
+			case Set_Amount_CMD:
+			{
+				uint8_t Buff_Vol[4];
+				Buff_Vol[0] = *(Irda_Buff + 25);
+				Buff_Vol[1] = *(Irda_Buff + 24);
+				Buff_Vol[2] = *(Irda_Buff + 23);
+				Buff_Vol[3] = *(Irda_Buff + 22);
+				UserData.BiaoKuang_Vol = Data(Buff_Vol);
+				UserData.BiaoKuangLJL=0;
+				TempUserData.BK_CurrentVolume = 0;
+				WriteVol();
+				return 1;
+			}
+			case SetTempUintCMD:
+			ConfigPara.TempUint= *(Irda_Buff + Data_Start);
+			WriteConfigPara();
+      break;
+      case ReadTempUintCMD:
+      Irda_Send_Buff[Data_Start]=ConfigPara.TempUint;
+      Data_Len=6;
+      break;
+			case Set_TMP_CMD:
+			ConfigPara.TempEN= *(Irda_Buff + Data_Start);
+			WriteConfigPara();
+			return 1;
+			case Read_TMP_CMD:
+			Irda_Send_Buff[Data_Start]=ConfigPara.TempEN;
+		  Data_Len=6;
+			break;
+			case SetPreENCMD:
+			ConfigPara.PreEN= *(Irda_Buff + Data_Start);
+			WriteConfigPara();
+			return 1;
+			case ReadPreENCMD:
+			Irda_Send_Buff[Data_Start]=ConfigPara.TempEN;
+		  Data_Len=6;
+			break;
+			case SetXLLZhiCMD:
+	    Irda_Data_Handling_i = Csb.CSB_ZN_RX_Buff[Data_Start];
+	    Caculate_Data =Irda_Data_Handling_i&0x0f;
+	    Caculate_Data =Caculate_Data*100;
+	    ConfigPara.XiaoLiuLiangValue = Caculate_Data;
+	    Irda_Data_Handling_i = Csb.CSB_ZN_RX_Buff[Data_Start+1];
+	    Caculate_Data =Irda_Data_Handling_i>>4;
+	    Caculate_Data =Caculate_Data*10;
+	    ConfigPara.XiaoLiuLiangValue += Caculate_Data;
+	    Caculate_Data =Irda_Data_Handling_i&0x0F;
+	    Caculate_Data =Caculate_Data*1;
+	    ConfigPara.XiaoLiuLiangValue += Caculate_Data;
+	    TempUserData.XiaoLiuLiangSheThreshold = ConfigPara.XiaoLiuLiangValue;
+	    TempUserData.XiaoLiuLiangSheThreshold *=100;
+	    WriteConfigPara();
+    	return 0;
+	  case ReadXLLZhiCMD:
+	    Irda_Data_Handling_i = (ConfigPara.XiaoLiuLiangValue%1000)/100;
+	    Irda_Send_Buff[Data_Start]=Irda_Data_Handling_i;
+	    
+	    Irda_Data_Handling_i=(ConfigPara.XiaoLiuLiangValue%100)/10;
+	    Irda_Data_Handling_i <<=4;
+	    Irda_Data_Handling_i |=(ConfigPara.XiaoLiuLiangValue%10)/1;
+	    Irda_Send_Buff[Data_Start+1]=Irda_Data_Handling_i;
+	    Data_Len=7;
+	    break;
+	  case SetDLLZhiCMD:
+	    Irda_Data_Handling_i = Csb.CSB_ZN_RX_Buff[Data_Start];
+	    Caculate_Data =Irda_Data_Handling_i&0x0f;
+	    Caculate_Data =Caculate_Data*100;
+	    ConfigPara.GuoLiuLiangValue = Caculate_Data;
+	    Irda_Data_Handling_i = Csb.CSB_ZN_RX_Buff[Data_Start+1];
+	    Caculate_Data =Irda_Data_Handling_i>>4;
+	    Caculate_Data =Caculate_Data*10;
+	    ConfigPara.GuoLiuLiangValue += Caculate_Data;
+	    Caculate_Data =Irda_Data_Handling_i&0x0F;
+	    Caculate_Data =Caculate_Data*1;
+	    ConfigPara.GuoLiuLiangValue += Caculate_Data;
+	    TempUserData.GuoLiuLiangThreshold = ConfigPara.GuoLiuLiangValue;
+	    TempUserData.GuoLiuLiangThreshold *=1000;
+	    WriteConfigPara();
+	    return 0;
+	  case ReadDLLZhiCMD:
+	    Irda_Data_Handling_i = (ConfigPara.GuoLiuLiangValue%1000)/100;
+	    Irda_Send_Buff[Data_Start]=Irda_Data_Handling_i;
+	    
+	    Irda_Data_Handling_i=(ConfigPara.GuoLiuLiangValue%100)/10;
+	    Irda_Data_Handling_i <<=4;
+	    Irda_Data_Handling_i |=(ConfigPara.GuoLiuLiangValue%10)/1;
+	    Irda_Send_Buff[Data_Start+1]=Irda_Data_Handling_i;
+	    Data_Len=7;
+	    break;
+	  /*case SetHLLFWCMD:
+	    Irda_Data_Handling_i=Csb.CSB_UMU_RX_Buff[Data_Start+1];
+	    Caculate_Data =Irda_Data_Handling_i&0x0F;
+	    ConfigPara.HengLiuLiangValue = Caculate_Data;
+	    TempUserData.HengLiuLiangThreshold = ConfigPara.HengLiuLiangValue;
+	    TempUserData.HengLiuLiangThreshold *=1000;
+	    WriteConfigPara();
+	    return 0;
+	  case ReadHLLFWCMD:
+	    Irda_Data_Handling_i = (ConfigPara.HengLiuLiangValue%1000)/100;
+	    Irda_Send_Buff[Data_Start]=Irda_Data_Handling_i;
+	    
+	    Irda_Data_Handling_i=(ConfigPara.HengLiuLiangValue%100)/10;
+	    Irda_Data_Handling_i <<=4;
+	    Irda_Data_Handling_i |=(ConfigPara.HengLiuLiangValue%10)/1;
+	    Irda_Send_Buff[Data_Start+1]=Irda_Data_Handling_i;
+	    Data_Len=7;
+	    break;*/
+	  case ReadAllParaCMD:
+	    /*Irda_Send_Buff[Data_Start]=SysPara.FanXiangEN;
+	    Irda_Send_Buff[Data_Start+1]=SysPara.XiaoLLEN;
+	    Irda_Send_Buff[Data_Start+2]=SysPara.DaLiuLiangEN;
+	    Irda_Send_Buff[Data_Start+3]=SysPara.GengHuanEN;
+	    Irda_Send_Buff[Data_Start+4]=SysPara.HengLiuEN;
+	    
+	    Irda_Data_Handling_i = (SysPara.XiaoLiuLiangValue%1000)/100;
+	    Irda_Send_Buff[Data_Start+5]=Irda_Data_Handling_i;
+	    
+	    Irda_Data_Handling_i=(SysPara.XiaoLiuLiangValue%100)/10;
+	    Irda_Data_Handling_i <<=4;
+	    Irda_Data_Handling_i |=(SysPara.XiaoLiuLiangValue%10)/1;
+	    Irda_Send_Buff[Data_Start+6]=Irda_Data_Handling_i;
+	    
+	    Irda_Data_Handling_i = (SysPara.DaLiuLiangValue%1000)/100;
+	    Irda_Send_Buff[Data_Start+7]=Irda_Data_Handling_i;
+	    
+	    Irda_Data_Handling_i=(SysPara.DaLiuLiangValue%100)/10;
+	    Irda_Data_Handling_i <<=4;
+	    Irda_Data_Handling_i |=(SysPara.DaLiuLiangValue%10)/1;
+	    Irda_Send_Buff[Data_Start+8]=Irda_Data_Handling_i;
+	    
+	    Irda_Data_Handling_i = (SysPara.HengLiuLiangValue%1000)/100;
+	    Irda_Send_Buff[Data_Start+9]=Irda_Data_Handling_i;
+	    
+	    Irda_Data_Handling_i=(SysPara.HengLiuLiangValue%100)/10;
+	    Irda_Data_Handling_i <<=4;
+	    Irda_Data_Handling_i |=(SysPara.HengLiuLiangValue%10)/1;
+	    Irda_Send_Buff[Data_Start+10]=Irda_Data_Handling_i;
+	    
+	    Data_Len=6+10;*/
+	    break;
+	  case SetTimeCMD:
+	    Rtc.Year = Csb.CSB_ZN_RX_Buff[Data_Start+1];
+	    Rtc.Mon = Csb.CSB_ZN_RX_Buff[Data_Start+2];
+	    Rtc.Day = Csb.CSB_ZN_RX_Buff[Data_Start+3];
+	    Rtc.Hour = Csb.CSB_ZN_RX_Buff[Data_Start+4];
+	    Rtc.Min = Csb.CSB_ZN_RX_Buff[Data_Start+5];
+	    Rtc.Sec = Csb.CSB_ZN_RX_Buff[Data_Start+6];
+	    R_RTC_Set_CounterValue();
+	    return 0;
+		case PC_SetBoot_CMD:
+	    if(*(Irda_Buff + Data_Boot) == 0xaa)
+	  	{
+			
+			  Boot_Wait_Flag = 1;
+			  for(Irda_Data_Handling_i = 0;Irda_Data_Handling_i < 5;Irda_Data_Handling_i++)
+				{
+					Irda_Send_Buff[4 + Irda_Data_Handling_i] = Irda_Send_Buff[9 + Irda_Data_Handling_i];
+					Irda_Send_Buff[9 + Irda_Data_Handling_i] = SysPara.MeterID[Irda_Data_Handling_i];
+			  }
+			  Data_Len = 3;
+			  break; 	 
+	  	}
+	    else if((*(Irda_Buff + Data_Boot) == 0xbb) && (Boot_Wait_Flag == 1))
+	    {
+			  flash_flag[0] = 1;
+				CloseValve();
+				Led(0);
+				CSB_LCD_Boot();
+	  	  Write_CAT24L_Bytes(0,&flash_flag[0],1);
+			  for(Irda_Data_Handling_i = 0;Irda_Data_Handling_i < 5;Irda_Data_Handling_i++)
+				{
+					Irda_Send_Buff[4 + Irda_Data_Handling_i] = Irda_Send_Buff[9 + Irda_Data_Handling_i];
+					Irda_Send_Buff[9 + Irda_Data_Handling_i] = SysPara.MeterID[Irda_Data_Handling_i];
+				}
+			  Data_Len = 3;
+			  SetBootFlag = 1;
+			  break;
+		  }
+			default:
+			return 0;
+		}
+		Irda_Send_Buff[14] |= 0x80;
+		Irda_Send_Buff[15] = Data_Len >> 8;
+		Irda_Send_Buff[16] = Data_Len;
+		Irda_Send_Buff[Data_Len + 17] = 0;
+		for(Irda_Data_Handling_i = 0;Irda_Data_Handling_i < Data_Len + 17;Irda_Data_Handling_i++)
+		{
+			Irda_Send_Buff[Data_Len + 17] += Irda_Send_Buff[Irda_Data_Handling_i];
+		}
+		Irda_Send_Buff[Data_Len + 18] = 0x16;
+		IRDA_Tx(1);
+		IRDA_TxPOW(1);
+		Delay_ms(5);
+		for(Irda_Data_Handling_i = 0;Irda_Data_Handling_i < 10;Irda_Data_Handling_i++)
+		{
+			IrdaSendBytes(&FE,1);
+		}
+		IrdaSendBytes(Irda_Send_Buff,Data_Len + 19);
+		Delay_ms(10);
+		IRDA_TxPOW(0);
+		IRDA_Tx(0);
+		if(Command==Set_KB_CMD)
+		{
+			WriteSysPara();
+		}
+		if(SetBootFlag == 1)
+		{
+		  (*((void(*)())0xD0))();
+		}
+		return 1;
+	}
+	return 0;
+}
+void IrdaSendByte(unsigned char BBUFFByte)
+{
+	Uart3_SendByte(BBUFFByte);
+}
+void IrdaSendBytes(unsigned char *BBUFF,unsigned short BBLEN)
+{
+	Uart3_SendBytes(BBUFF,BBLEN);
+}
+uint8_t Compary_Data(uint8_t *Data_A,uint8_t Data_B,uint8_t Data_Len)
+{
+	uint8_t Compary_Data_i;
+	for(Compary_Data_i = 0;Compary_Data_i < Data_Len;Compary_Data_i++)
+	{
+		if(*(Data_A + Compary_Data_i) != Data_B)
+		{
+			return FALSE;
+		}
+	}
+	return TRUE;
+}
+uint8_t Compary_Datas(uint8_t *DATA1,uint8_t *DATA2,uint8_t Data_LenG)
+{
+  uint8_t Compary_Datas_i;
+  for(Compary_Datas_i=0;Compary_Datas_i<Data_LenG;Compary_Datas_i++)
+  {
+    if(*(DATA1+Compary_Datas_i)!=*(DATA2+Compary_Datas_i))
+      return FALSE;
+  }
+  return TRUE;
+}
+uint32_t Calculate_K(uint32_t Temp)
+{
+	uint32_t Calculate_K_K = 0;
+	uint32_t Calculate_K_j = 1000000;
+	uint8_t Calculate_K_i;
+	uint8_t Calculate_K_y;
+	for(Calculate_K_y = 0;Calculate_K_y < 7;Calculate_K_y++)
+	{
+		Calculate_K_i = Temp >> (24 - 4 * Calculate_K_y);
+		Calculate_K_i &= 0x0f;
+		Calculate_K_K += Calculate_K_i * Calculate_K_j;
+		Calculate_K_j = Calculate_K_j / 10;
+	}
+	if((Calculate_K_K > 1200000) || (Calculate_K_K < 700000))
+	{
+		Calculate_K_K = 1000000;
+	}
+	return Calculate_K_K;
+}
+
+int32_t Calculate_B(uint32_t Temp)
+{
+	uint32_t Calculate_B_B = 0;
+	uint8_t Calculate_B_i;
+	uint8_t Calculate_B_y;
+	uint32_t Calculate_B_j = 100000000;
+	for(Calculate_B_y = 0;Calculate_B_y < 7;Calculate_B_y++)
+	{
+		Calculate_B_i = Temp >> (24 - 4 * Calculate_B_y);
+		Calculate_B_i &= 0x0f;
+		Calculate_B_B += Calculate_B_i * Calculate_B_j;
+		Calculate_B_j = Calculate_B_j /10;
+	}
+	if((Temp >> 28) == 0)
+	{
+		Calculate_B_B = Calculate_B_B;
+	}
+	else
+	{
+		Calculate_B_B = (-1) * Calculate_B_B;
+	}
+	return Calculate_B_B;
+}
+
+uint32_t Data_Data(uint32_t Data)
+{
+	uint32_t Data_Data_DD = 0;
+	uint8_t Data_Data_i = 0;
+	
+	Data_Data_i = (Data % 100) / 10;
+	Data_Data_i <<= 4;
+	Data_Data_i |= (Data % 10) / 1;
+	Data_Data_DD = Data_Data_i;
+	Data_Data_DD <<= 8;
+	Data_Data_i = (Data % 10000) / 1000;
+	Data_Data_i <<= 4;
+	Data_Data_i |= (Data % 1000) / 100;
+	Data_Data_DD |= Data_Data_i;
+	Data_Data_DD <<= 8;
+	Data_Data_i = (Data % 1000000) / 100000;
+	Data_Data_i <<= 4;
+	Data_Data_i |= (Data % 100000) / 10000;
+	Data_Data_DD |= Data_Data_i;
+	Data_Data_DD <<= 8;
+	Data_Data_i = (Data % 100000000) / 10000000;
+	Data_Data_i <<= 4;
+	Data_Data_i |= (Data % 10000000) / 1000000;
+	Data_Data_DD |= Data_Data_i;
+	/*
+	Data_Data_i = Data;
+	Data_Data_i <<= 4;
+	Data_Data_i |= (Data % 10) / 1;
+	Data_Data_DD = Data_Data_i;
+	Data_Data_DD <<= 8;
+	Data_Data_DD <<= 8;
+	Data_Data_i = (Data % 10000) / 1000;
+	Data_Data_i <<= 4;
+	Data_Data_i |= (Data % 1000) / 100;
+	Data_Data_DD |= Data_Data_i;
+	Data_Data_DD <<= 8;
+	Data_Data_i = (Data % 1000000) / 100000;
+	Data_Data_i <<= 4;
+	Data_Data_i |= (Data % 100000) / 10000;
+	Data_Data_DD |= Data_Data_i;
+	Data_Data_DD <<= 8;
+	Data_Data_i = (Data % 100000000) / 10000000;
+	Data_Data_i <<= 4;
+	Data_Data_i |= (Data% 10000000) / 1000000;
+	Data_Data_DD |= Data_Data_i;
+	*/
+	return Data_Data_DD;
+}
+
+uint32_t Data(uint8_t *data)
+{
+	uint32_t Data_Vol;
+	uint32_t Data_Volume = 0;
+	Data_Vol = *(data + 0) & 0x0f;
+	Data_Volume += Data_Vol;
+	Data_Vol = (*(data + 0) >> 4) & 0x0f;
+	Data_Volume += Data_Vol * 10;
+	Data_Vol = *(data + 1) & 0x0f;
+	Data_Volume += Data_Vol * 100;
+	Data_Vol = (*(data + 1) >> 4) & 0x0f;
+	Data_Volume += Data_Vol * 1000;
+	Data_Vol = *(data + 2) & 0x0f;
+	Data_Volume += Data_Vol * 10000;
+	Data_Vol = (*(data + 2) >> 4) & 0x0f;
+	Data_Volume += Data_Vol * 100000;
+	Data_Vol = *(data + 3) & 0x0f;
+	Data_Volume += Data_Vol * 1000000;
+	Data_Vol = (*(data + 3) >> 4) & 0x0f;
+	Data_Volume += Data_Vol * 10000000;
+	return Data_Volume;
+}
+void Copy_Datas(uint8_t *Buff_A,uint8_t *Buff_B,uint8_t Len)
+{
+	uint8_t Copy_Datas_i;
+	for(Copy_Datas_i = 0;Copy_Datas_i < Len;Copy_Datas_i++)
+	{
+		*(Buff_A + Copy_Datas_i) = *(Buff_B + Copy_Datas_i);
+	}
+}

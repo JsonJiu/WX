@@ -1,0 +1,672 @@
+
+
+
+78K0R Linker W1.80                            Date:12 Mar 2026 Page:   1
+
+Command:   -yD:\cs+\CS+\CACX\Device\RL78\Devicefile -_msgoff -dcg_src\r_
+           lk.dr -oDefaultBuild\ZKB_Addr.lmf -gi00000000000000000000h -g
+           o04h,1FE00h,512 -gb0EF37EAH -mi0 -s -pDefaultBuild\ZKB_Addr.m
+           ap D:\cs+\CS+\CACX\CA78K0R\V1.71\lib78k0r\s0rll.rel DefaultBu
+           ild\r_cg_main.rel DefaultBuild\r_cg_systeminit.rel DefaultBui
+           ld\r_cg_cgc.rel DefaultBuild\r_cg_port.rel DefaultBuild\r_cg_
+           tau.rel DefaultBuild\r_cg_rtc.rel DefaultBuild\r_cg_adc.rel D
+           efaultBuild\r_cg_sau.rel DefaultBuild\r_cg_intp.rel DefaultBu
+           ild\MyDefine.rel DefaultBuild\Struct.rel DefaultBuild\IOIntp.
+           rel DefaultBuild\Irda.rel DefaultBuild\Timer.rel DefaultBuild
+           \Uart.rel DefaultBuild\User.rel DefaultBuild\OneShot_AD.rel D
+           efaultBuild\ZDINA219.rel DefaultBuild\BDINA219.rel DefaultBui
+           ld\MCP4561.rel -bcl0ram.lib -bcl0rm.lib -bcl0rmf.lib -iD:\cs+
+           \CS+\CACX\CA78K0R\V1.71\lib78k0r
+Para-file:
+Out-file:  DefaultBuild\ZKB_Addr.lmf
+Map-file:  DefaultBuild\ZKB_Addr.map
+Direc-file:cg_src\r_lk.dr
+Directive: ;/***********************************************************
+           ************************************************************
+           ;* DISCLAIMER
+           ;* This software is supplied by Renesas Electronics Corporati
+           on and is only 
+           ;* intended for use with Renesas products. No other uses are 
+           authorized. This 
+           ;* software is owned by Renesas Electronics Corporation and i
+           s protected under 
+           ;* all applicable laws, including copyright laws.
+           ;* THIS SOFTWARE IS PROVIDED "AS IS" AND RENESAS MAKES NO WAR
+           RANTIES REGARDING 
+           ;* THIS SOFTWARE, WHETHER EXPRESS, IMPLIED OR STATUTORY, INCL
+           UDING BUT NOT 
+           ;* LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PA
+           RTICULAR PURPOSE 
+           ;* AND NON-INFRINGEMENT.  ALL SUCH WARRANTIES ARE EXPRESSLY D
+           ISCLAIMED.
+           ;* TO THE MAXIMUM EXTENT PERMITTED NOT PROHIBITED BY LAW, NEI
+           THER RENESAS 
+           ;* ELECTRONICS CORPORATION NOR ANY OF ITS AFFILIATED COMPANIE
+           S SHALL BE LIABLE 
+           ;* FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL OR CONSEQUEN
+           TIAL DAMAGES FOR 
+           ;* ANY REASON RELATED TO THIS SOFTWARE, EVEN IF RENESAS OR IT
+           S AFFILIATES HAVE 
+           ;* BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+           ;* Renesas reserves the right, without notice, to make change
+           s to this software 
+           ;* and to discontinue the availability of this software.  By 
+           using this software, 
+           ;* you agree to the additional terms and conditions found by 
+           accessing the 
+           ;* following link:
+           ;* http://www.renesas.com/disclaimer
+           ;*
+           ;* Copyright (C) 2013 Renesas Electronics Corporation. All ri
+           ghts reserved.
+           ;************************************************************
+           ***********************************************************/
+           
+           ;/***********************************************************
+           ************************************************************
+           ;* File Name    : r_lk.dr
+           ;* Version      : Code Generator for RL78/L13 V1.01.00.01 [26
+            Jul 2013]
+           ;* Device(s)    : R5F10WMG
+           ;* Tool-Chain   : CA78K0R
+           ;* Description  : This is the link file.
+           ;* Creation Date: 2018-03-07
+           ;************************************************************
+           ***********************************************************/
+           ; [Sample of Link Directive File]
+           ; ***********************************************************
+           **
+           ; Link Directive File is created by users when memory or segm
+           ent
+           ; location needs to be changed from the default as the follow
+           ing
+           ; cases, for instance:
+           ;    1. In case the stack area should be in fixed area
+           ;    2. In case the external memory should be used
+           ;
+           ; Please change the start address, the size of memory, 
+           ; and the name of memory or segment according to your system,
+           
+           ; and link this file with -D linker option if necessary.
+           ;
+           ;   MEMORY directive : Declares an address in installed memor
+           y.
+           ;                      Devides memory into two or more areas 
+           and
+           ;                      specifies a memory area
+           ;   MERGE directive  : Specifies location of a segment
+           ; ***********************************************************
+           **
+           
+           ; <Example on how to specify the stack area>
+           ;  Please specify the linker option -SSTK.
+           ;  The stack area should be in the internal RAM area.
+           ;
+           ;      START ADDRESS, STACK SIZE
+           ;memory STK : ( 0FB000H, 100H )
+           ; <Example of locating data in external memory>
+           ; The section name output by C compiler can be changed with
+           ; #pragma section function.
+           ;
+           ; If the name of ROMization-related section which has global
+           ; variables with initial values is changed, the modification 
+           of
+           ; C start-up routine will be required. 
+           ; Please refer the CC78K0R C Compiler Language User's Manual 
+           
+           ; Language Chap.11 in detail.
+           ;
+           ; ex. This is the example of renaming the @@DATAL segment.
+           ;   #pragma section @@DATAL EXTDATA
+           ;
+           ;   By the following directives, "EXTDATA" segment is located
+            in EXMEM area.
+           ;
+           ;        START ADDRESS, MEMORY SIZE
+           ;memory EXMEM : ( 040000H, 1000H )
+           ;merge  EXTDATA := EXMEM
+
+
+*** Link information ***
+
+    56 output segment(s)
+ 260AH byte(s) real data
+  2681 symbol(s) defined
+
+
+*** Memory map ***
+
+
+  SPACE=REGULAR
+
+  MEMORY=ROM
+  BASE ADDRESS=00000H   SIZE=10000H
+         OUTPUT   INPUT    INPUT      BASE      SIZE
+         SEGMENT  SEGMENT  MODULE     ADDRESS
+         @@VECT00                     00000H    00002H  CSEG AT
+                  @@VECT00 @cstart    00000H    00002H
+         @@CNST                       00002H    00000H  CSEG UNITP
+                  @@CNST   @cstart    00002H    00000H
+                  @@CNST   r_cg_main
+                                      00002H    00000H
+                  @@CNST   r_cg_systeminit
+                                      00002H    00000H
+                  @@CNST   r_cg_cgc   00002H    00000H
+                  @@CNST   r_cg_port
+                                      00002H    00000H
+                  @@CNST   r_cg_tau   00002H    00000H
+                  @@CNST   r_cg_rtc   00002H    00000H
+                  @@CNST   r_cg_adc   00002H    00000H
+                  @@CNST   r_cg_sau   00002H    00000H
+                  @@CNST   r_cg_intp
+                                      00002H    00000H
+                  @@CNST   MyDefine   00002H    00000H
+                  @@CNST   Struct     00002H    00000H
+                  @@CNST   IOIntp     00002H    00000H
+                  @@CNST   Irda       00002H    00000H
+                  @@CNST   Timer      00002H    00000H
+                  @@CNST   Uart       00002H    00000H
+                  @@CNST   User       00002H    00000H
+                  @@CNST   OneShot_AD
+                                      00002H    00000H
+                  @@CNST   ZDINA219   00002H    00000H
+                  @@CNST   BDINA219   00002H    00000H
+                  @@CNST   MCP4561    00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  @cstart    00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_main
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_systeminit
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_cgc   00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_port
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_tau   00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_rtc   00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_adc   00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_sau   00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_intp
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  MyDefine   00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  Struct     00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  IOIntp     00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  Irda       00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  Timer      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  Uart       00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  User       00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  OneShot_AD
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  ZDINA219   00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  BDINA219   00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  MCP4561    00002H    00000H
+         @@RLINIT                     00002H    00000H  CSEG UNIT64KP
+                  @@RLINIT @cstart    00002H    00000H
+                  @@RLINIT r_cg_main
+                                      00002H    00000H
+                  @@RLINIT r_cg_systeminit
+                                      00002H    00000H
+                  @@RLINIT r_cg_cgc   00002H    00000H
+                  @@RLINIT r_cg_port
+                                      00002H    00000H
+                  @@RLINIT r_cg_tau   00002H    00000H
+                  @@RLINIT r_cg_rtc   00002H    00000H
+                  @@RLINIT r_cg_adc   00002H    00000H
+                  @@RLINIT r_cg_sau   00002H    00000H
+                  @@RLINIT r_cg_intp
+                                      00002H    00000H
+                  @@RLINIT MyDefine   00002H    00000H
+                  @@RLINIT Struct     00002H    00000H
+                  @@RLINIT IOIntp     00002H    00000H
+                  @@RLINIT Irda       00002H    00000H
+                  @@RLINIT Timer      00002H    00000H
+                  @@RLINIT Uart       00002H    00000H
+                  @@RLINIT User       00002H    00000H
+                  @@RLINIT OneShot_AD
+                                      00002H    00000H
+                  @@RLINIT ZDINA219   00002H    00000H
+                  @@RLINIT BDINA219   00002H    00000H
+                  @@RLINIT MCP4561    00002H    00000H
+                  @@RLINIT @rom       00002H    00000H
+         @@R_INIS                     00002H    00000H  CSEG UNIT64KP
+                  @@R_INIS @cstart    00002H    00000H
+                  @@R_INIS r_cg_main
+                                      00002H    00000H
+                  @@R_INIS r_cg_systeminit
+                                      00002H    00000H
+                  @@R_INIS r_cg_cgc   00002H    00000H
+                  @@R_INIS r_cg_port
+                                      00002H    00000H
+                  @@R_INIS r_cg_tau   00002H    00000H
+                  @@R_INIS r_cg_rtc   00002H    00000H
+                  @@R_INIS r_cg_adc   00002H    00000H
+                  @@R_INIS r_cg_sau   00002H    00000H
+                  @@R_INIS r_cg_intp
+                                      00002H    00000H
+                  @@R_INIS MyDefine   00002H    00000H
+                  @@R_INIS Struct     00002H    00000H
+                  @@R_INIS IOIntp     00002H    00000H
+                  @@R_INIS Irda       00002H    00000H
+                  @@R_INIS Timer      00002H    00000H
+                  @@R_INIS Uart       00002H    00000H
+                  @@R_INIS User       00002H    00000H
+                  @@R_INIS OneShot_AD
+                                      00002H    00000H
+                  @@R_INIS ZDINA219   00002H    00000H
+                  @@R_INIS BDINA219   00002H    00000H
+                  @@R_INIS MCP4561    00002H    00000H
+                  @@R_INIS @rom       00002H    00000H
+         @@CALT                       00002H    00000H  CSEG
+                  @@CALT   @cstart    00002H    00000H
+                  @@CALT   r_cg_main
+                                      00002H    00000H
+                  @@CALT   r_cg_systeminit
+                                      00002H    00000H
+                  @@CALT   r_cg_cgc   00002H    00000H
+                  @@CALT   r_cg_port
+                                      00002H    00000H
+                  @@CALT   r_cg_tau   00002H    00000H
+                  @@CALT   r_cg_rtc   00002H    00000H
+                  @@CALT   r_cg_adc   00002H    00000H
+                  @@CALT   r_cg_sau   00002H    00000H
+                  @@CALT   r_cg_intp
+                                      00002H    00000H
+                  @@CALT   MyDefine   00002H    00000H
+                  @@CALT   Struct     00002H    00000H
+                  @@CALT   IOIntp     00002H    00000H
+                  @@CALT   Irda       00002H    00000H
+                  @@CALT   Timer      00002H    00000H
+                  @@CALT   Uart       00002H    00000H
+                  @@CALT   User       00002H    00000H
+                  @@CALT   OneShot_AD
+                                      00002H    00000H
+                  @@CALT   ZDINA219   00002H    00000H
+                  @@CALT   BDINA219   00002H    00000H
+                  @@CALT   MCP4561    00002H    00000H
+         ??NMIROM                     00002H    00002H  CSEG
+* gap *                               00004H    00004H
+         @@VECT08                     00008H    00002H  CSEG AT
+                  @@VECT08 IOIntp     00008H    00002H
+* gap *                               0000AH    00004H
+         @@VECT0E                     0000EH    00006H  CSEG AT
+                  @@VECT0E IOIntp     0000EH    00006H
+* gap *                               00014H    00002H
+         @@VECT16                     00016H    00002H  CSEG AT
+                  @@VECT16 Uart       00016H    00002H
+* gap *                               00018H    00008H
+         @@VECT20                     00020H    00002H  CSEG AT
+                  @@VECT20 Timer      00020H    00002H
+         @@VECT22                     00022H    00002H  CSEG AT
+                  @@VECT22 Uart       00022H    00002H
+* gap *                               00024H    00004H
+         @@VECT28                     00028H    00002H  CSEG AT
+                  @@VECT28 Uart       00028H    00002H
+* gap *                               0002AH    00008H
+         @@VECT32                     00032H    00004H  CSEG AT
+                  @@VECT32 Timer      00032H    00004H
+* gap *                               00036H    00004H
+         @@VECT3A                     0003AH    00002H  CSEG AT
+                  @@VECT3A Timer      0003AH    00002H
+* gap *                               0003CH    00006H
+         @@VECT42                     00042H    00002H  CSEG AT
+                  @@VECT42 Uart       00042H    00002H
+* gap *                               00044H    00002H
+         @@VECT46                     00046H    00002H  CSEG AT
+                  @@VECT46 Timer      00046H    00002H
+* gap *                               00048H    00002H
+         @@VECT4A                     0004AH    00002H  CSEG AT
+                  @@VECT4A IOIntp     0004AH    00002H
+* gap *                               0004CH    00074H
+         ?CSEGOB0                     000C0H    00004H  CSEG OPT_BYTE
+         @@CODE                       000C4H    00000H  CSEG BASE
+                  @@CODE   r_cg_main
+                                      000C4H    00000H
+                  @@CODE   r_cg_systeminit
+                                      000C4H    00000H
+                  @@CODE   r_cg_cgc   000C4H    00000H
+                  @@CODE   r_cg_port
+                                      000C4H    00000H
+                  @@CODE   r_cg_tau   000C4H    00000H
+                  @@CODE   r_cg_rtc   000C4H    00000H
+                  @@CODE   r_cg_adc   000C4H    00000H
+                  @@CODE   r_cg_sau   000C4H    00000H
+                  @@CODE   r_cg_intp
+                                      000C4H    00000H
+                  @@CODE   MyDefine   000C4H    00000H
+                  @@CODE   Struct     000C4H    00000H
+                  @@CODE   IOIntp     000C4H    00000H
+                  @@CODE   Irda       000C4H    00000H
+                  @@CODE   Timer      000C4H    00000H
+                  @@CODE   Uart       000C4H    00000H
+                  @@CODE   User       000C4H    00000H
+                  @@CODE   OneShot_AD
+                                      000C4H    00000H
+                  @@CODE   ZDINA219   000C4H    00000H
+                  @@CODE   BDINA219   000C4H    00000H
+                  @@CODE   MCP4561    000C4H    00000H
+         ?CSEGSI                      000C4H    0000AH  CSEG
+         ?OCDSTAD                     000CEH    0000AH  CSEG
+         @@LCODE                      000D8H    00118H  CSEG BASE
+                  @@LCODE  @cstart    000D8H    000ADH
+                  @@LCODE  @lmul      00185H    0002BH
+                  @@LCODE  @ladd      001B0H    0000FH
+                  @@LCODE  @lsub      001BFH    00012H
+                  @@LCODE  @lursh     001D1H    0001FH
+         @@BASE                       001F0H    002E7H  CSEG BASE
+                  @@BASE   r_cg_main
+                                      001F0H    00000H
+                  @@BASE   r_cg_systeminit
+                                      001F0H    00000H
+                  @@BASE   r_cg_cgc   001F0H    00000H
+                  @@BASE   r_cg_port
+                                      001F0H    00000H
+                  @@BASE   r_cg_tau   001F0H    00000H
+                  @@BASE   r_cg_rtc   001F0H    00000H
+                  @@BASE   r_cg_adc   001F0H    00000H
+                  @@BASE   r_cg_sau   001F0H    00000H
+                  @@BASE   r_cg_intp
+                                      001F0H    00000H
+                  @@BASE   MyDefine   001F0H    00000H
+                  @@BASE   Struct     001F0H    00000H
+                  @@BASE   IOIntp     001F0H    0010DH
+                  @@BASE   Irda       002FDH    00000H
+                  @@BASE   Timer      002FDH    00120H
+                  @@BASE   Uart       0041DH    000BAH
+                  @@BASE   User       004D7H    00000H
+                  @@BASE   OneShot_AD
+                                      004D7H    00000H
+                  @@BASE   ZDINA219   004D7H    00000H
+                  @@BASE   BDINA219   004D7H    00000H
+                  @@BASE   MCP4561    004D7H    00000H
+* gap *                               004D7H    00001H
+         @@R_INIT                     004D8H    00104H  CSEG UNIT64KP
+                  @@R_INIT @cstart    004D8H    00000H
+                  @@R_INIT r_cg_main
+                                      004D8H    00000H
+                  @@R_INIT r_cg_systeminit
+                                      004D8H    00000H
+                  @@R_INIT r_cg_cgc   004D8H    00000H
+                  @@R_INIT r_cg_port
+                                      004D8H    00000H
+                  @@R_INIT r_cg_tau   004D8H    00000H
+                  @@R_INIT r_cg_rtc   004D8H    00000H
+                  @@R_INIT r_cg_adc   004D8H    00000H
+                  @@R_INIT r_cg_sau   004D8H    00000H
+                  @@R_INIT r_cg_intp
+                                      004D8H    00000H
+                  @@R_INIT MyDefine   004D8H    00000H
+                  @@R_INIT Struct     004D8H    00000H
+                  @@R_INIT IOIntp     004D8H    00000H
+                  @@R_INIT Irda       004D8H    00000H
+                  @@R_INIT Timer      004D8H    00000H
+                  @@R_INIT Uart       004D8H    00000H
+                  @@R_INIT User       004D8H    00104H
+                  @@R_INIT OneShot_AD
+                                      005DCH    00000H
+                  @@R_INIT ZDINA219   005DCH    00000H
+                  @@R_INIT BDINA219   005DCH    00000H
+                  @@R_INIT MCP4561    005DCH    00000H
+                  @@R_INIT @rom       005DCH    00000H
+         @@CODEL                      005DCH    0203CH  CSEG
+                  @@CODEL  r_cg_main
+                                      005DCH    00074H
+                  @@CODEL  r_cg_systeminit
+                                      00650H    00036H
+                  @@CODEL  r_cg_cgc   00686H    0002BH
+                  @@CODEL  r_cg_port
+                                      006B1H    0005AH
+                  @@CODEL  r_cg_tau   0070BH    00197H
+                  @@CODEL  r_cg_rtc   008A2H    00045H
+                  @@CODEL  r_cg_adc   008E7H    0009CH
+                  @@CODEL  r_cg_sau   00983H    003F3H
+                  @@CODEL  r_cg_intp
+                                      00D76H    000ECH
+                  @@CODEL  MyDefine   00E62H    00046H
+                  @@CODEL  Struct     00EA8H    00000H
+                  @@CODEL  IOIntp     00EA8H    00087H
+                  @@CODEL  Irda       00F2FH    00359H
+                  @@CODEL  Timer      01288H    00081H
+                  @@CODEL  Uart       01309H    002BAH
+                  @@CODEL  User       015C3H    00904H
+                  @@CODEL  OneShot_AD
+                                      01EC7H    00147H
+                  @@CODEL  ZDINA219   0200EH    0027FH
+                  @@CODEL  BDINA219   0228DH    0027FH
+                  @@CODEL  MCP4561    0250CH    0010CH
+         @@LCODEL                     02618H    00093H  CSEG
+                  @@LCODEL @stkinit   02618H    00044H
+                  @@LCODEL exit       0265CH    0001CH
+                  @@LCODEL memcpy_n   02678H    0001AH
+                  @@LCODEL memset_n   02692H    00019H
+* gap *                               026ABH    0D955H
+
+  MEMORY=RAM
+  BASE ADDRESS=FDF00H   SIZE=02100H
+         OUTPUT   INPUT    INPUT      BASE      SIZE
+         SEGMENT  SEGMENT  MODULE     ADDRESS
+         @@DATA                       FDF00H    00786H  DSEG BASEP
+                  @@DATA   @cstart    FDF00H    000BAH
+                  @@DATA   r_cg_main
+                                      FDFBAH    00000H
+                  @@DATA   r_cg_systeminit
+                                      FDFBAH    00000H
+                  @@DATA   r_cg_cgc   FDFBAH    00000H
+                  @@DATA   r_cg_port
+                                      FDFBAH    00000H
+                  @@DATA   r_cg_tau   FDFBAH    00000H
+                  @@DATA   r_cg_rtc   FDFBAH    00000H
+                  @@DATA   r_cg_adc   FDFBAH    00000H
+                  @@DATA   r_cg_sau   FDFBAH    00000H
+                  @@DATA   r_cg_intp
+                                      FDFBAH    00000H
+                  @@DATA   MyDefine   FDFBAH    00000H
+                  @@DATA   Struct     FDFBAH    0029EH
+                  @@DATA   IOIntp     FE258H    00000H
+                  @@DATA   Irda       FE258H    00322H
+                  @@DATA   Timer      FE57AH    00000H
+                  @@DATA   Uart       FE57AH    00000H
+                  @@DATA   User       FE57AH    000CCH
+                  @@DATA   OneShot_AD
+                                      FE646H    00000H
+                  @@DATA   ZDINA219   FE646H    00020H
+                  @@DATA   BDINA219   FE666H    00020H
+                  @@DATA   MCP4561    FE686H    00000H
+                  @@DATA   @rom       FE686H    00000H
+         @@INIT                       FE686H    00104H  DSEG BASEP
+                  @@INIT   @cstart    FE686H    00000H
+                  @@INIT   r_cg_main
+                                      FE686H    00000H
+                  @@INIT   r_cg_systeminit
+                                      FE686H    00000H
+                  @@INIT   r_cg_cgc   FE686H    00000H
+                  @@INIT   r_cg_port
+                                      FE686H    00000H
+                  @@INIT   r_cg_tau   FE686H    00000H
+                  @@INIT   r_cg_rtc   FE686H    00000H
+                  @@INIT   r_cg_adc   FE686H    00000H
+                  @@INIT   r_cg_sau   FE686H    00000H
+                  @@INIT   r_cg_intp
+                                      FE686H    00000H
+                  @@INIT   MyDefine   FE686H    00000H
+                  @@INIT   Struct     FE686H    00000H
+                  @@INIT   IOIntp     FE686H    00000H
+                  @@INIT   Irda       FE686H    00000H
+                  @@INIT   Timer      FE686H    00000H
+                  @@INIT   Uart       FE686H    00000H
+                  @@INIT   User       FE686H    00104H
+                  @@INIT   OneShot_AD
+                                      FE78AH    00000H
+                  @@INIT   ZDINA219   FE78AH    00000H
+                  @@INIT   BDINA219   FE78AH    00000H
+                  @@INIT   MCP4561    FE78AH    00000H
+                  @@INIT   @rom       FE78AH    00000H
+         @@INIS                       FE78AH    00000H  DSEG UNITP
+                  @@INIS   @cstart    FE78AH    00000H
+                  @@INIS   r_cg_main
+                                      FE78AH    00000H
+                  @@INIS   r_cg_systeminit
+                                      FE78AH    00000H
+                  @@INIS   r_cg_cgc   FE78AH    00000H
+                  @@INIS   r_cg_port
+                                      FE78AH    00000H
+                  @@INIS   r_cg_tau   FE78AH    00000H
+                  @@INIS   r_cg_rtc   FE78AH    00000H
+                  @@INIS   r_cg_adc   FE78AH    00000H
+                  @@INIS   r_cg_sau   FE78AH    00000H
+                  @@INIS   r_cg_intp
+                                      FE78AH    00000H
+                  @@INIS   MyDefine   FE78AH    00000H
+                  @@INIS   Struct     FE78AH    00000H
+                  @@INIS   IOIntp     FE78AH    00000H
+                  @@INIS   Irda       FE78AH    00000H
+                  @@INIS   Timer      FE78AH    00000H
+                  @@INIS   Uart       FE78AH    00000H
+                  @@INIS   User       FE78AH    00000H
+                  @@INIS   OneShot_AD
+                                      FE78AH    00000H
+                  @@INIS   ZDINA219   FE78AH    00000H
+                  @@INIS   BDINA219   FE78AH    00000H
+                  @@INIS   MCP4561    FE78AH    00000H
+                  @@INIS   @rom       FE78AH    00000H
+         @@DATS                       FE78AH    00000H  DSEG UNITP
+                  @@DATS   @cstart    FE78AH    00000H
+                  @@DATS   r_cg_main
+                                      FE78AH    00000H
+                  @@DATS   r_cg_systeminit
+                                      FE78AH    00000H
+                  @@DATS   r_cg_cgc   FE78AH    00000H
+                  @@DATS   r_cg_port
+                                      FE78AH    00000H
+                  @@DATS   r_cg_tau   FE78AH    00000H
+                  @@DATS   r_cg_rtc   FE78AH    00000H
+                  @@DATS   r_cg_adc   FE78AH    00000H
+                  @@DATS   r_cg_sau   FE78AH    00000H
+                  @@DATS   r_cg_intp
+                                      FE78AH    00000H
+                  @@DATS   MyDefine   FE78AH    00000H
+                  @@DATS   Struct     FE78AH    00000H
+                  @@DATS   IOIntp     FE78AH    00000H
+                  @@DATS   Irda       FE78AH    00000H
+                  @@DATS   Timer      FE78AH    00000H
+                  @@DATS   Uart       FE78AH    00000H
+                  @@DATS   User       FE78AH    00000H
+                  @@DATS   OneShot_AD
+                                      FE78AH    00000H
+                  @@DATS   ZDINA219   FE78AH    00000H
+                  @@DATS   BDINA219   FE78AH    00000H
+                  @@DATS   MCP4561    FE78AH    00000H
+                  @@DATS   @rom       FE78AH    00000H
+         @@INITL                      FE78AH    00000H  DSEG UNIT64KP
+                  @@INITL  @cstart    FE78AH    00000H
+                  @@INITL  r_cg_main
+                                      FE78AH    00000H
+                  @@INITL  r_cg_systeminit
+                                      FE78AH    00000H
+                  @@INITL  r_cg_cgc   FE78AH    00000H
+                  @@INITL  r_cg_port
+                                      FE78AH    00000H
+                  @@INITL  r_cg_tau   FE78AH    00000H
+                  @@INITL  r_cg_rtc   FE78AH    00000H
+                  @@INITL  r_cg_adc   FE78AH    00000H
+                  @@INITL  r_cg_sau   FE78AH    00000H
+                  @@INITL  r_cg_intp
+                                      FE78AH    00000H
+                  @@INITL  MyDefine   FE78AH    00000H
+                  @@INITL  Struct     FE78AH    00000H
+                  @@INITL  IOIntp     FE78AH    00000H
+                  @@INITL  Irda       FE78AH    00000H
+                  @@INITL  Timer      FE78AH    00000H
+                  @@INITL  Uart       FE78AH    00000H
+                  @@INITL  User       FE78AH    00000H
+                  @@INITL  OneShot_AD
+                                      FE78AH    00000H
+                  @@INITL  ZDINA219   FE78AH    00000H
+                  @@INITL  BDINA219   FE78AH    00000H
+                  @@INITL  MCP4561    FE78AH    00000H
+                  @@INITL  @rom       FE78AH    00000H
+         @@DATAL                      FE78AH    00000H  DSEG UNIT64KP
+                  @@DATAL  @cstart    FE78AH    00000H
+                  @@DATAL  r_cg_main
+                                      FE78AH    00000H
+                  @@DATAL  r_cg_systeminit
+                                      FE78AH    00000H
+                  @@DATAL  r_cg_cgc   FE78AH    00000H
+                  @@DATAL  r_cg_port
+                                      FE78AH    00000H
+                  @@DATAL  r_cg_tau   FE78AH    00000H
+                  @@DATAL  r_cg_rtc   FE78AH    00000H
+                  @@DATAL  r_cg_adc   FE78AH    00000H
+                  @@DATAL  r_cg_sau   FE78AH    00000H
+                  @@DATAL  r_cg_intp
+                                      FE78AH    00000H
+                  @@DATAL  MyDefine   FE78AH    00000H
+                  @@DATAL  Struct     FE78AH    00000H
+                  @@DATAL  IOIntp     FE78AH    00000H
+                  @@DATAL  Irda       FE78AH    00000H
+                  @@DATAL  Timer      FE78AH    00000H
+                  @@DATAL  Uart       FE78AH    00000H
+                  @@DATAL  User       FE78AH    00000H
+                  @@DATAL  OneShot_AD
+                                      FE78AH    00000H
+                  @@DATAL  ZDINA219   FE78AH    00000H
+                  @@DATAL  BDINA219   FE78AH    00000H
+                  @@DATAL  MCP4561    FE78AH    00000H
+                  @@DATAL  @rom       FE78AH    00000H
+         @@BITS                       FE78AH    00000H  BSEG
+                  @@BITS   @cstart    FE78AH.0  00000H.0
+                  @@BITS   r_cg_main
+                                      FE78AH.0  00000H.0
+                  @@BITS   r_cg_systeminit
+                                      FE78AH.0  00000H.0
+                  @@BITS   r_cg_cgc   FE78AH.0  00000H.0
+                  @@BITS   r_cg_port
+                                      FE78AH.0  00000H.0
+                  @@BITS   r_cg_tau   FE78AH.0  00000H.0
+                  @@BITS   r_cg_rtc   FE78AH.0  00000H.0
+                  @@BITS   r_cg_adc   FE78AH.0  00000H.0
+                  @@BITS   r_cg_sau   FE78AH.0  00000H.0
+                  @@BITS   r_cg_intp
+                                      FE78AH.0  00000H.0
+                  @@BITS   MyDefine   FE78AH.0  00000H.0
+                  @@BITS   Struct     FE78AH.0  00000H.0
+                  @@BITS   IOIntp     FE78AH.0  00000H.0
+                  @@BITS   Irda       FE78AH.0  00000H.0
+                  @@BITS   Timer      FE78AH.0  00000H.0
+                  @@BITS   Uart       FE78AH.0  00000H.0
+                  @@BITS   User       FE78AH.0  00000H.0
+                  @@BITS   OneShot_AD
+                                      FE78AH.0  00000H.0
+                  @@BITS   ZDINA219   FE78AH.0  00000H.0
+                  @@BITS   BDINA219   FE78AH.0  00000H.0
+                  @@BITS   MCP4561    FE78AH.0  00000H.0
+* gap *                               FE78AH    0174AH
+         @@SEGREG                     FFED4H    00004H  DSEG AT
+                  @@SEGREG @SEGREG    FFED4H    00004H
+         @@RTARG0                     FFED8H    00008H  DSEG AT
+                  @@RTARG0 @RTARG0    FFED8H    00008H
+* gap *                               FFEE0H    00020H
+* gap (Not Free Area) *               FFF00H    00100H
+
+
+ Target chip : R5F10WMG
+ Device file : V1.01
+
